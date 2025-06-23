@@ -18,12 +18,12 @@ class _HomepageState extends State<Homepage> {
       SliverAppBar(
         expandedHeight: 120,
       
-        backgroundColor: Color(0xff13366E),
+        backgroundColor: const Color(0xff13366E),
         flexibleSpace: FlexibleSpaceBar(
           background: Row(
             children: [
-              Padding(
-                padding: const EdgeInsets.all(10.0),
+              const Padding(
+                padding: EdgeInsets.all(10.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -45,9 +45,9 @@ class _HomepageState extends State<Homepage> {
                 child: Row(
                   
                   children: [
-                     IconButton(onPressed: (){}, icon: Icon(Icons.notifications_none_outlined, color: Colors.white, size: 35,),
+                     IconButton(onPressed: (){}, icon: const Icon(Icons.notifications_none_outlined, color: Colors.white, size: 35,),
                 ),
-                CircleAvatar(
+                const CircleAvatar(
                   radius: 30,
                   backgroundImage: AssetImage('assets/images/myphoto.jpg')
                 )
