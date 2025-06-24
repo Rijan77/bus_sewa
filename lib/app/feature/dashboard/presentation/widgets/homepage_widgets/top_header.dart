@@ -20,7 +20,7 @@ class TopHeader extends SliverPersistentHeaderDelegate {
         final item = items[index];
         return Card(
           elevation: 5,
-          color: Color(0xffFFFFFF),
+          color: const Color(0xffFFFFFF),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
