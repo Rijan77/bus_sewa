@@ -1,38 +1,52 @@
 import 'package:flutter/material.dart';
 
-class TopHeader extends StatelessWidget {
+class TopHeader extends SliverPersistentHeaderDelegate {
+  final List<HeaderItem> items;
+
+  const TopHeader({required this.items});
+
+  @override
+  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return GridView.builder(
+      physics: const NeverScrollableScrollPhysics(), // Disable scroll here
+      itemCount: items.length,
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 4, // Number of columns
+        mainAxisSpacing: 10,
+        crossAxisSpacing: 10,
+        childAspectRatio: 1,
+      ),
+      itemBuilder: (context, index) {
+        final item = items[index];
+        return Card(
+          elevation: 5,
+          color: Color(0xffFFFFFF),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SizedBox(height: 40, width: 40, child: item.image),
+              const SizedBox(height: 8),
+              Text(item.label, style: const TextStyle(fontSize: 12)),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  @override
+  double get maxExtent => 150;
+
+  @override
+  double get minExtent => 120;
+
+  @override
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) => true;
+}
+
+class HeaderItem {
   final Image image;
   final String label;
 
-  const TopHeader({
-    Key? key,
-    required this.image,
-    required this.label,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      color: const Color(0xFFFFFFFF),
-      elevation: 4,
-      child: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            SizedBox(
-              height: 40,
-              width: 40,
-              child: image,
-            ),
-            const SizedBox(height: 10),
-            Text(
-              label,
-              style: const TextStyle(fontSize: 14),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+  HeaderItem({required this.image, required this.label});
 }

@@ -1,6 +1,8 @@
 import 'package:bus_sewa/app/feature/dashboard/presentation/widgets/homepage_widgets/top_header.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/homepage_widgets/second_header.dart';
+
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
 
@@ -9,7 +11,6 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +21,6 @@ class _HomepageState extends State<Homepage> {
             expandedHeight: 120,
             collapsedHeight: 70,
             pinned: false,
-
             backgroundColor: const Color(0xff13366E),
             flexibleSpace: FlexibleSpaceBar(
               background: Row(
@@ -70,23 +70,69 @@ class _HomepageState extends State<Homepage> {
               ),
             ),
           ),
-          SliverGrid(
-            delegate: SliverChildListDelegate([
-
-              TopHeader(
-                image: Image.asset("assets/icons/BusSewa New App icons -01.png"), label: "Bus Tickets"),
-              TopHeader(image: Image.asset("assets/icons/BusSewa New App icons -02.png"), label: "Reserve"),
-              TopHeader(image: Image.asset("assets/icons/Frame 1171275982.png"), label: "Flights"),
-              TopHeader(image: Image.asset("assets/icons/BusSewa New App icons -04.png"), label: "My Tickets"),
-              
-            ]),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 4, // 2 columns, adjust as needed
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
-              childAspectRatio: 1.0,
+          SliverPersistentHeader(
+            pinned: true,
+            delegate: TopHeader(
+              items: [
+                HeaderItem(
+                  image:
+                      Image.asset("assets/icons/BusSewa New App icons -01.png"),
+                  label: "Bus Tickets",
+                ),
+                HeaderItem(
+                  image:
+                      Image.asset("assets/icons/BusSewa New App icons -02.png"),
+                  label: "Reserve",
+                ),
+                HeaderItem(
+                  image: Image.asset("assets/icons/Frame 1171275982.png"),
+                  label: "Flights",
+                ),
+                HeaderItem(
+                  image:
+                      Image.asset("assets/icons/BusSewa New App icons -04.png"),
+                  label: "My Tickets",
+                ),
+                // Add more if needed
+              ],
             ),
-          )
+          ),
+          SliverToBoxAdapter(
+              child:
+              SecondHeader(
+                  items:[
+                    SecondHeaderItem(image: Image.asset("assets/icons/BusSewa New App icons -08 (1).png"), label: "Hotel"),
+                    SecondHeaderItem(image: Image.asset("assets/icons/BusSewa New App icons -09.png"), label: "Activity"),
+                    SecondHeaderItem(image: Image.asset("assets/icons/Frame 1171275982.png"), label: "Flight"),
+                    SecondHeaderItem(image: Image.asset("assets/icons/Frame 1171275983.png"), label: "Domestic"),
+                    SecondHeaderItem(image: Image.asset("assets/icons/BusSewa New App icons -03.png"), label: "Tours"),
+                    SecondHeaderItem(image: Image.asset("assets/icons/BusSewa New App icons -03.png"), label: "Vacation"),
+                    SecondHeaderItem(image: Image.asset("assets/icons/BusSewa New App icons -08 (1).png"), label: "AirBnB"),
+                    SecondHeaderItem(image: Image.asset("assets/icons/Frame 1171275982.png"), label: "Trains"),
+
+                  ]
+
+              ),
+
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                  height: 70,
+                  child: Image.asset("assets/images/Frame 1171276782.png", fit: BoxFit.cover,)),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                height: 400,
+                width: double.infinity,
+                color: Colors.blueGrey,
+              ),
+            ),
+          ),
         ],
       ),
     );
