@@ -1,3 +1,4 @@
+import 'package:bus_sewa/app/feature/dashboard/presentation/widgets/homepage_widgets/promo_code.dart';
 import 'package:bus_sewa/app/feature/dashboard/presentation/widgets/homepage_widgets/top_header.dart';
 import 'package:flutter/material.dart';
 
@@ -123,15 +124,35 @@ class _HomepageState extends State<Homepage> {
                   child: Image.asset("assets/images/Frame 1171276782.png", fit: BoxFit.cover,)),
             ),
           ),
+
           SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                height: 400,
-                width: double.infinity,
-                color: Colors.white,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: PromoCode(items: [
+              PromoCodeHeader(
+                title: "Promo Codes",
+                secondTitle: "View All>>",
+                button: [
+                  ElevatedButton(onPressed: () {}, child: Text("All"),
+                    style: ElevatedButton.styleFrom(
+                    minimumSize: Size(30, 30),
+                  ),
+
+                  ),
+                  ElevatedButton(onPressed: () {}, child: Text("Bus"),  style: ElevatedButton.styleFrom(
+                      minimumSize: Size(30, 30)
+                  ),),
+                  ElevatedButton(onPressed: () {}, child: Text("Tours"),  style: ElevatedButton.styleFrom(
+                      minimumSize: Size(30, 30)
+                  ),),
+                  ElevatedButton(onPressed: () {}, child: Text("Reservations"),  style: ElevatedButton.styleFrom(
+                      minimumSize: Size(30, 30)
+                  ),),
+                ],
               ),
-            ),
+
+            ],),
+          ),
           ),
           SliverToBoxAdapter(
             child: Padding(
