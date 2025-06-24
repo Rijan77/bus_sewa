@@ -8,7 +8,6 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-
   Widget _buildGridCard(Image imageWidget, String label) {
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -29,7 +28,6 @@ class _HomepageState extends State<Homepage> {
       ),
     );
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -88,13 +86,19 @@ class _HomepageState extends State<Homepage> {
               ),
             ),
           ),
-
           SliverGrid(
             delegate: SliverChildListDelegate([
-              _buildGridCard(Image.asset("assets/icons/BusSewa New App icons -01.png"), "Bus Tickets"),
-              _buildGridCard(Image.asset("assets/icons/BusSewa New App icons -02.png"), "Reserve"),
-              _buildGridCard(Image.asset("assets/icons/Frame 1171275982.png"),"Flights"),
-              _buildGridCard(Image.asset("assets/icons/BusSewa New App icons -04.png"), "My Tickets"),
+              _buildGridCard(
+                  Image.asset("assets/icons/BusSewa New App icons -01.png"),
+                  "Bus Tickets"),
+              _buildGridCard(
+                  Image.asset("assets/icons/BusSewa New App icons -02.png"),
+                  "Reserve"),
+              _buildGridCard(
+                  Image.asset("assets/icons/Frame 1171275982.png"), "Flights"),
+              _buildGridCard(
+                  Image.asset("assets/icons/BusSewa New App icons -04.png"),
+                  "My Tickets"),
             ]),
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 4, // 2 columns, adjust as needed
@@ -103,8 +107,6 @@ class _HomepageState extends State<Homepage> {
               childAspectRatio: 1.0,
             ),
           )
-
-
         ],
       ),
     );
