@@ -12,47 +12,47 @@ class PromoCode extends StatefulWidget {
 class _PromoCodeState extends State<PromoCode> {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: SizedBox(
-        height: 230,
-        child: Card(
-          elevation: 5,
-          color: const Color(0xffFFFFFF),
-          child: Column(
-            children: widget.items.map((item) {
-              return Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        children: [
-                          Text(item.title, style: const TextStyle(
-                            color: Color(0xff4A4A4A),
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold
+    return SizedBox(
+      height: 230,
+      child: Card(
+        elevation: 5,
+        color: const Color(0xffFFFFFF),
+        child: Column(
+          children: widget.items.map((item) {
+            return Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        Text(item.title, style: const TextStyle(
+                          color: Color(0xff4A4A4A),
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold
+                        ),),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 150),
+                          child: Text(item.secondTitle, style: const TextStyle(
+                            color: Color(0xff1A4C9A)
                           ),),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 180),
-                            child: Text(item.secondTitle, style: const TextStyle(
-                              color: Color(0xff1A4C9A)
-                            ),),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
+                  ),
 
-                    Row(
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
                       children: item.button
                     ),
-                  ],
-                ),
-              );
-            }).toList(),
-          ),
+                  ),
+                ],
+              ),
+            );
+          }).toList(),
         ),
       ),
     );
