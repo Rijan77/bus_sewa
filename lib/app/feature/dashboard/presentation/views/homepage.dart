@@ -1,3 +1,4 @@
+import 'package:bus_sewa/app/feature/dashboard/presentation/widgets/homepage_widgets/top_header.dart';
 import 'package:flutter/material.dart';
 
 class Homepage extends StatefulWidget {
@@ -8,26 +9,6 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-  Widget _buildGridCard(Image imageWidget, String label) {
-    return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      elevation: 4,
-      child: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            SizedBox(
-              height: 40,
-              width: 40,
-              child: imageWidget,
-            ),
-            const SizedBox(height: 10),
-            Text(label, style: const TextStyle(fontSize: 14)),
-          ],
-        ),
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +18,9 @@ class _HomepageState extends State<Homepage> {
         slivers: <Widget>[
           SliverAppBar(
             expandedHeight: 120,
+            collapsedHeight: 70,
+            pinned: false,
+
             backgroundColor: const Color(0xff13366E),
             flexibleSpace: FlexibleSpaceBar(
               background: Row(
@@ -88,17 +72,13 @@ class _HomepageState extends State<Homepage> {
           ),
           SliverGrid(
             delegate: SliverChildListDelegate([
-              _buildGridCard(
-                  Image.asset("assets/icons/BusSewa New App icons -01.png"),
-                  "Bus Tickets"),
-              _buildGridCard(
-                  Image.asset("assets/icons/BusSewa New App icons -02.png"),
-                  "Reserve"),
-              _buildGridCard(
-                  Image.asset("assets/icons/Frame 1171275982.png"), "Flights"),
-              _buildGridCard(
-                  Image.asset("assets/icons/BusSewa New App icons -04.png"),
-                  "My Tickets"),
+
+              TopHeader(
+                image: Image.asset("assets/icons/BusSewa New App icons -01.png"), label: "Bus Tickets"),
+              TopHeader(image: Image.asset("assets/icons/BusSewa New App icons -02.png"), label: "Reserve"),
+              TopHeader(image: Image.asset("assets/icons/Frame 1171275982.png"), label: "Flights"),
+              TopHeader(image: Image.asset("assets/icons/BusSewa New App icons -04.png"), label: "My Tickets"),
+              
             ]),
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 4, // 2 columns, adjust as needed
