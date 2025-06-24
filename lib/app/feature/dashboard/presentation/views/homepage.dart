@@ -129,7 +129,27 @@ class _HomepageState extends State<Homepage> {
               child: Container(
                 height: 400,
                 width: double.infinity,
-                color: Colors.blueGrey,
+                color: Colors.white,
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                height: 400,
+                width: double.infinity,
+                color: Colors.white,
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                height: 400,
+                width: double.infinity,
+                color: Colors.white,
               ),
             ),
           ),
