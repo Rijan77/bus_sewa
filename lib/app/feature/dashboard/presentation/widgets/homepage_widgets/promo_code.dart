@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class PromoCode extends StatefulWidget {
   final List<PromoCodeHeader> items;
 
-  PromoCode({super.key, required this.items});
+  const PromoCode({super.key, required this.items});
 
   @override
   State<PromoCode> createState() => _PromoCodeState();
@@ -17,7 +17,8 @@ class _PromoCodeState extends State<PromoCode> {
       child: SizedBox(
         height: 230,
         child: Card(
-          color: Color(0xffFFFFFF),
+          elevation: 5,
+          color: const Color(0xffFFFFFF),
           child: Column(
             children: widget.items.map((item) {
               return Padding(
@@ -29,14 +30,14 @@ class _PromoCodeState extends State<PromoCode> {
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
                         children: [
-                          Text(item.title, style: TextStyle(
+                          Text(item.title, style: const TextStyle(
                             color: Color(0xff4A4A4A),
                             fontSize: 15,
                             fontWeight: FontWeight.bold
                           ),),
                           Padding(
                             padding: const EdgeInsets.only(left: 180),
-                            child: Text(item.secondTitle, style: TextStyle(
+                            child: Text(item.secondTitle, style: const TextStyle(
                               color: Color(0xff1A4C9A)
                             ),),
                           ),

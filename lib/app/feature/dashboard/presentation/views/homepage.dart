@@ -19,11 +19,12 @@ class _HomepageState extends State<Homepage> {
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
-            expandedHeight: 120,
+            expandedHeight: 150,
             collapsedHeight: 70,
             pinned: false,
             backgroundColor: const Color(0xff13366E),
             flexibleSpace: FlexibleSpaceBar(
+              collapseMode: CollapseMode.pin,
               background: Row(
                 children: [
                   const Padding(
@@ -44,7 +45,8 @@ class _HomepageState extends State<Homepage> {
                             color: Colors.white,
                             fontSize: 14,
                           ),
-                        )
+                        ),
+
                       ],
                     ),
                   ),
@@ -99,60 +101,88 @@ class _HomepageState extends State<Homepage> {
             ),
           ),
           SliverToBoxAdapter(
-              child:
-              SecondHeader(
-                  items:[
-                    SecondHeaderItem(image: Image.asset("assets/icons/BusSewa New App icons -08 (1).png"), label: "Hotel"),
-                    SecondHeaderItem(image: Image.asset("assets/icons/BusSewa New App icons -09.png"), label: "Activity"),
-                    SecondHeaderItem(image: Image.asset("assets/icons/Frame 1171275982.png"), label: "Flight"),
-                    SecondHeaderItem(image: Image.asset("assets/icons/Frame 1171275983.png"), label: "Domestic"),
-                    SecondHeaderItem(image: Image.asset("assets/icons/BusSewa New App icons -03.png"), label: "Tours"),
-                    SecondHeaderItem(image: Image.asset("assets/icons/BusSewa New App icons -03.png"), label: "Vacation"),
-                    SecondHeaderItem(image: Image.asset("assets/icons/BusSewa New App icons -08 (1).png"), label: "AirBnB"),
-                    SecondHeaderItem(image: Image.asset("assets/icons/Frame 1171275982.png"), label: "Trains"),
-
-                  ]
-
-              ),
-
+            child: SecondHeader(items: [
+              SecondHeaderItem(
+                  image: Image.asset(
+                      "assets/icons/BusSewa New App icons -08 (1).png"),
+                  label: "Hotel"),
+              SecondHeaderItem(
+                  image:
+                      Image.asset("assets/icons/BusSewa New App icons -09.png"),
+                  label: "Activity"),
+              SecondHeaderItem(
+                  image: Image.asset("assets/icons/Frame 1171275982.png"),
+                  label: "Flight"),
+              SecondHeaderItem(
+                  image: Image.asset("assets/icons/Frame 1171275983.png"),
+                  label: "Domestic"),
+              SecondHeaderItem(
+                  image:
+                      Image.asset("assets/icons/BusSewa New App icons -03.png"),
+                  label: "Tours"),
+              SecondHeaderItem(
+                  image:
+                      Image.asset("assets/icons/BusSewa New App icons -03.png"),
+                  label: "Vacation"),
+              SecondHeaderItem(
+                  image: Image.asset(
+                      "assets/icons/BusSewa New App icons -08 (1).png"),
+                  label: "AirBnB"),
+              SecondHeaderItem(
+                  image: Image.asset("assets/icons/Frame 1171275982.png"),
+                  label: "Trains"),
+            ]),
           ),
           SliverToBoxAdapter(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: SizedBox(
                   height: 70,
-                  child: Image.asset("assets/images/Frame 1171276782.png", fit: BoxFit.cover,)),
+                  child: Image.asset(
+                    "assets/images/Frame 1171276782.png",
+                    fit: BoxFit.cover,
+                  )),
             ),
           ),
-
           SliverToBoxAdapter(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: PromoCode(items: [
-              PromoCodeHeader(
-                title: "Promo Codes",
-                secondTitle: "View All>>",
-                button: [
-                  ElevatedButton(onPressed: () {}, child: Text("All"),
-                    style: ElevatedButton.styleFrom(
-                    minimumSize: Size(30, 30),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: PromoCode(
+                items: [
+                  PromoCodeHeader(
+                    title: "Promo Codes",
+                    secondTitle: "View All>>",
+                    button: [
+                      ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: const Size(30, 30),
+                        ),
+                        child: const Text("All"),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {},
+                        style:
+                            ElevatedButton.styleFrom(minimumSize: const Size(30, 30)),
+                        child: const Text("Bus"),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {},
+                        style:
+                            ElevatedButton.styleFrom(minimumSize: const Size(30, 30)),
+                        child: const Text("Tours"),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {},
+                        style:
+                            ElevatedButton.styleFrom(minimumSize: const Size(30, 30)),
+                        child: const Text("Reservations"),
+                      ),
+                    ],
                   ),
-
-                  ),
-                  ElevatedButton(onPressed: () {}, child: Text("Bus"),  style: ElevatedButton.styleFrom(
-                      minimumSize: Size(30, 30)
-                  ),),
-                  ElevatedButton(onPressed: () {}, child: Text("Tours"),  style: ElevatedButton.styleFrom(
-                      minimumSize: Size(30, 30)
-                  ),),
-                  ElevatedButton(onPressed: () {}, child: Text("Reservations"),  style: ElevatedButton.styleFrom(
-                      minimumSize: Size(30, 30)
-                  ),),
                 ],
               ),
-
-            ],),
-          ),
+            ),
           ),
           SliverToBoxAdapter(
             child: Padding(
