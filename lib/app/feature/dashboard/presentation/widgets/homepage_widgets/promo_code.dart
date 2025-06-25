@@ -28,26 +28,26 @@ class _PromoCodeState extends State<PromoCode> {
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
                       children: [
-                        Text(item.title, style: const TextStyle(
-                          color: Color(0xff4A4A4A),
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold
-                        ),),
+                        Text(
+                          item.title,
+                          style: const TextStyle(
+                              color: Color(0xff4A4A4A),
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold),
+                        ),
                         Padding(
                           padding: const EdgeInsets.only(left: 150),
-                          child: Text(item.secondTitle, style: const TextStyle(
-                            color: Color(0xff1A4C9A)
-                          ),),
+                          child: Text(
+                            item.secondTitle,
+                            style: const TextStyle(color: Color(0xff1A4C9A)),
+                          ),
                         ),
                       ],
                     ),
                   ),
-
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: item.button
-                    ),
+                    child: Row(children: item.button),
                   ),
                 ],
               ),
