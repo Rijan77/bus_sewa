@@ -10,9 +10,8 @@ class TopHeaderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.symmetric(horizontal: 14.w),
+      padding: EdgeInsets.symmetric(horizontal: 14.w),
       child: Row(
-
         children: items.map((item) {
           return Expanded(
             child: Card(

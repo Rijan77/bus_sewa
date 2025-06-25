@@ -14,26 +14,20 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       backgroundColor: const Color(0xffF9F9FF),
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
-           
-
-
-
             expandedHeight: 0.25.sh,
             collapsedHeight: 0.13.sh,
             backgroundColor: const Color(0xff13366E),
             shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(bottomRight: Radius.circular(16), bottomLeft: Radius.circular(16))
-            ),
+                borderRadius: BorderRadius.only(
+                    bottomRight: Radius.circular(16),
+                    bottomLeft: Radius.circular(16))),
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
               // stretchModes: const <StretchMode>[
@@ -41,23 +35,26 @@ class _HomepageState extends State<Homepage> {
               // ],
               centerTitle: true,
               expandedTitleScale: 1,
-              title:
-              TopHeaderWidget(
+              title: TopHeaderWidget(
                 items: [
                   HeaderItem(
-                    image: SvgPicture.asset("assets/icons/BusSewa New App icons -01.svg"),
+                    image: SvgPicture.asset(
+                        "assets/icons/BusSewa New App icons -01.svg"),
                     label: "Bus Tickets",
                   ),
                   HeaderItem(
-                    image: SvgPicture.asset("assets/icons/BusSewa New App icons -02.svg"),
+                    image: SvgPicture.asset(
+                        "assets/icons/BusSewa New App icons -02.svg"),
                     label: "Reserve",
                   ),
                   HeaderItem(
-                    image: SvgPicture.asset("assets/icons/Frame 1171275982.svg"),
+                    image:
+                        SvgPicture.asset("assets/icons/Frame 1171275982.svg"),
                     label: "Flights",
                   ),
                   HeaderItem(
-                    image: SvgPicture.asset("assets/icons/BusSewa New App icons -04.svg"),
+                    image: SvgPicture.asset(
+                        "assets/icons/BusSewa New App icons -04.svg"),
                     label: "My Tickets",
                   ),
                 ],
@@ -72,7 +69,8 @@ class _HomepageState extends State<Homepage> {
                         width: double.infinity,
                         height: 180,
                         color: const Color(0xff13366E),
-                        padding: const EdgeInsets.only(top: 30, left: 16, right: 16),
+                        padding:
+                            const EdgeInsets.only(top: 30, left: 16, right: 16),
                         child: const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -108,7 +106,8 @@ class _HomepageState extends State<Homepage> {
                                 SizedBox(width: 10),
                                 CircleAvatar(
                                   radius: 25,
-                                  backgroundImage: AssetImage('assets/images/myphoto.jpg'),
+                                  backgroundImage:
+                                      AssetImage('assets/images/myphoto.jpg'),
                                 ),
                               ],
                             ),
@@ -117,9 +116,8 @@ class _HomepageState extends State<Homepage> {
                       ),
                       Expanded(
                         child: Container(
-                          width: double.infinity,
-                          color: const Color(0xffF9F9FF)
-                        ),
+                            width: double.infinity,
+                            color: const Color(0xffF9F9FF)),
                       ),
                     ],
                   ),
@@ -155,7 +153,6 @@ class _HomepageState extends State<Homepage> {
                 ],
               ),
             ),
-
           ),
           // Below the AppBar
           SliverToBoxAdapter(
