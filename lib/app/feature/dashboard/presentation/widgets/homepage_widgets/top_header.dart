@@ -1,7 +1,6 @@
-// header_item.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TopHeaderWidget extends StatelessWidget {
   final List<HeaderItem> items;
@@ -10,36 +9,38 @@ class TopHeaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-      itemCount: items.length,
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 4,
-        mainAxisSpacing: 10,
-        crossAxisSpacing: 10,
-        childAspectRatio: 1,
+    return Padding(
+      padding:  EdgeInsets.symmetric(horizontal: 14.w),
+      child: Row(
+
+        children: items.map((item) {
+          return Expanded(
+            child: Card(
+              elevation: 4,
+              color: Colors.white,
+              child: SizedBox(
+                // width: 80.w, // or adjust fixed width to fit 4 in a row if needed
+                height: 70.h,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    SizedBox(height: 40, width: 40, child: item.image),
+                    const SizedBox(height: 8),
+                    Text(
+                      item.label,
+                      style: const TextStyle(fontSize: 12),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
+        }).toList(),
       ),
-      itemBuilder: (context, index) {
-        final item = items[index];
-        return Card(
-          elevation: 4,
-          color: Colors.white,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(height: 40, width: 40, child: item.image),
-              const SizedBox(height: 8),
-              Text(item.label, style: const TextStyle(fontSize: 12)),
-            ],
-          ),
-        );
-      },
     );
   }
 }
-
 
 class HeaderItem {
   final SvgPicture image;
@@ -47,4 +48,3 @@ class HeaderItem {
 
   HeaderItem({required this.image, required this.label});
 }
-
