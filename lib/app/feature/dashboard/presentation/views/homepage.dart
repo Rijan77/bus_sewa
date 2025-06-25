@@ -30,8 +30,8 @@ class _HomepageState extends State<Homepage> {
 
             expandedHeight: 0.25.sh,
             collapsedHeight: 0.13.sh,
-            backgroundColor: Color(0xff13366E),
-            shape: RoundedRectangleBorder(
+            backgroundColor: const Color(0xff13366E),
+            shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.only(bottomRight: Radius.circular(16), bottomLeft: Radius.circular(16))
             ),
             pinned: true,
@@ -71,15 +71,15 @@ class _HomepageState extends State<Homepage> {
                       Container(
                         width: double.infinity,
                         height: 180,
-                        color: Color(0xff13366E),
+                        color: const Color(0xff13366E),
                         padding: const EdgeInsets.only(top: 30, left: 16, right: 16),
-                        child: Row(
+                        child: const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
+                              children: [
                                 Padding(
                                   padding: EdgeInsets.only(top: 50),
                                   child: Text(
@@ -102,7 +102,7 @@ class _HomepageState extends State<Homepage> {
                               ],
                             ),
                             Row(
-                              children: const [
+                              children: [
                                 Icon(Icons.notifications_none_outlined,
                                     color: Colors.white, size: 30),
                                 SizedBox(width: 10),
@@ -118,7 +118,7 @@ class _HomepageState extends State<Homepage> {
                       Expanded(
                         child: Container(
                           width: double.infinity,
-                          color: Color(0xffF9F9FF)
+                          color: const Color(0xffF9F9FF)
                         ),
                       ),
                     ],

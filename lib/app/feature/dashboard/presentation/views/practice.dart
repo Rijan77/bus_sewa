@@ -23,10 +23,10 @@ class _PracticeState extends State<Practice> {
             backgroundColor: Colors.black,
             flexibleSpace: FlexibleSpaceBar(
               background: Image.asset("assets/images/myphoto.jpg", fit: BoxFit.cover,),
-              title: Text("Some Title", style: TextStyle(color: Colors.black),),
+              title: const Text("Some Title", style: TextStyle(color: Colors.black),),
             ),
           ),
-          SliverFillRemaining()
+          const SliverFillRemaining()
 
         ],
 
