@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class SecondHeader extends StatelessWidget{
   final List<SecondHeaderItem> items;
@@ -41,7 +42,7 @@ class SecondHeader extends StatelessWidget{
 
 }
 class SecondHeaderItem{
-  final Image image;
+  final SvgPicture image;
   final String label;
   
   SecondHeaderItem({required this.image, required this.label});

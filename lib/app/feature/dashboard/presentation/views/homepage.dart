@@ -1,6 +1,7 @@
 import 'package:bus_sewa/app/feature/dashboard/presentation/widgets/homepage_widgets/promo_code.dart';
 import 'package:bus_sewa/app/feature/dashboard/presentation/widgets/homepage_widgets/top_header.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../widgets/homepage_widgets/second_header.dart';
 
@@ -75,25 +76,26 @@ class _HomepageState extends State<Homepage> {
           ),
           SliverPersistentHeader(
             pinned: true,
+
             delegate: TopHeader(
               items: [
                 HeaderItem(
                   image:
-                      Image.asset("assets/icons/BusSewa New App icons -01.png"),
+                  SvgPicture.asset("assets/icons/BusSewa New App icons -01.svg"),
                   label: "Bus Tickets",
                 ),
                 HeaderItem(
                   image:
-                      Image.asset("assets/icons/BusSewa New App icons -02.png"),
+                  SvgPicture.asset("assets/icons/BusSewa New App icons -02.svg"),
                   label: "Reserve",
                 ),
                 HeaderItem(
-                  image: Image.asset("assets/icons/Frame 1171275982.png"),
+                  image: SvgPicture.asset("assets/icons/Frame 1171275982.svg"),
                   label: "Flights",
                 ),
                 HeaderItem(
                   image:
-                      Image.asset("assets/icons/BusSewa New App icons -04.png"),
+                  SvgPicture.asset("assets/icons/BusSewa New App icons -04.svg"),
                   label: "My Tickets",
                 ),
                 // Add more if needed
@@ -103,33 +105,33 @@ class _HomepageState extends State<Homepage> {
           SliverToBoxAdapter(
             child: SecondHeader(items: [
               SecondHeaderItem(
-                  image: Image.asset(
-                      "assets/icons/BusSewa New App icons -08 (1).png"),
+                  image: SvgPicture.asset(
+                      "assets/icons/BusSewa New App icons -08.svg"),
                   label: "Hotel"),
               SecondHeaderItem(
                   image:
-                      Image.asset("assets/icons/BusSewa New App icons -09.png"),
+                  SvgPicture.asset("assets/icons/BusSewa New App icons -09.svg"),
                   label: "Activity"),
               SecondHeaderItem(
-                  image: Image.asset("assets/icons/Frame 1171275982.png"),
+                  image: SvgPicture.asset("assets/icons/Frame 1171275982.svg"),
                   label: "Flight"),
               SecondHeaderItem(
-                  image: Image.asset("assets/icons/Frame 1171275983.png"),
+                  image: SvgPicture.asset("assets/icons/Frame 1171275983.svg"),
                   label: "Domestic"),
               SecondHeaderItem(
                   image:
-                      Image.asset("assets/icons/BusSewa New App icons -03.png"),
+                  SvgPicture.asset("assets/icons/BusSewa New App icons -03.svg"),
                   label: "Tours"),
               SecondHeaderItem(
                   image:
-                      Image.asset("assets/icons/BusSewa New App icons -03.png"),
+                  SvgPicture.asset("assets/icons/BusSewa New App icons -03.svg"),
                   label: "Vacation"),
               SecondHeaderItem(
-                  image: Image.asset(
-                      "assets/icons/BusSewa New App icons -08 (1).png"),
+                  image: SvgPicture.asset(
+                      "assets/icons/BusSewa New App icons -08.svg"),
                   label: "AirBnB"),
               SecondHeaderItem(
-                  image: Image.asset("assets/icons/Frame 1171275982.png"),
+                  image: SvgPicture.asset("assets/icons/Frame 1171275982.svg"),
                   label: "Trains"),
             ]),
           ),

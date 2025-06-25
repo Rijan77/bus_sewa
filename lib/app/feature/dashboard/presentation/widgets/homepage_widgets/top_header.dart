@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class TopHeader extends SliverPersistentHeaderDelegate {
   final List<HeaderItem> items;
@@ -45,7 +46,7 @@ class TopHeader extends SliverPersistentHeaderDelegate {
 }
 
 class HeaderItem {
-  final Image image;
+  final SvgPicture image;
   final String label;
 
   HeaderItem({required this.image, required this.label});
