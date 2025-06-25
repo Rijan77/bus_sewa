@@ -1,18 +1,22 @@
+// header_item.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class TopHeader extends SliverPersistentHeaderDelegate {
+
+class TopHeaderWidget extends StatelessWidget {
   final List<HeaderItem> items;
 
-  const TopHeader({required this.items});
+  const TopHeaderWidget({super.key, required this.items});
 
   @override
-  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
+  Widget build(BuildContext context) {
     return GridView.builder(
-      physics: const NeverScrollableScrollPhysics(), // Disable scroll here
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       itemCount: items.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 4, // Number of columns
+        crossAxisCount: 4,
         mainAxisSpacing: 10,
         crossAxisSpacing: 10,
         childAspectRatio: 1,
@@ -20,10 +24,10 @@ class TopHeader extends SliverPersistentHeaderDelegate {
       itemBuilder: (context, index) {
         final item = items[index];
         return Card(
-          elevation: 5,
-          color: const Color(0xffFFFFFF),
+          elevation: 4,
+          color: Colors.white,
           child: Column(
-            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(height: 40, width: 40, child: item.image),
               const SizedBox(height: 8),
@@ -34,16 +38,8 @@ class TopHeader extends SliverPersistentHeaderDelegate {
       },
     );
   }
-
-  @override
-  double get maxExtent => 150;
-
-  @override
-  double get minExtent => 130;
-
-  @override
-  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) => true;
 }
+
 
 class HeaderItem {
   final SvgPicture image;
@@ -51,3 +47,4 @@ class HeaderItem {
 
   HeaderItem({required this.image, required this.label});
 }
+

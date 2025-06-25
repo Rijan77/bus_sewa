@@ -1,6 +1,8 @@
 import 'package:bus_sewa/app/feature/dashboard/presentation/views/homepage.dart';
 import 'package:flutter/material.dart';
 
+import 'app/feature/dashboard/presentation/views/practice.dart';
+
 void main() {
   runApp(const MyApp());
 }
