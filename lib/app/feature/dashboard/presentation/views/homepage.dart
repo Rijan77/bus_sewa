@@ -14,6 +14,8 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,17 +24,22 @@ class _HomepageState extends State<Homepage> {
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
+           
+
+
+
             expandedHeight: 0.25.sh,
-            collapsedHeight: 0.12.sh,
-            elevation: 0,
+            collapsedHeight: 0.13.sh,
+            backgroundColor: Color(0xff13366E),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(bottomRight: Radius.circular(16), bottomLeft: Radius.circular(16))
+            ),
             pinned: true,
-            backgroundColor:  Color(0xff13366E),
             flexibleSpace: FlexibleSpaceBar(
               // stretchModes: const <StretchMode>[
               //   StretchMode.fadeTitle,
               // ],
               centerTitle: true,
-
               expandedTitleScale: 1,
               title:
               TopHeaderWidget(
@@ -55,7 +62,7 @@ class _HomepageState extends State<Homepage> {
                   ),
                 ],
               ),
-              collapseMode: CollapseMode.pin,
+              collapseMode: CollapseMode.parallax,
               background: Stack(
                 clipBehavior: Clip.none, // Allow overflow
                 children: [
@@ -64,7 +71,7 @@ class _HomepageState extends State<Homepage> {
                       Container(
                         width: double.infinity,
                         height: 180,
-                        color: const Color(0xff13366E),
+                        color: Color(0xff13366E),
                         padding: const EdgeInsets.only(top: 30, left: 16, right: 16),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
