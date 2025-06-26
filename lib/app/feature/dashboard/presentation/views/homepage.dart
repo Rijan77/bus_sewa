@@ -14,16 +14,44 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  final ScrollController _scrollController = ScrollController();
+  bool _isScrolled = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(_scrollListener);
+  }
+
+  void _scrollListener() {
+    if (_scrollController.hasClients) {
+      final bool isScrolledNow = _scrollController.offset > 70;
+      if (isScrolledNow != _isScrolled) {
+        setState(() {
+          _isScrolled = isScrolledNow;
+        });
+      }
+    }
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xffF9F9FF),
       body: CustomScrollView(
+        controller: _scrollController,
         slivers: <Widget>[
           SliverAppBar(
             expandedHeight: 0.25.sh,
             collapsedHeight: 0.13.sh,
-            backgroundColor: const Color(0xff13366E),
+            backgroundColor:
+            _isScrolled ? const Color(0xff13366E) : const Color(0xffF9F9FF),
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
                     bottomRight: Radius.circular(16),
