@@ -64,9 +64,11 @@ class PromoCodeHeader {
   final String secondTitle;
   final List<ElevatedButton> button;
 
+
   PromoCodeHeader({
     required this.title,
     required this.secondTitle,
     required this.button,
+
   });
 }

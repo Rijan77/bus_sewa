@@ -25,7 +25,7 @@ class _HomepageState extends State<Homepage> {
 
   void _scrollListener() {
     if (_scrollController.hasClients) {
-      final bool isScrolledNow = _scrollController.offset > 70;
+      final bool isScrolledNow = _scrollController.offset > 45;
       if (isScrolledNow != _isScrolled) {
         setState(() {
           _isScrolled = isScrolledNow;
@@ -184,45 +184,47 @@ class _HomepageState extends State<Homepage> {
           ),
           // Below the AppBar
           SliverToBoxAdapter(
-            child: SecondHeader(items: [
-              SecondHeaderItem(
-                image: SvgPicture.asset(
-                    "assets/icons/BusSewa New App icons -08.svg"),
-                label: "Hotel",
-              ),
-              SecondHeaderItem(
-                image: SvgPicture.asset(
-                    "assets/icons/BusSewa New App icons -09.svg"),
-                label: "Activity",
-              ),
-              SecondHeaderItem(
-                image: SvgPicture.asset("assets/icons/Frame 1171275982.svg"),
-                label: "Flight",
-              ),
-              SecondHeaderItem(
-                image: SvgPicture.asset("assets/icons/Frame 1171275983.svg"),
-                label: "Domestic",
-              ),
-              SecondHeaderItem(
-                image: SvgPicture.asset(
-                    "assets/icons/BusSewa New App icons -03.svg"),
-                label: "Tours",
-              ),
-              SecondHeaderItem(
-                image: SvgPicture.asset(
-                    "assets/icons/BusSewa New App icons -03.svg"),
-                label: "Vacation",
-              ),
-              SecondHeaderItem(
-                image: SvgPicture.asset(
-                    "assets/icons/BusSewa New App icons -08.svg"),
-                label: "AirBnB",
-              ),
-              SecondHeaderItem(
-                image: SvgPicture.asset("assets/icons/Frame 1171275982.svg"),
-                label: "Trains",
-              ),
-            ]),
+            child: Container(
+              child: SecondHeader(items: [
+                SecondHeaderItem(
+                  image: SvgPicture.asset(
+                      "assets/icons/BusSewa New App icons -08.svg"),
+                  label: "Hotel",
+                ),
+                SecondHeaderItem(
+                  image: SvgPicture.asset(
+                      "assets/icons/BusSewa New App icons -09.svg"),
+                  label: "Activity",
+                ),
+                SecondHeaderItem(
+                  image: SvgPicture.asset("assets/icons/Frame 1171275982.svg"),
+                  label: "Flight",
+                ),
+                SecondHeaderItem(
+                  image: SvgPicture.asset("assets/icons/Frame 1171275983.svg"),
+                  label: "Domestic",
+                ),
+                SecondHeaderItem(
+                  image: SvgPicture.asset(
+                      "assets/icons/BusSewa New App icons -03.svg"),
+                  label: "Tours",
+                ),
+                SecondHeaderItem(
+                  image: SvgPicture.asset(
+                      "assets/icons/BusSewa New App icons -03.svg"),
+                  label: "Vacation",
+                ),
+                SecondHeaderItem(
+                  image: SvgPicture.asset(
+                      "assets/icons/BusSewa New App icons -08.svg"),
+                  label: "AirBnB",
+                ),
+                SecondHeaderItem(
+                  image: SvgPicture.asset("assets/icons/Frame 1171275982.svg"),
+                  label: "Trains",
+                ),
+              ]),
+            ),
           ),
           SliverToBoxAdapter(
             child: Padding(
@@ -245,13 +247,15 @@ class _HomepageState extends State<Homepage> {
                     title: "Promo Codes",
                     secondTitle: "View All>>",
                     button: [
-                      ElevatedButton(
+                      ElevatedButton.icon(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
                           minimumSize: const Size(30, 30),
                         ),
-                        child: const Text("All"),
+                        icon: const Icon(Icons.check, color: Colors.blue),
+                        label: const Text("All"),
                       ),
+
                       ElevatedButton(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
