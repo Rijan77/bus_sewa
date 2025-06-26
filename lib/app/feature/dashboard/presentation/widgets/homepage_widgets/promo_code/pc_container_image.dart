@@ -26,7 +26,7 @@ class PcContainerImage extends StatelessWidget {
         child: Column(
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
+              borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
               child: Container(
                 height: 100,
                 width: double.infinity,
@@ -53,7 +53,7 @@ class PcContainerImage extends StatelessWidget {
               width: 170,
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                color: item.buttonColor ?? Color(0xff198B85),
+                color: item.buttonColor ?? const Color(0xff198B85),
                 borderRadius: BorderRadius.circular(5),
               ),
               child: Text(

@@ -255,9 +255,9 @@ class _HomepageState extends State<Homepage> {
               ),
             ),
           ),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.0),
               child:PromoCode(),
 
               // PromoCode(

@@ -26,12 +26,12 @@ class PcButton extends StatelessWidget {
                 child: ChoiceChip(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10), // Fully rounded
-                    side: BorderSide(color: Colors.black12),
+                    side: const BorderSide(color: Colors.black12),
                   ),
 
 
-                  backgroundColor: Color(0xffF9F9FF),
-                  label: Text(label, style: TextStyle(fontSize: 13),),
+                  backgroundColor: const Color(0xffF9F9FF),
+                  label: Text(label, style: const TextStyle(fontSize: 13),),
                   selected: currentValue == label,
                   selectedColor: Colors.blueGrey.shade100,
                   onSelected: (bool isSelected) {

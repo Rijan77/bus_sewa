@@ -2,7 +2,6 @@
 import 'package:bus_sewa/app/feature/dashboard/presentation/widgets/homepage_widgets/promo_code/pc_button.dart';
 import 'package:bus_sewa/app/feature/dashboard/presentation/widgets/homepage_widgets/promo_code/pc_container_image.dart';
 import 'package:bus_sewa/app/feature/dashboard/presentation/widgets/homepage_widgets/promo_code/pc_header_section.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class PromoCode extends StatefulWidget {
@@ -16,7 +15,7 @@ class _PromoCodeState extends State<PromoCode> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Color(0xffFFFFFF),
+      color: const Color(0xffFFFFFF),
       // child: Container(
       //   width: double.infinity,
       //   height: 320,
@@ -36,7 +35,7 @@ class _PromoCodeState extends State<PromoCode> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            PcHeaderSection(),
+            const PcHeaderSection(),
             PcButton(),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
