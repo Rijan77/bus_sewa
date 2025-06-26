@@ -6,41 +6,54 @@ class SecondHeader extends StatelessWidget {
 
   const SecondHeader({super.key, required this.items});
 
-
   @override
   Widget build(BuildContext context) {
+    final firstRowItems = items.length > 5 ? items.sublist(0, 5) : items;
+    final secondRowItems = items.length > 5 ? items.sublist(5) : [];
+
+    Widget buildItem(SecondHeaderItem item) {
+      return Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          SizedBox(height: 40, width: 40, child: item.image),
+          const SizedBox(height: 10),
+          Text(
+            item.label,
+            style: const TextStyle(fontSize: 12),
+            textAlign: TextAlign.center,
+          ),
+        ],
+      );
+    }
+
     return Padding(
       padding: const EdgeInsets.all(5.0),
-      child: SizedBox(
-        height: 230,
-        child: Card(
-          elevation: 2,
-          color: const Color(0xffFFFFFF),
-          child: GridView.builder(
-              itemCount: items.length,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 5,
-                mainAxisSpacing: 10,
+      child: Card(
+        elevation: 2,
+        color: const Color(0xffFFFFFF),
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              Wrap(
+                spacing: 30,
+                runSpacing: 20,
+                children: firstRowItems.map(buildItem).toList(),
               ),
-              itemBuilder: (context, index) {
-                final item = items[index];
-                return Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    SizedBox(height: 40, width: 40, child: item.image),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      item.label,
-                      style: const TextStyle(
-                        fontSize: 12,
-                      ),
-                      textAlign: TextAlign.center,
-                    )
-                  ],
-                );
-              }),
+              if (secondRowItems.isNotEmpty) ...[
+                const SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: secondRowItems
+                      .map((item) => Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: buildItem(item),
+                  ))
+                      .toList(),
+                ),
+              ]
+            ],
+          ),
         ),
       ),
     );
