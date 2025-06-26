@@ -26,28 +26,29 @@ class PcContainerImage extends StatelessWidget {
         child: Column(
           children: [
             ClipRRect(
-              borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
+              borderRadius:
+                  const BorderRadius.vertical(top: Radius.circular(12)),
               child: Container(
                 height: 100,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: item.imageColor ?? Colors.white,
-                 borderRadius: BorderRadius.circular(20),
-
+                  borderRadius: BorderRadius.circular(20),
                 ),
                 child: item.image,
               ),
             ),
             const SizedBox(height: 8),
-
-
             Padding(
               padding: const EdgeInsets.only(left: 20),
               child: Align(
                 alignment: Alignment.bottomLeft,
                 child: Text(
                   item.title,
-                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: Color(0xff333333)),
+                  style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xff333333)),
                 ),
               ),
             ),

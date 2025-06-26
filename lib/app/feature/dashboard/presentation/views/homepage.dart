@@ -52,7 +52,7 @@ class _HomepageState extends State<Homepage> {
             expandedHeight: 0.25.sh,
             collapsedHeight: 0.13.sh,
             backgroundColor:
-            _isScrolled ? const Color(0xff13366E) : const Color(0xffF9F9FF),
+                _isScrolled ? const Color(0xff13366E) : const Color(0xffF9F9FF),
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
                     bottomRight: Radius.circular(16),
@@ -224,7 +224,6 @@ class _HomepageState extends State<Homepage> {
                   image: SvgPicture.asset("assets/icons/Frame 1171275982.svg"),
                   label: "Trains",
                 ),
-
               ]),
             ),
           ),
@@ -242,7 +241,9 @@ class _HomepageState extends State<Homepage> {
                         fit: BoxFit.cover,
                       ),
                     ),
-                    const SizedBox(width: 10,),
+                    const SizedBox(
+                      width: 10,
+                    ),
                     SizedBox(
                       height: 70,
                       child: Image.asset(
@@ -250,7 +251,6 @@ class _HomepageState extends State<Homepage> {
                         fit: BoxFit.cover,
                       ),
                     ),
-                
                   ],
                 ),
               ),
@@ -259,7 +259,7 @@ class _HomepageState extends State<Homepage> {
           const SliverToBoxAdapter(
             child: Padding(
               padding: EdgeInsets.all(8.0),
-              child:PromoCode(),
+              child: PromoCode(),
 
               // PromoCode(
               //   items: [

@@ -1,4 +1,3 @@
-
 import 'package:bus_sewa/app/feature/dashboard/presentation/widgets/homepage_widgets/promo_code/pc_button.dart';
 import 'package:bus_sewa/app/feature/dashboard/presentation/widgets/homepage_widgets/promo_code/pc_container_image.dart';
 import 'package:bus_sewa/app/feature/dashboard/presentation/widgets/homepage_widgets/promo_code/pc_header_section.dart';
@@ -33,25 +32,40 @@ class _PromoCodeState extends State<PromoCode> {
       //     borderRadius: BorderRadius.circular(10),
       //
       //   ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const PcHeaderSection(),
-            PcButton(),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  PcContainerImage(items: [
-                    PcContainerImageItem(image: Image.asset("assets/images/Offer Image.png", fit: BoxFit.cover,), title: "Dashain Promo", subtitle: "Valid Till 5 Dec 2024", buttonText: "Collect"),
-                    PcContainerImageItem(image: Image.asset("assets/images/Offer Image_2.png", fit: BoxFit.cover,), title: "Black Friday Deals!", subtitle: "Valid Till 5 Dec 2024", buttonText: "Collect"),
-                  ],)
-                ],
-              ),
-            )
-
-          ],
-        ),
-      );
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const PcHeaderSection(),
+          PcButton(),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                PcContainerImage(
+                  items: [
+                    PcContainerImageItem(
+                        image: Image.asset(
+                          "assets/images/Offer Image.png",
+                          fit: BoxFit.cover,
+                        ),
+                        title: "Dashain Promo",
+                        subtitle: "Valid Till 5 Dec 2024",
+                        buttonText: "Collect"),
+                    PcContainerImageItem(
+                        image: Image.asset(
+                          "assets/images/Offer Image_2.png",
+                          fit: BoxFit.cover,
+                        ),
+                        title: "Black Friday Deals!",
+                        subtitle: "Valid Till 5 Dec 2024",
+                        buttonText: "Collect"),
+                  ],
+                )
+              ],
+            ),
+          )
+        ],
+      ),
+    );
   }
 }

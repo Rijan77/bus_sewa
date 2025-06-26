@@ -9,12 +9,11 @@ class RsLocation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 5, top: 10),
-
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
-          children: items.map((item){
+        padding: const EdgeInsets.only(left: 5, top: 10),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+              children: items.map((item) {
             return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Container(
@@ -51,12 +50,8 @@ class RsLocation extends StatelessWidget {
                 ),
               ),
             );
-          }).toList()
-        ),
-      )
-
-
-    );
+          }).toList()),
+        ));
   }
 }
 

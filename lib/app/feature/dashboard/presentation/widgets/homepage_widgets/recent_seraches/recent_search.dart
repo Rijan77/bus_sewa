@@ -13,24 +13,29 @@ class RecentSearch extends StatelessWidget {
         height: 117.sp,
         width: double.infinity,
         decoration: BoxDecoration(
-          color: Colors.white, 
-          borderRadius: BorderRadius.circular(10)
-        ),
+            color: Colors.white, borderRadius: BorderRadius.circular(10)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Padding(
               padding: EdgeInsets.only(top: 10, left: 15),
-              child: Text("Recent Searches", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Color(0xff4A4A4A)),),
+              child: Text(
+                "Recent Searches",
+                style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xff4A4A4A)),
+              ),
             ),
-           RsLocation(items: [
-             RsLocationItem(heading: "Bus: Chitwan - Pokhara", subHeading: "4 Dec | 4 Passengers"),
-             RsLocationItem(heading: "Flight: Chitwan - Pokhara", subHeading: "4 Dec")
-           ])
+            RsLocation(items: [
+              RsLocationItem(
+                  heading: "Bus: Chitwan - Pokhara",
+                  subHeading: "4 Dec | 4 Passengers"),
+              RsLocationItem(
+                  heading: "Flight: Chitwan - Pokhara", subHeading: "4 Dec")
+            ])
           ],
         ),
-      
-      
       ),
     );
   }

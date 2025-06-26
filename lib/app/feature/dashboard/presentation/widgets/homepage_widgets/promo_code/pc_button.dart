@@ -28,10 +28,11 @@ class PcButton extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10), // Fully rounded
                     side: const BorderSide(color: Colors.black12),
                   ),
-
-
                   backgroundColor: const Color(0xffF9F9FF),
-                  label: Text(label, style: const TextStyle(fontSize: 13),),
+                  label: Text(
+                    label,
+                    style: const TextStyle(fontSize: 13),
+                  ),
                   selected: currentValue == label,
                   selectedColor: Colors.blueGrey.shade100,
                   onSelected: (bool isSelected) {

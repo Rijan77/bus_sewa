@@ -46,9 +46,9 @@ class SecondHeader extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: secondRowItems
                       .map((item) => Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: buildItem(item),
-                  ))
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
+                            child: buildItem(item),
+                          ))
                       .toList(),
                 ),
               ]
