@@ -19,8 +19,8 @@ class RecentSearch extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 10, left: 15),
+            const Padding(
+              padding: EdgeInsets.only(top: 10, left: 15),
               child: Text("Recent Searches", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Color(0xff4A4A4A)),),
             ),
            RsLocation(items: [

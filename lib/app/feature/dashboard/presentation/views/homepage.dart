@@ -314,20 +314,20 @@ class _HomepageState extends State<Homepage> {
             ),
           ),
           // Placeholder containers
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.0),
               child: RecentSearch(),
             ),
           ),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: Card(
               elevation: 5,
-              child: Container(
+              color: Colors.white,
+              child: SizedBox(
                 height: 200,
                 width: double.infinity,
               ),
-              color: Colors.white,
             ),
           )
         ],

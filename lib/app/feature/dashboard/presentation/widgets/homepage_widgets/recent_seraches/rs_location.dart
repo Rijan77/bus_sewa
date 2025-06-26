@@ -35,7 +35,7 @@ class RsLocation extends StatelessWidget {
                         item.heading,
                         style: TextStyle(
                           fontSize: 14.sp,
-                          color: Color(0xff001A42),
+                          color: const Color(0xff001A42),
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -43,7 +43,7 @@ class RsLocation extends StatelessWidget {
                         item.subHeading,
                         style: TextStyle(
                           fontSize: 12.sp,
-                          color: Color(0xff8087B0),
+                          color: const Color(0xff8087B0),
                         ),
                       ),
                     ],
