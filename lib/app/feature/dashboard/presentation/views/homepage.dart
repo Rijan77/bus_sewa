@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../widgets/homepage_widgets/promo_code/promo_code.dart';
 import '../widgets/homepage_widgets/top_header.dart'; // Your data class
-import '../widgets/homepage_widgets/promo_code.dart';
 import '../widgets/homepage_widgets/second_header.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -258,46 +258,58 @@ class _HomepageState extends State<Homepage> {
           SliverToBoxAdapter(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: PromoCode(
-                items: [
-                  PromoCodeHeader(
-                    title: "Promo Codes",
-                    secondTitle: "View All>>",
-                    button: [
-                      ElevatedButton.icon(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          minimumSize: const Size(30, 30),
-                        ),
-                        icon: const Icon(Icons.check, color: Colors.blue),
-                        label: const Text("All"),
-                      ),
+              child:PromoCode(),
 
-                      ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          minimumSize: const Size(30, 30),
-                        ),
-                        child: const Text("Bus"),
-                      ),
-                      ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          minimumSize: const Size(30, 30),
-                        ),
-                        child: const Text("Tours"),
-                      ),
-                      ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          minimumSize: const Size(30, 30),
-                        ),
-                        child: const Text("Reservations"),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+              // PromoCode(
+              //   items: [
+              //     PromoCodeHeader(
+              //       title: "Promo Codes",
+              //       secondTitle: "View All>>",
+              //       button: [
+              //         ElevatedButton.icon(
+              //           onPressed: () {},
+              //           style: ElevatedButton.styleFrom(
+              //             minimumSize: const Size(30, 30),
+              //           ),
+              //           icon: const Icon(Icons.check, color: Colors.blue),
+              //           label: const Text("All"),
+              //         ),
+              //
+              //         ElevatedButton(
+              //           onPressed: () {},
+              //           style: ElevatedButton.styleFrom(
+              //             minimumSize: const Size(30, 30),
+              //           ),
+              //           child: const Text("Bus"),
+              //         ),
+              //         ElevatedButton(
+              //           onPressed: () {},
+              //           style: ElevatedButton.styleFrom(
+              //             minimumSize: const Size(30, 30),
+              //           ),
+              //           child: const Text("Tours"),
+              //         ),
+              //         ElevatedButton(
+              //           onPressed: () {},
+              //           style: ElevatedButton.styleFrom(
+              //             minimumSize: const Size(30, 30),
+              //           ),
+              //           child: const Text("Reservations"),
+              //         ),
+              //       ],
+              //
+              //       container: [
+              //         Container(
+              //           height: 50,
+              //           width: 50,
+              //           color: Colors.blueGrey,
+              //         )
+              //       ]
+              //
+              //     ),
+              //
+              //   ],
+              // ),
             ),
           ),
           // Placeholder containers
