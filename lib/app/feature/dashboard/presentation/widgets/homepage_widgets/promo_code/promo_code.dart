@@ -15,34 +15,43 @@ class PromoCode extends StatefulWidget {
 class _PromoCodeState extends State<PromoCode> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 320,
+    return Card(
+      color: Color(0xffFFFFFF),
+      // child: Container(
+      //   width: double.infinity,
+      //   height: 320,
+      //
+      //   decoration: BoxDecoration(
+      //     // boxShadow: [
+      //     //   BoxShadow(
+      //     //     color: Colors.black45,
+      //     //     spreadRadius: 0.1,
+      //     //     blurRadius: 1,
+      //     //   )
+      //     // ],
+      //     color: Color(0xffFFFFFF),
+      //     borderRadius: BorderRadius.circular(10),
+      //
+      //   ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            PcHeaderSection(),
+            PcButton(),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  PcContainerImage(items: [
+                    PcContainerImageItem(image: Image.asset("assets/images/Offer Image.png", fit: BoxFit.cover,), title: "Dashain Promo", subtitle: "Valid Till 5 Dec 2024", buttonText: "Collect"),
+                    PcContainerImageItem(image: Image.asset("assets/images/Offer Image_2.png", fit: BoxFit.cover,), title: "Black Friday Deals!", subtitle: "Valid Till 5 Dec 2024", buttonText: "Collect"),
+                  ],)
+                ],
+              ),
+            )
 
-      decoration: BoxDecoration(
-        color: Color(0xffFFFFFF),
-        borderRadius: BorderRadius.circular(10)
-
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          PcHeaderSection(),
-          PcButton(),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                PcContainerImage(items: [
-                  PcContainerImageItem(image: Image.asset("assets/images/Offer Image.png", fit: BoxFit.cover,), title: "Dashain Promo", subtitle: "Valid Till 5 Dec 2024", buttonText: "Collect"),
-                  PcContainerImageItem(image: Image.asset("assets/images/Offer Image_2.png", fit: BoxFit.cover,), title: "Black Friday Deals!", subtitle: "Valid Till 5 Dec 2024", buttonText: "Collect"),
-                ],)
-              ],
-            ),
-          )
-
-        ],
-      ),
-    );
+          ],
+        ),
+      );
   }
 }

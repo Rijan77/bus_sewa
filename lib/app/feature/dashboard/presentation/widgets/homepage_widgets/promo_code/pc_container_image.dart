@@ -25,14 +25,18 @@ class PcContainerImage extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Container(
-              height: 100,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: item.imageColor ?? Colors.red,
-                borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
+            ClipRRect(
+              borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
+              child: Container(
+                height: 100,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: item.imageColor ?? Colors.red,
+                 borderRadius: BorderRadius.circular(20),
+
+                ),
+                child: item.image,
               ),
-              child: item.image,
             ),
             const SizedBox(height: 8),
             Text(

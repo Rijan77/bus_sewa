@@ -11,8 +11,10 @@ class PcHeaderSection extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text("Promo Codes", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Color(0xff4A4A4A)),),
-          SizedBox(width: 170,),
-          Text("View All >>")
+          SizedBox(width: 160,),
+          InkWell(
+            onTap: (){},
+              child: Text("View All>>", style: TextStyle(fontSize: 14, color: Color(0xff445E91)),))
         ],
       ),
     );

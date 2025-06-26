@@ -1,28 +1,49 @@
 import 'package:flutter/material.dart';
 
-class PcButton extends StatefulWidget {
-  const PcButton({super.key});
+class PcButton extends StatelessWidget {
+  PcButton({super.key});
 
-  @override
-  State<PcButton> createState() => _PcButtonState();
-}
+  final ValueNotifier<String> selectedValue = ValueNotifier<String>("");
 
-class _PcButtonState extends State<PcButton> {
+  final List<String> chipLabels = [
+    "All",
+    "Bus",
+    "Tours",
+    "Reservation",
+  ];
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
-      child: Row(
-        children: [
-          ElevatedButton(onPressed: (){}, child: Text("All")),
-          SizedBox(width: 10,),
-          ElevatedButton(onPressed: (){}, child: Text("Bus")),
-          SizedBox(width: 10,),
-          ElevatedButton(onPressed: (){}, child: Text("Tours")),
-          SizedBox(width: 10,),
-          ElevatedButton(onPressed: (){}, child: Text("Reservation")),
+      child: ValueListenableBuilder<String>(
+        valueListenable: selectedValue,
+        builder: (context, currentValue, _) {
+          return Row(
+            children: chipLabels.map((label) {
+              return Padding(
+                padding: const EdgeInsets.only(right: 10, left: 2),
+                child: ChoiceChip(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10), // Fully rounded
+                    side: BorderSide(color: Colors.black12),
+                  ),
 
-        ],
+
+                  backgroundColor: Color(0xffF9F9FF),
+                  label: Text(label, style: TextStyle(fontSize: 13),),
+                  selected: currentValue == label,
+                  selectedColor: Colors.blueGrey.shade100,
+                  onSelected: (bool isSelected) {
+                    if (isSelected) {
+                      selectedValue.value = label;
+                    }
+                  },
+                ),
+              );
+            }).toList(),
+          );
+        },
       ),
     );
   }
