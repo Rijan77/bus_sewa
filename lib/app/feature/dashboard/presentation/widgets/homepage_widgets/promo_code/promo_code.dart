@@ -16,6 +16,7 @@ class _PromoCodeState extends State<PromoCode> {
   Widget build(BuildContext context) {
     return Card(
       color: const Color(0xffFFFFFF),
+      elevation: 1,
       // child: Container(
       //   width: double.infinity,
       //   height: 320,
