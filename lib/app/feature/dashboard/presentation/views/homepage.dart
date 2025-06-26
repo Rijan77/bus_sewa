@@ -230,11 +230,27 @@ class _HomepageState extends State<Homepage> {
           SliverToBoxAdapter(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: SizedBox(
-                height: 70,
-                child: Image.asset(
-                  "assets/images/Frame 1171276782.png",
-                  fit: BoxFit.cover,
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    SizedBox(
+                      height: 70,
+                      child: Image.asset(
+                        "assets/images/Frame 1171276782.png",
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    const SizedBox(width: 10,),
+                    SizedBox(
+                      height: 70,
+                      child: Image.asset(
+                        "assets/images/Frame 1171276782.png",
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                
+                  ],
                 ),
               ),
             ),
