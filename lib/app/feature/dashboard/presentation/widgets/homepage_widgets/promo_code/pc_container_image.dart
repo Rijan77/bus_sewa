@@ -31,7 +31,7 @@ class PcContainerImage extends StatelessWidget {
                 height: 100,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: item.imageColor ?? Colors.red,
+                  color: item.imageColor ?? Colors.white,
                  borderRadius: BorderRadius.circular(20),
 
                 ),
@@ -39,13 +39,27 @@ class PcContainerImage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 8),
-            Text(
-              item.title,
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: Color(0xff333333)),
+
+
+            Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: Text(
+                  item.title,
+                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: Color(0xff333333)),
+                ),
+              ),
             ),
-            Text(
-              item.subtitle,
-              style: const TextStyle(fontSize: 9, color: Colors.grey),
+            Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: Text(
+                  item.subtitle,
+                  style: const TextStyle(fontSize: 9, color: Colors.grey),
+                ),
+              ),
             ),
             const SizedBox(height: 10),
             Container(
