@@ -6,6 +6,7 @@ import '../widgets/homepage_widgets/recent_seraches/recent_search.dart';
 import '../widgets/homepage_widgets/top_header.dart'; // Your data class
 import '../widgets/homepage_widgets/second_header.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
