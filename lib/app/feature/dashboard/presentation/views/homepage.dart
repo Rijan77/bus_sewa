@@ -110,7 +110,7 @@ class _HomepageState extends State<Homepage> {
                                 Padding(
                                   padding: EdgeInsets.only(top: 50),
                                   child: Text(
-                                    "Hello! Harris Ji",
+                                    "Hello! Rijan Ji",
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 25,
