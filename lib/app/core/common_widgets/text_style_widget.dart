@@ -18,7 +18,7 @@ class TextStyleWidget{
 
   static TextStyle flashSlaesTime(){
     return const TextStyle(
-      fontSize: 17,
+      fontSize: 16,
       fontWeight: FontWeight.w500,
       color: Colors.white
     );
@@ -29,7 +29,7 @@ class TextStyleWidget{
     return const TextStyle(
       fontWeight: FontWeight.bold,
       color: Colors.white,
-      fontSize: 18
+      fontSize: 16
     );
   }
 
@@ -37,7 +37,7 @@ class TextStyleWidget{
     return const TextStyle(
         fontWeight: FontWeight.w500,
         color: Colors.white,
-        fontSize: 15
+        fontSize: 12
     );
   }
 

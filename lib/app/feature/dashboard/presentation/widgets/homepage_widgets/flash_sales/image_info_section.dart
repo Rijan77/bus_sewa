@@ -1,6 +1,7 @@
 import 'package:bus_sewa/app/core/common_widgets/text_style_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class ImageInfoSection extends StatelessWidget {
   const ImageInfoSection({super.key});
@@ -49,8 +50,8 @@ class ImageInfoSection extends StatelessWidget {
     required String subTitle,
   }) {
     return Container(
-      height: 0.24.sh,
-      width: 0.5.sw,
+      height: 0.2.sh,
+      width: 0.45.sw,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         image: DecorationImage(
@@ -75,11 +76,11 @@ class ImageInfoSection extends StatelessWidget {
                     style: TextStyleWidget.flashSlaesTime(),
                   ),
                 ),
-                const SizedBox(height: 95),
+                 SizedBox(height: 0.094.sh),
                 Center(
                   child: Text(title, style: TextStyleWidget.flashSalesOffer()),
                 ),
-                const SizedBox(height: 2),
+                const SizedBox(height: 0.003),
                 Center(
                   child: Text(
                     subTitle,
