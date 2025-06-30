@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class FsHeaderSection extends StatelessWidget {
@@ -6,8 +5,6 @@ class FsHeaderSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
-
-    );
+    return const Row();
   }
 }
