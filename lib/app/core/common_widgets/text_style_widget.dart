@@ -42,7 +42,7 @@ class TextStyleWidget{
   }
 
   static TextStyle OfferTittle(){
-    return TextStyle(
+    return const TextStyle(
       fontSize: 16,
       fontWeight: FontWeight.w500,
       color: Color(0xff333333)
@@ -50,14 +50,14 @@ class TextStyleWidget{
   }
 
   static TextStyle OffersubTittle(){
-    return TextStyle(
+    return const TextStyle(
       fontSize: 12,
       color: Color(0xff7D7E83)
     );
   }
 
   static TextStyle blogHeading(){
-    return TextStyle(
+    return const TextStyle(
       fontSize: 15,
       fontWeight: FontWeight.bold,
       color: Color(0xff333333)
@@ -65,14 +65,14 @@ class TextStyleWidget{
   }
   
   static TextStyle blogDate(){
-    return TextStyle(
+    return const TextStyle(
       fontSize: 11,
       color: Color(0xff4A4A4A)
     );
   }
 
   static TextStyle blogDes(){
-    return TextStyle(
+    return const TextStyle(
       fontSize: 14,
       color: Color(0xff4A4A4A),
 

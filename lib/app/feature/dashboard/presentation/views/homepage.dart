@@ -232,9 +232,9 @@ class _HomepageState extends State<Homepage> {
               ]),
             ),
           ),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.0),
               child: GiftSectionMain(),
             ),
           ),
@@ -267,7 +267,7 @@ class _HomepageState extends State<Homepage> {
           //     ),
           //   ),
           // ),
-           SliverToBoxAdapter(
+           const SliverToBoxAdapter(
             child: PromoCode(),
           ),
           // Placeholder containers
@@ -284,22 +284,22 @@ class _HomepageState extends State<Homepage> {
             ),
           ),
 
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.0),
               child: OfferMain(),
             ),
           ),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.0),
               child: SocialsSharesMain(),
             ),
           ),
 
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.0),
               child: BlogsMain(),
             ),
           )

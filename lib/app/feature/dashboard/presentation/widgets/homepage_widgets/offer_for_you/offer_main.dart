@@ -25,14 +25,14 @@ class _OfferMainState extends State<OfferMain> {
             child: Row(
               children: [
                 Text("Offers for you", style: TextStyleWidget.titleTextStyle(),),
-                SizedBox(width: 160,),
+                const SizedBox(width: 160,),
                 Text("View All>>", style: TextStyleWidget.subTitleTextStyle(),)
               ],
             ),
           ),
           PcButton(),
-          OfferImageSection(),
-          Padding(
+          const OfferImageSection(),
+          const Padding(
             padding: EdgeInsets.only(bottom: 10),
           )
 

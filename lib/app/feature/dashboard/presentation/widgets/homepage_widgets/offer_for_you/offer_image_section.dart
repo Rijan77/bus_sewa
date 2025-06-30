@@ -1,6 +1,5 @@
 import 'package:bus_sewa/app/core/common_widgets/text_style_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:image_network/image_network.dart';
 
 class OfferImageSection extends StatelessWidget {
   const OfferImageSection({super.key});
@@ -22,7 +21,7 @@ class OfferImageSection extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: Colors.yellow.shade50,
                       borderRadius: BorderRadius.circular(30)),
-                  child: Center(
+                  child: const Center(
                     child: Text(
                       "Rental",
                       style: TextStyle(color: Colors.orangeAccent),
@@ -31,7 +30,7 @@ class OfferImageSection extends StatelessWidget {
                 ),
                 title: "Black Friday Deals!",
                 subTitle: "Valid Till: 5 Dec 2024"),
-            SizedBox(width: 10),
+            const SizedBox(width: 10),
             _buildCard(
                 imageUrl:
                     "https://i.pinimg.com/736x/49/f4/0d/49f40d48ee9372e7e6ebcd312b2ce6c5.jpg",
@@ -41,7 +40,7 @@ class OfferImageSection extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: Colors.blue.shade50,
                       borderRadius: BorderRadius.circular(30)),
-                  child: Center(
+                  child: const Center(
                     child: Text(
                       "Flights",
                       style: TextStyle(color: Colors.blue),
@@ -50,7 +49,7 @@ class OfferImageSection extends StatelessWidget {
                 ),
                 title: "Everest Flight",
                 subTitle: "Valid Till: 5 Dec 2024"),
-            SizedBox(width: 10),
+            const SizedBox(width: 10),
             _buildCard(
                 imageUrl:
                     "https://i.pinimg.com/736x/35/4a/aa/354aaa6985aa4fdc198dc30145e6023a.jpg",
@@ -60,7 +59,7 @@ class OfferImageSection extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: Colors.yellow.shade50,
                       borderRadius: BorderRadius.circular(30)),
-                  child: Center(
+                  child: const Center(
                     child: Text(
                       "Rental",
                       style: TextStyle(color: Colors.orangeAccent),
@@ -85,7 +84,7 @@ class OfferImageSection extends StatelessWidget {
       child: Container(
         height: 180,
         width: 210,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Color(0xffF9F9FF),
         ),
         child: Column(
@@ -99,7 +98,7 @@ class OfferImageSection extends StatelessWidget {
                     fit: BoxFit.cover,
                     width: double.infinity,
                     errorBuilder: (context, error, stackTrace) {
-                      return Center(child: Icon(Icons.broken_image));
+                      return const Center(child: Icon(Icons.broken_image));
                     },
                   ),
                   Padding(
@@ -112,7 +111,7 @@ class OfferImageSection extends StatelessWidget {
             Expanded(
               flex: 1,
               child: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Column(
                   children: [
                     Text(

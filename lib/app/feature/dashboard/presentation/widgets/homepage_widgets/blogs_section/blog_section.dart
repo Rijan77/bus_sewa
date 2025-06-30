@@ -65,11 +65,11 @@ class _BlogSectionState extends State<BlogSection> {
       borderRadius: BorderRadius.circular(10),
       child: Container(
         width: double.infinity,
-        color: Color(0xffFEFBFF),
+        color: const Color(0xffFEFBFF),
         child: Row(
           children: [
             Expanded(flex: 2, child: ClipRRect(borderRadius: BorderRadius.circular(10), child: image)),
-             SizedBox(width: 10),
+             const SizedBox(width: 10),
             Expanded(
               flex: 3,
               child: Column(
@@ -78,9 +78,9 @@ class _BlogSectionState extends State<BlogSection> {
                   Text(heading, style: TextStyleWidget.blogHeading()),
       
                   Text(date, style: TextStyleWidget.blogDate()),
-                  SizedBox(height: 5,),
+                  const SizedBox(height: 5,),
                   Text(description, maxLines: 2, overflow: TextOverflow.ellipsis, style: TextStyleWidget.blogDes()),
-                  SizedBox(height: 5,),
+                  const SizedBox(height: 5,),
                   Padding(
                     padding: const EdgeInsets.only(right: 10),
                     child: Row(

@@ -25,15 +25,15 @@ class _BlogsMainState extends State<BlogsMain> {
             child: Row(
               children: [
                 Text("Blogs", style: TextStyleWidget.titleTextStyle(),),
-                SizedBox(width: 210,),
+                const SizedBox(width: 210,),
                 Text("View All >>", style: TextStyleWidget.subTitleTextStyle(),)
               ],
             ),
           ),
           PcButton(),
-          BlogSection(),
+          const BlogSection(),
 
-          Padding(
+          const Padding(
             padding: EdgeInsets.only(bottom: 10),
           )
         ],

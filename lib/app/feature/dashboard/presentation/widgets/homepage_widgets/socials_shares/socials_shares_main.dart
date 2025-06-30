@@ -23,12 +23,12 @@ class _SocialsSharesMainState extends State<SocialsSharesMain> {
             child: Row(
               children: [
                 Text("Socials Shares", style: TextStyleWidget.titleTextStyle(),),
-                SizedBox(width: 160,),
+                const SizedBox(width: 160,),
                 Text("View All>>", style: TextStyleWidget.subTitleTextStyle(),)
               ],
             ),
           ),
-          VideoSection()
+          const VideoSection()
         ],
       ),
     );
