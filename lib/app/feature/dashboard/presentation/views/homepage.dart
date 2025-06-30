@@ -326,7 +326,6 @@ class _HomepageState extends State<Homepage> {
               padding: EdgeInsets.all(8.0),
               child: FlashSalesMain(),
             ),
-
           )
         ],
       ),

@@ -77,10 +77,7 @@ class ImageInfoSection extends StatelessWidget {
                 ),
                 const SizedBox(height: 95),
                 Center(
-                  child: Text(
-                    title,
-                    style: TextStyleWidget.flashSalesOffer()
-                  ),
+                  child: Text(title, style: TextStyleWidget.flashSalesOffer()),
                 ),
                 const SizedBox(height: 2),
                 Center(

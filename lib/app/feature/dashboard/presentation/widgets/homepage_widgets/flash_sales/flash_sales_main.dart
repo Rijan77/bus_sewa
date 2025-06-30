@@ -1,4 +1,3 @@
-
 import 'package:bus_sewa/app/core/common_widgets/text_style_widget.dart';
 import 'package:bus_sewa/app/feature/dashboard/presentation/widgets/homepage_widgets/promo_code/pc_button.dart';
 import 'package:flutter/material.dart';
@@ -25,11 +24,17 @@ class _FlashSalesMainState extends State<FlashSalesMain> {
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             child: Row(
               children: [
-                Text("Flash Sales", style: TextStyleWidget.titleTextStyle(),),
-
-                const SizedBox(width: 180,),
-
-                Text("View All>>", style: TextStyleWidget.subTitleTextStyle(),)
+                Text(
+                  "Flash Sales",
+                  style: TextStyleWidget.titleTextStyle(),
+                ),
+                const SizedBox(
+                  width: 180,
+                ),
+                Text(
+                  "View All>>",
+                  style: TextStyleWidget.subTitleTextStyle(),
+                )
               ],
             ),
           ),
@@ -37,7 +42,6 @@ class _FlashSalesMainState extends State<FlashSalesMain> {
           const ImageInfoSection()
         ],
       ),
-      
     );
   }
 }
