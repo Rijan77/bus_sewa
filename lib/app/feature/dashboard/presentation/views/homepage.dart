@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../widgets/homepage_widgets/offer_for_you/offer_main.dart';
 import '../widgets/homepage_widgets/promo_code/promo_code.dart';
 import '../widgets/homepage_widgets/recent_seraches/recent_search.dart';
+import '../widgets/homepage_widgets/socials_shares/socials_shares_main.dart';
 import '../widgets/homepage_widgets/top_header.dart'; // Your data class
 import '../widgets/homepage_widgets/second_header.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -333,6 +334,12 @@ class _HomepageState extends State<Homepage> {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: OfferMain(),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SocialsSharesMain(),
             ),
           )
 
