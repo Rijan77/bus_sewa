@@ -39,6 +39,8 @@ dependencies:
   flutter_screenutil: ^5.9.3
   carousel_slider: ^5.1.1
   image_network:
+  video_player:
+  youtube_player_flutter:
 
 dev_dependencies:
   flutter_test:
