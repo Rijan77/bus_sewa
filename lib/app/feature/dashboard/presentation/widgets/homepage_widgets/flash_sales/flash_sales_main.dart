@@ -34,7 +34,7 @@ class _FlashSalesMainState extends State<FlashSalesMain> {
             ),
           ),
           PcButton(),
-          ImageInfoSection()
+          const ImageInfoSection()
         ],
       ),
       

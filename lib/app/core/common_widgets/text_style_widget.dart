@@ -17,7 +17,7 @@ class TextStyleWidget{
   }
 
   static TextStyle flashSlaesTime(){
-    return TextStyle(
+    return const TextStyle(
       fontSize: 17,
       fontWeight: FontWeight.w500,
       color: Colors.white
@@ -26,7 +26,7 @@ class TextStyleWidget{
   }
 
   static TextStyle flashSalesOffer(){
-    return TextStyle(
+    return const TextStyle(
       fontWeight: FontWeight.bold,
       color: Colors.white,
       fontSize: 18
@@ -34,7 +34,7 @@ class TextStyleWidget{
   }
 
   static TextStyle flashSlaesHotelName(){
-    return TextStyle(
+    return const TextStyle(
         fontWeight: FontWeight.w500,
         color: Colors.white,
         fontSize: 15

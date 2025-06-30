@@ -21,14 +21,14 @@ class ImageInfoSection extends StatelessWidget {
                 title: "Get 20% OFF",
                 subTitle: "Meghauli Hotel",
               ),
-              SizedBox(width: 10),
+              const SizedBox(width: 10),
               _buildRoundedBox(
                 imagePath: "assets/images/Frame 1171275917.png",
                 timeText: "1H 40M left",
                 title: "Get 20% OFF",
                 subTitle: "Meghauli Hotel",
               ),
-              SizedBox(width: 10),
+              const SizedBox(width: 10),
               _buildRoundedBox(
                 imagePath: "assets/images/Frame 1171275918.png",
                 timeText: "1H 40M left",
@@ -75,14 +75,14 @@ class ImageInfoSection extends StatelessWidget {
                     style: TextStyleWidget.flashSlaesTime(),
                   ),
                 ),
-                SizedBox(height: 95),
+                const SizedBox(height: 95),
                 Center(
                   child: Text(
                     title,
                     style: TextStyleWidget.flashSalesOffer()
                   ),
                 ),
-                SizedBox(height: 2),
+                const SizedBox(height: 2),
                 Center(
                   child: Text(
                     subTitle,
