@@ -2,6 +2,7 @@ import 'package:bus_sewa/app/feature/dashboard/presentation/widgets/homepage_wid
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../widgets/homepage_widgets/blogs_section/blogs_main.dart';
 import '../widgets/homepage_widgets/offer_for_you/offer_main.dart';
 import '../widgets/homepage_widgets/promo_code/promo_code.dart';
 import '../widgets/homepage_widgets/recent_seraches/recent_search.dart';
@@ -340,6 +341,13 @@ class _HomepageState extends State<Homepage> {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: SocialsSharesMain(),
+            ),
+          ),
+
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: BlogsMain(),
             ),
           )
 
