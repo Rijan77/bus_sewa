@@ -41,5 +41,20 @@ class TextStyleWidget{
     );
   }
 
+  static TextStyle OfferTittle(){
+    return TextStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.w500,
+      color: Color(0xff333333)
+    );
+  }
+
+  static TextStyle OffersubTittle(){
+    return TextStyle(
+      fontSize: 12,
+      color: Color(0xff7D7E83)
+    );
+  }
+
 
 }
