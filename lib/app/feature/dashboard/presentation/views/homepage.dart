@@ -1,3 +1,4 @@
+import 'package:bus_sewa/app/feature/dashboard/presentation/widgets/homepage_widgets/flash_sales/flash_sales_main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -6,7 +7,6 @@ import '../widgets/homepage_widgets/recent_seraches/recent_search.dart';
 import '../widgets/homepage_widgets/top_header.dart'; // Your data class
 import '../widgets/homepage_widgets/second_header.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -322,14 +322,11 @@ class _HomepageState extends State<Homepage> {
             ),
           ),
           const SliverToBoxAdapter(
-            child: Card(
-              elevation: 5,
-              color: Colors.white,
-              child: SizedBox(
-                height: 200,
-                width: double.infinity,
-              ),
+            child: Padding(
+              padding: EdgeInsets.all(8.0),
+              child: FlashSalesMain(),
             ),
+
           )
         ],
       ),
