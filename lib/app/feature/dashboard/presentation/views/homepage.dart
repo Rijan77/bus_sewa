@@ -21,7 +21,11 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
   final ScrollController _scrollController = ScrollController();
-  bool _isScrolled = false;
+  // bool _isScrolled = false;
+
+  ValueNotifier<bool> _isScrolled = ValueNotifier(false);
+
+
 
   @override
   void initState() {
@@ -31,14 +35,13 @@ class _HomepageState extends State<Homepage> {
 
   void _scrollListener() {
     if (_scrollController.hasClients) {
-      final bool isScrolledNow = _scrollController.offset > 45;
-      if (isScrolledNow != _isScrolled) {
-        setState(() {
-          _isScrolled = isScrolledNow;
-        });
+      final isScrolledNow = _scrollController.offset > 45;
+      if (_isScrolled.value != isScrolledNow) {
+        _isScrolled.value = isScrolledNow;
       }
     }
   }
+
 
   @override
   void dispose() {
@@ -49,264 +52,216 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     print("building 3f ");
-    return Scaffold(
-      backgroundColor: const Color(0xffF9F9FF),
-      body: CustomScrollView(
-        controller: _scrollController,
-        slivers: <Widget>[
-          SliverAppBar(
-            expandedHeight: 0.25.sh,
-            collapsedHeight: 0.13.sh,
-            backgroundColor:
-                _isScrolled ? const Color(0xff13366E) : const Color(0xffF9F9FF),
-            shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-                    bottomRight: Radius.circular(16),
-                    bottomLeft: Radius.circular(16))),
-            pinned: true,
-            flexibleSpace: FlexibleSpaceBar(
-              // stretchModes: const <StretchMode>[
-              //   StretchMode.fadeTitle,
-              // ],
-              centerTitle: true,
-              expandedTitleScale: 1,
-              title: TopHeaderWidget(
-                items: [
-                  HeaderItem(
-                    image: SvgPicture.asset(
-                        "assets/icons/BusSewa New App icons -01.svg"),
-                    label: "Bus Tickets",
-                  ),
-                  HeaderItem(
-                    image: SvgPicture.asset(
-                        "assets/icons/BusSewa New App icons -02.svg"),
-                    label: "Reserve",
-                  ),
-                  HeaderItem(
-                    image:
-                        SvgPicture.asset("assets/icons/Frame 1171275982.svg"),
-                    label: "Flights",
-                  ),
-                  HeaderItem(
-                    image: SvgPicture.asset(
-                        "assets/icons/BusSewa New App icons -04.svg"),
-                    label: "My Tickets",
-                  ),
-                ],
-              ),
-              collapseMode: CollapseMode.parallax,
-              background: Stack(
-                clipBehavior: Clip.none, // Allow overflow
-                children: [
-                  Column(
-                    children: [
-                      Container(
-                        width: double.infinity,
-                        height: 180,
-                        color: const Color(0xff13366E),
-                        padding:
-                            const EdgeInsets.only(top: 30, left: 16, right: 16),
-                        child: const Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.start,
+    return ValueListenableBuilder(valueListenable: _isScrolled,
+        builder: (context, value, _) {
+          return Scaffold(
+            backgroundColor: const Color(0xffF9F9FF),
+            body: CustomScrollView(
+              controller: _scrollController,
+              slivers: <Widget>[
+                SliverAppBar(
+                  expandedHeight: 0.25.sh,
+                  collapsedHeight: 0.13.sh,
+                  backgroundColor:
+                  value ? const Color(0xff13366E) : const Color(0xffF9F9FF),
+                  shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.only(
+                          bottomRight: Radius.circular(16),
+                          bottomLeft: Radius.circular(16))),
+                  pinned: true,
+                  flexibleSpace: FlexibleSpaceBar(
+                    // stretchModes: const <StretchMode>[
+                    //   StretchMode.fadeTitle,
+                    // ],
+                    centerTitle: true,
+                    expandedTitleScale: 1,
+                    title: TopHeaderWidget(
+                      items: [
+                        HeaderItem(
+                          image: SvgPicture.asset(
+                              "assets/icons/BusSewa New App icons -01.svg"),
+                          label: "Bus Tickets",
+                        ),
+                        HeaderItem(
+                          image: SvgPicture.asset(
+                              "assets/icons/BusSewa New App icons -02.svg"),
+                          label: "Reserve",
+                        ),
+                        HeaderItem(
+                          image:
+                          SvgPicture.asset("assets/icons/Frame 1171275982.svg"),
+                          label: "Flights",
+                        ),
+                        HeaderItem(
+                          image: SvgPicture.asset(
+                              "assets/icons/BusSewa New App icons -04.svg"),
+                          label: "My Tickets",
+                        ),
+                      ],
+                    ),
+                    collapseMode: CollapseMode.parallax,
+                    background: Stack(
+                      clipBehavior: Clip.none, // Allow overflow
+                      children: [
+                        Column(
                           children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.only(top: 50),
-                                  child: Text(
-                                    "Hello! Rijan Ji",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 25,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                            Container(
+                              width: double.infinity,
+                              height: 180,
+                              color: const Color(0xff13366E),
+                              padding:
+                              const EdgeInsets.only(
+                                  top: 30, left: 16, right: 16),
+                              child: const Row(
+                                mainAxisAlignment: MainAxisAlignment
+                                    .spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment
+                                        .start,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.only(top: 50),
+                                        child: Text(
+                                          "Hello! Rijan Ji",
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 25,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(height: 5),
+                                      Text(
+                                        "What would you like to do?",
+                                        style: TextStyle(
+                                          color: Colors.white70,
+                                          fontSize: 14,
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                ),
-                                SizedBox(height: 5),
-                                Text(
-                                  "What would you like to do?",
-                                  style: TextStyle(
-                                    color: Colors.white70,
-                                    fontSize: 14,
+                                  Row(
+                                    children: [
+                                      Icon(Icons.notifications_none_outlined,
+                                          color: Colors.white, size: 30),
+                                      SizedBox(width: 10),
+                                      CircleAvatar(
+                                        radius: 25,
+                                        backgroundImage:
+                                        AssetImage('assets/images/myphoto.jpg'),
+                                      ),
+                                    ],
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                            Row(
-                              children: [
-                                Icon(Icons.notifications_none_outlined,
-                                    color: Colors.white, size: 30),
-                                SizedBox(width: 10),
-                                CircleAvatar(
-                                  radius: 25,
-                                  backgroundImage:
-                                      AssetImage('assets/images/myphoto.jpg'),
-                                ),
-                              ],
+                            Expanded(
+                              child: Container(
+                                  width: double.infinity,
+                                  color: const Color(0xffF9F9FF)),
                             ),
                           ],
                         ),
-                      ),
-                      Expanded(
-                        child: Container(
-                            width: double.infinity,
-                            color: const Color(0xffF9F9FF)),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                  // 👇 Overlay widget
-                  // Positioned(
-                  //   top: 130,// Half of its height to overlay evenly
-                  //   left: 10,
-                  //   right: 10,
-                  //   child: SizedBox(
-                  //     height: 100,
-                  //     child: TopHeaderWidget(
-                  //       items: [
-                  //         HeaderItem(
-                  //           image: SvgPicture.asset("assets/icons/BusSewa New App icons -01.svg"),
-                  //           label: "Bus Tickets",
-                  //         ),
-                  //         HeaderItem(
-                  //           image: SvgPicture.asset("assets/icons/BusSewa New App icons -02.svg"),
-                  //           label: "Reserve",
-                  //         ),
-                  //         HeaderItem(
-                  //           image: SvgPicture.asset("assets/icons/Frame 1171275982.svg"),
-                  //           label: "Flights",
-                  //         ),
-                  //         HeaderItem(
-                  //           image: SvgPicture.asset("assets/icons/BusSewa New App icons -04.svg"),
-                  //           label: "My Tickets",
-                  //         ),
-                  //       ],
-                  //     ),
-                  //   ),
-                  // ),
-                ],
-              ),
-            ),
-          ),
-          // Below the AppBar
-          SliverToBoxAdapter(
-            child: Container(
-              child: SecondHeader(items: [
-                SecondHeaderItem(
-                  image: SvgPicture.asset(
-                      "assets/icons/BusSewa New App icons -08.svg"),
-                  label: "Hotel",
                 ),
-                SecondHeaderItem(
-                  image: SvgPicture.asset(
-                      "assets/icons/BusSewa New App icons -09.svg"),
-                  label: "Activity",
+                // Below the AppBar
+                SliverToBoxAdapter(
+                  child: Container(
+                    child: SecondHeader(items: [
+                      SecondHeaderItem(
+                        image: SvgPicture.asset(
+                            "assets/icons/BusSewa New App icons -08.svg"),
+                        label: "Hotel",
+                      ),
+                      SecondHeaderItem(
+                        image: SvgPicture.asset(
+                            "assets/icons/BusSewa New App icons -09.svg"),
+                        label: "Activity",
+                      ),
+                      SecondHeaderItem(
+                        image: SvgPicture.asset(
+                            "assets/icons/Frame 1171275982.svg"),
+                        label: "Flight",
+                      ),
+                      SecondHeaderItem(
+                        image: SvgPicture.asset(
+                            "assets/icons/Frame 1171275983.svg"),
+                        label: "Domestic",
+                      ),
+                      SecondHeaderItem(
+                        image: SvgPicture.asset(
+                            "assets/icons/BusSewa New App icons -03.svg"),
+                        label: "Tours",
+                      ),
+                      SecondHeaderItem(
+                        image: SvgPicture.asset(
+                            "assets/icons/BusSewa New App icons -03.svg"),
+                        label: "Vacation",
+                      ),
+                      SecondHeaderItem(
+                        image: SvgPicture.asset(
+                            "assets/icons/BusSewa New App icons -08.svg"),
+                        label: "AirBnB",
+                      ),
+                      SecondHeaderItem(
+                        image: SvgPicture.asset(
+                            "assets/icons/Frame 1171275982.svg"),
+                        label: "Trains",
+                      ),
+                    ]),
+                  ),
                 ),
-                SecondHeaderItem(
-                  image: SvgPicture.asset("assets/icons/Frame 1171275982.svg"),
-                  label: "Flight",
+                const SliverToBoxAdapter(
+                  child: Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: GiftSectionMain(),
+                  ),
                 ),
-                SecondHeaderItem(
-                  image: SvgPicture.asset("assets/icons/Frame 1171275983.svg"),
-                  label: "Domestic",
+                const SliverToBoxAdapter(
+                  child: PromoCode(),
                 ),
-                SecondHeaderItem(
-                  image: SvgPicture.asset(
-                      "assets/icons/BusSewa New App icons -03.svg"),
-                  label: "Tours",
+                // Placeholder containers
+                const SliverToBoxAdapter(
+                  child: Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: RecentSearch(),
+                  ),
                 ),
-                SecondHeaderItem(
-                  image: SvgPicture.asset(
-                      "assets/icons/BusSewa New App icons -03.svg"),
-                  label: "Vacation",
+                const SliverToBoxAdapter(
+                  child: Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: FlashSalesMain(),
+                  ),
                 ),
-                SecondHeaderItem(
-                  image: SvgPicture.asset(
-                      "assets/icons/BusSewa New App icons -08.svg"),
-                  label: "AirBnB",
-                ),
-                SecondHeaderItem(
-                  image: SvgPicture.asset("assets/icons/Frame 1171275982.svg"),
-                  label: "Trains",
-                ),
-              ]),
-            ),
-          ),
-          const SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsets.all(8.0),
-              child: GiftSectionMain(),
-            ),
-          ),
-          // SliverToBoxAdapter(
-          //   child: Padding(
-          //     padding: const EdgeInsets.all(8.0),
-          //     child: SingleChildScrollView(
-          //       scrollDirection: Axis.horizontal,
-          //       child: Row(
-          //         children: [
-          //           SizedBox(
-          //             height: 70,
-          //             child: Image.asset(
-          //               "assets/images/Frame 1171276782.png",
-          //               fit: BoxFit.cover,
-          //             ),
-          //           ),
-          //           const SizedBox(
-          //             width: 10,
-          //           ),
-          //           SizedBox(
-          //             height: 70,
-          //             child: Image.asset(
-          //               "assets/images/Frame 1171276782.png",
-          //               fit: BoxFit.cover,
-          //             ),
-          //           ),
-          //         ],
-          //       ),
-          //     ),
-          //   ),
-          // ),
-           const SliverToBoxAdapter(
-            child: PromoCode(),
-          ),
-          // Placeholder containers
-          const SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsets.all(8.0),
-              child: RecentSearch(),
-            ),
-          ),
-          const SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsets.all(8.0),
-              child: FlashSalesMain(),
-            ),
-          ),
 
-          const SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsets.all(8.0),
-              child: OfferMain(),
-            ),
-          ),
-          const SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsets.all(8.0),
-              child: SocialsSharesMain(),
-            ),
-          ),
+                const SliverToBoxAdapter(
+                  child: Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: OfferMain(),
+                  ),
+                ),
+                const SliverToBoxAdapter(
+                  child: Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: SocialsSharesMain(),
+                  ),
+                ),
 
-          const SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsets.all(8.0),
-              child: BlogsMain(),
-            ),
-          )
+                const SliverToBoxAdapter(
+                  child: Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: BlogsMain(),
+                  ),
+                )
 
-        ],
-      ),
+              ],
+            ),
+          );
+        }
     );
   }
 }
