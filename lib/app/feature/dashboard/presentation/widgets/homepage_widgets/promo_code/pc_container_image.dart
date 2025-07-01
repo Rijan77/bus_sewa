@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PcContainerImage extends StatelessWidget {
-
   const PcContainerImage({super.key});
 
   @override
@@ -30,31 +29,28 @@ class PcContainerImage extends StatelessWidget {
             padding: EdgeInsets.all(10),
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
-
               child: Row(
                 children: promoCode.map((promoCode) {
-                  return Padding(padding: EdgeInsets.all(10),
+                  return Padding(
+                    padding: EdgeInsets.all(10),
                     child: _buildItem(
                         imageUrl: promoCode.imageUrl,
                         title: promoCode.title,
                         subTitle: promoCode.subTitle,
-                        buttonText: "Collect"
-
-                    ),);
+                        buttonText: "Collect"),
+                  );
                 }).toList(),
               ),
             ),
           );
-        }
-    );
+        });
   }
 
-  Widget _buildItem({
-    required String imageUrl,
-    required String title,
-    required String subTitle,
-    required String buttonText
-  }) {
+  Widget _buildItem(
+      {required String imageUrl,
+      required String title,
+      required String subTitle,
+      required String buttonText}) {
     return Container(
       height: 200.w,
       width: 200.w,
@@ -72,8 +68,7 @@ class PcContainerImage extends StatelessWidget {
       child: Column(
         children: [
           ClipRRect(
-            borderRadius:
-            const BorderRadius.vertical(top: Radius.circular(12)),
+            borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
             child: Container(
               height: 100,
               width: double.infinity,
@@ -81,7 +76,10 @@ class PcContainerImage extends StatelessWidget {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
               ),
-              child: Image.asset(imageUrl, fit: BoxFit.cover,),
+              child: Image.asset(
+                imageUrl,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
           const SizedBox(height: 8),
@@ -126,8 +124,4 @@ class PcContainerImage extends StatelessWidget {
       ),
     );
   }
-
 }
-
-
-
