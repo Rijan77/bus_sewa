@@ -46,21 +46,20 @@ class _BlogSectionState extends State<BlogSection> {
         enlargeCenterPage: true,
         autoPlay: true,
         viewportFraction: 0.9,
-
       ),
     );
   }
 
   Widget buildCarouselContainer(
-      Image image,
-      String heading,
-      String date,
-      String description,
-      IconData viewIcon,
-      IconData commentIcon,
-      int viewCount,
-      int commentCount,
-      ) {
+    Image image,
+    String heading,
+    String date,
+    String description,
+    IconData viewIcon,
+    IconData commentIcon,
+    int viewCount,
+    int commentCount,
+  ) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
       child: Container(
@@ -68,19 +67,28 @@ class _BlogSectionState extends State<BlogSection> {
         color: const Color(0xffFEFBFF),
         child: Row(
           children: [
-            Expanded(flex: 2, child: ClipRRect(borderRadius: BorderRadius.circular(10), child: image)),
-             const SizedBox(width: 10),
+            Expanded(
+                flex: 2,
+                child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10), child: image)),
+            const SizedBox(width: 10),
             Expanded(
               flex: 3,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(heading, style: TextStyleWidget.blogHeading()),
-      
                   Text(date, style: TextStyleWidget.blogDate()),
-                  const SizedBox(height: 5,),
-                  Text(description, maxLines: 2, overflow: TextOverflow.ellipsis, style: TextStyleWidget.blogDes()),
-                  const SizedBox(height: 5,),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Text(description,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyleWidget.blogDes()),
+                  const SizedBox(
+                    height: 5,
+                  ),
                   Padding(
                     padding: const EdgeInsets.only(right: 10),
                     child: Row(

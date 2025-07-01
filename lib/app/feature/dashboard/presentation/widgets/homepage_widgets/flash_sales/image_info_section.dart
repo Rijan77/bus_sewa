@@ -75,7 +75,7 @@ class ImageInfoSection extends StatelessWidget {
                     style: TextStyleWidget.flashSlaesTime(),
                   ),
                 ),
-                 SizedBox(height: 0.094.sh),
+                SizedBox(height: 0.094.sh),
                 Center(
                   child: Text(title, style: TextStyleWidget.flashSalesOffer()),
                 ),

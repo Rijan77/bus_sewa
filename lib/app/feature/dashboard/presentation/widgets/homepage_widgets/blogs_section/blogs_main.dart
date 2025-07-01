@@ -24,15 +24,22 @@ class _BlogsMainState extends State<BlogsMain> {
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             child: Row(
               children: [
-                Text("Blogs", style: TextStyleWidget.titleTextStyle(),),
-                const SizedBox(width: 210,),
-                Text("View All >>", style: TextStyleWidget.subTitleTextStyle(),)
+                Text(
+                  "Blogs",
+                  style: TextStyleWidget.titleTextStyle(),
+                ),
+                const SizedBox(
+                  width: 210,
+                ),
+                Text(
+                  "View All >>",
+                  style: TextStyleWidget.subTitleTextStyle(),
+                )
               ],
             ),
           ),
           PcButton(),
           const BlogSection(),
-
           const Padding(
             padding: EdgeInsets.only(bottom: 10),
           )
