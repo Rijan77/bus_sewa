@@ -41,26 +41,7 @@ class _PromoCodeState extends State<PromoCode> {
             scrollDirection: Axis.horizontal,
             child: Row(
               children: [
-                PcContainerImage(
-                  items: [
-                    PcContainerImageItem(
-                        image: Image.asset(
-                          "assets/images/Offer Image.png",
-                          fit: BoxFit.cover,
-                        ),
-                        title: "Dashain Promo",
-                        subtitle: "Valid Till 5 Dec 2024",
-                        buttonText: "Collect"),
-                    PcContainerImageItem(
-                        image: Image.asset(
-                          "assets/images/Offer Image_2.png",
-                          fit: BoxFit.cover,
-                        ),
-                        title: "Black Friday Deals!",
-                        subtitle: "Valid Till 5 Dec 2024",
-                        buttonText: "Collect"),
-                  ],
-                )
+                PcContainerImage()
               ],
             ),
           )
