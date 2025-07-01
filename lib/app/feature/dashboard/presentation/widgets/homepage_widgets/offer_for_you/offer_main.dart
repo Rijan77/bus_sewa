@@ -24,9 +24,17 @@ class _OfferMainState extends State<OfferMain> {
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             child: Row(
               children: [
-                Text("Offers for you", style: TextStyleWidget.titleTextStyle(),),
-                const SizedBox(width: 160,),
-                Text("View All>>", style: TextStyleWidget.subTitleTextStyle(),)
+                Text(
+                  "Offers for you",
+                  style: TextStyleWidget.titleTextStyle(),
+                ),
+                const SizedBox(
+                  width: 160,
+                ),
+                Text(
+                  "View All>>",
+                  style: TextStyleWidget.subTitleTextStyle(),
+                )
               ],
             ),
           ),
@@ -35,7 +43,6 @@ class _OfferMainState extends State<OfferMain> {
           const Padding(
             padding: EdgeInsets.only(bottom: 10),
           )
-
         ],
       ),
     );
