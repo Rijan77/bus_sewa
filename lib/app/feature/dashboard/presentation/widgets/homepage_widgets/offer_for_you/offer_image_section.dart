@@ -12,6 +12,26 @@ class OfferImageSection extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         child: Row(
           children: [
+            for(int i=0; i<=5; i++)...{
+              _buildCard(
+                  imageUrl:
+                  "https://i.pinimg.com/736x/65/20/94/652094e35710c83914f433fc04579f9b.jpg",
+                  offerType: Container(
+                    height: 20,
+                    width: 70,
+                    decoration: BoxDecoration(
+                        color: Colors.yellow.shade50,
+                        borderRadius: BorderRadius.circular(30)),
+                    child: const Center(
+                      child: Text(
+                        "Rental",
+                        style: TextStyle(color: Colors.orangeAccent),
+                      ),
+                    ),
+                  ),
+                  title: "Black Friday Deals!",
+                  subTitle: "Valid Till: 5 Dec 2024"),
+            },
             _buildCard(
                 imageUrl:
                     "https://i.pinimg.com/736x/65/20/94/652094e35710c83914f433fc04579f9b.jpg",
