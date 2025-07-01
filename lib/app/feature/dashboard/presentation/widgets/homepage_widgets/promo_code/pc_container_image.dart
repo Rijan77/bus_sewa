@@ -11,28 +11,28 @@ class PcContainerImage extends StatelessWidget {
         future: MockPromoCodes.fetchPromoCodes(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return SizedBox(
+            return const SizedBox(
               height: 180,
               child: Center(
                 child: CircularProgressIndicator(),
               ),
             );
           } else if (snapshot.hasError) {
-            return Text("Error Loading PromoCode");
+            return const Text("Error Loading PromoCode");
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return Text("No PromoCodes Avilable");
+            return const Text("No PromoCodes Avilable");
           }
 
           final promoCode = snapshot.data!;
 
           return Padding(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: promoCode.map((promoCode) {
                   return Padding(
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     child: _buildItem(
                         imageUrl: promoCode.imageUrl,
                         title: promoCode.title,
@@ -112,7 +112,7 @@ class PcContainerImage extends StatelessWidget {
             width: 170,
             alignment: Alignment.center,
             decoration: BoxDecoration(
-              color: Color(0xff198B85),
+              color: const Color(0xff198B85),
               borderRadius: BorderRadius.circular(5),
             ),
             child: Text(
