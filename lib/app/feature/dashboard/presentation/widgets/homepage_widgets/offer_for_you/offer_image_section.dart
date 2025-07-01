@@ -13,27 +13,27 @@ class OfferImageSection extends StatelessWidget {
         future: MockOfferService.fetchOffers(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return SizedBox(
+            return const SizedBox(
               height: 180,
               child: Center(
                 child: CircularProgressIndicator(),
               ),
             );
           } else if (snapshot.hasError) {
-            return Text("Error loading offers");
+            return const Text("Error loading offers");
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return Text("No offers available");
+            return const Text("No offers available");
           }
           final offers = snapshot.data!;
 
           return Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: offers.map((offers) {
                   return Padding(
-                    padding: EdgeInsets.only(right: 10),
+                    padding: const EdgeInsets.only(right: 10),
                     child: _buildCard(
                         imageUrl: offers.imageUrl,
                         offerType: _buildOfferType(offers.offerType),

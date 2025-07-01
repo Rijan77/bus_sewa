@@ -23,7 +23,7 @@ class _HomepageState extends State<Homepage> {
   final ScrollController _scrollController = ScrollController();
   // bool _isScrolled = false;
 
-  ValueNotifier<bool> _isScrolled = ValueNotifier(false);
+  final ValueNotifier<bool> _isScrolled = ValueNotifier(false);
 
 
 
