@@ -1,16 +1,19 @@
 import 'package:bus_sewa/app/core/common_widgets/text_style_widget.dart';
-import 'package:bus_sewa/app/feature/dashboard/domain/entities/mock_offer_service%20.dart';
+// import 'package:bus_sewa/app/feature/dashboard/data/repositories/mock_offer_service%20.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../data/models/offers_models/offers_items.dart';
+import '../../../../data/repositories/mock_offer_implementation .dart';
 
 class OfferImageSection extends StatelessWidget {
-  const OfferImageSection({super.key});
+   OfferImageSection({super.key});
+
+   final offerService = MockOfferService();
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<OfferModel>>(
-        future: MockOfferService.fetchOffers(),
+        future: offerService.fetchOffers(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const SizedBox(
@@ -25,13 +28,14 @@ class OfferImageSection extends StatelessWidget {
             return const Text("No offers available");
           }
           final offers = snapshot.data!;
+          final limitedData = offers.take(5).toList();
 
           return Padding(
             padding: const EdgeInsets.all(8.0),
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                children: offers.map((offers) {
+                children: limitedData.map((offers) {
                   return Padding(
                     padding: const EdgeInsets.only(right: 10),
                     child: _buildCard(
