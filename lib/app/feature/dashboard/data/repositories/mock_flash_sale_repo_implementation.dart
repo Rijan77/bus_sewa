@@ -6,7 +6,7 @@ import 'package:bus_sewa/app/feature/dashboard/domain/repositories/flash_repo_ab
 class FlashSaleRepoImple implements FlashRepoAbstract {
   @override
   Future<List<FlashSaleModel>> flashSale() async {
-    await Future.delayed(Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 1));
 
     final flashData = [
       {
