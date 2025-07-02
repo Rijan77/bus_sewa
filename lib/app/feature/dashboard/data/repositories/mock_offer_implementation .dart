@@ -6,6 +6,7 @@ class MockOfferService implements OfferRepoAbstract {
 
   @override
   Future<List<OfferModel>> fetchOffers() async{
+    await Future.delayed(Duration(seconds: 1));
 
     final data = [
       {
