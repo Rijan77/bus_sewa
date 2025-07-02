@@ -3,13 +3,12 @@ import 'dart:async';
 import 'package:bus_sewa/app/feature/dashboard/data/models/flash_sales_models/flash_sales_model.dart';
 import 'package:bus_sewa/app/feature/dashboard/domain/repositories/flash_repo_abstract.dart';
 
-class FlashSaleRepoImple implements FlashRepoAbstract{
-
+class FlashSaleRepoImple implements FlashRepoAbstract {
   @override
-  Future<List<FlashSaleModel>> flashSale() async{
+  Future<List<FlashSaleModel>> flashSale() async {
     await Future.delayed(Duration(seconds: 1));
 
-    final flashData=[
+    final flashData = [
       {
         "time": "1H 40M left",
         "discount": "Get 20% OFF",
@@ -34,13 +33,8 @@ class FlashSaleRepoImple implements FlashRepoAbstract{
         "hotelName": "Meghauli Hotel",
         "imageUrl": "assets/images/Frame 1171275917.png"
       },
-
     ];
 
-    return flashData.map((json)=> FlashSaleModel.fromJson(json)).toList();
-
-
-
+    return flashData.map((json) => FlashSaleModel.fromJson(json)).toList();
   }
-
 }
