@@ -13,7 +13,8 @@ class FlashSalesDataCubit extends Cubit<FlashSaleDataState> {
     emit(state.copyWith(status: ApiStatus.loading));
 
     try {
-      final List<FlashSaleModel> flashSales = await flashSaleRepoImple.flashSale();
+      final List<FlashSaleModel> flashSales =
+          await flashSaleRepoImple.flashSale();
       emit(state.copyWith(status: ApiStatus.success, flashSales: flashSales));
     } catch (e) {
       emit(state.copyWith(

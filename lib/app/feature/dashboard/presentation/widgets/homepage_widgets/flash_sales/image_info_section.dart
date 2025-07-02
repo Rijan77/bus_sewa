@@ -14,7 +14,6 @@ class ImageInfoSection extends StatefulWidget {
 }
 
 class _ImageInfoSectionState extends State<ImageInfoSection> {
-
   @override
   void initState() {
     // TODO: implement initState
@@ -24,46 +23,47 @@ class _ImageInfoSectionState extends State<ImageInfoSection> {
 
   @override
   Widget build(BuildContext context) {
-
-    return BlocBuilder<FlashSalesDataCubit, FlashSaleDataState>(builder: (context, state){
-       if(state.status == ApiStatus.initial || state.status == ApiStatus.loading){
-         return const Center(
-           child: CircularProgressIndicator(color: Colors.blueGrey,),
-         );
-       } else if (state.status == ApiStatus.failure){
-         return Center(child: Text(state.error?? "Something went wrong"));
-       } else if(state.status == ApiStatus.success){
-         return Padding(padding: const EdgeInsets.all(10.0),
-           child: ClipRRect(
-             borderRadius: BorderRadius.circular(10.0),
-             child: SingleChildScrollView(
-               scrollDirection: Axis.horizontal,
-
-               child: Row(
-                 children: state.flashSales.map((sale){
-                   return Padding(
-                     padding: const EdgeInsets.only(right: 10),
-                     child: Row(
-                       children: [
-                         _buildRoundedBox(imagePath: sale.imageUrl, timeText: sale.time, title: sale.discount, subTitle: sale.hotelName)
-                       ],
-                     ),
-                   );
-                 }).toList(),
-               ),
-             ),
-           ),
-         );
-       } else{
-         return const SizedBox.shrink();
-       }
-
+    return BlocBuilder<FlashSalesDataCubit, FlashSaleDataState>(
+        builder: (context, state) {
+      if (state.status == ApiStatus.initial ||
+          state.status == ApiStatus.loading) {
+        return const Center(
+          child: CircularProgressIndicator(
+            color: Colors.blueGrey,
+          ),
+        );
+      } else if (state.status == ApiStatus.failure) {
+        return Center(child: Text(state.error ?? "Something went wrong"));
+      } else if (state.status == ApiStatus.success) {
+        return Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(10.0),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: state.flashSales.map((sale) {
+                  return Padding(
+                    padding: const EdgeInsets.only(right: 10),
+                    child: Row(
+                      children: [
+                        _buildRoundedBox(
+                            imagePath: sale.imageUrl,
+                            timeText: sale.time,
+                            title: sale.discount,
+                            subTitle: sale.hotelName)
+                      ],
+                    ),
+                  );
+                }).toList(),
+              ),
+            ),
+          ),
+        );
+      } else {
+        return const SizedBox.shrink();
+      }
     });
-
-
-
-
-
 
     // return Padding(
     //   padding: const EdgeInsets.all(10.0),
