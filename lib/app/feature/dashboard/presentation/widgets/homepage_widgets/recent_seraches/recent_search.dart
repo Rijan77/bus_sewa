@@ -27,15 +27,10 @@ class RecentSearch extends StatelessWidget {
                     color: Color(0xff4A4A4A)),
               ),
             ),
+            const SizedBox(height: 5),
 
-            
-            RsLocation(items: [
-              RsLocationItem(
-                  heading: "Bus: Chitwan - Pokhara",
-                  subHeading: "4 Dec | 4 Passengers"),
-              RsLocationItem(
-                  heading: "Flight: Chitwan - Pokhara", subHeading: "4 Dec")
-            ])
+            RsLocation()
+
           ],
         ),
       ),

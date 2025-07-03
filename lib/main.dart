@@ -1,3 +1,4 @@
+import 'package:bus_sewa/app/feature/dashboard/presentation/blocs/recent_searches/recent_searches_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
         return MultiBlocProvider(
           providers: [
             BlocProvider(create: (_) => FlashSalesDataCubit()),
+            BlocProvider(create: (_)=> RecentSearchesCubit())
           ],
           child: MaterialApp(
             debugShowCheckedModeBanner: false,
