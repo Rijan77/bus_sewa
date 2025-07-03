@@ -1,4 +1,4 @@
-import 'package:bus_sewa/app/feature/dashboard/domain/entities/mock_promo_codes.dart';
+import 'package:bus_sewa/app/feature/dashboard/data/repositories/mock_promo_codes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -76,7 +76,7 @@ class PcContainerImage extends StatelessWidget {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
               ),
-              child: Image.asset(
+              child: Image.network(
                 imageUrl,
                 fit: BoxFit.cover,
               ),
