@@ -1,9 +1,12 @@
-import 'package:bus_sewa/app/feature/dashboard/data/repositories/mock_promo_codes.dart';
+
+import 'package:bus_sewa/app/feature/dashboard/data/repositories/promocodes_implementation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PcContainerImage extends StatelessWidget {
-  const PcContainerImage({super.key});
+   PcContainerImage({super.key});
+
+  PromocodesImplementation promocodesImplementation = PromocodesImplementation();
 
 
   @override
@@ -11,7 +14,7 @@ class PcContainerImage extends StatelessWidget {
 
 
     return FutureBuilder(
-        future: MockPromoCodes.fetchPromoCodes(),
+        future: promocodesImplementation.getPromoCodes(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const SizedBox(
