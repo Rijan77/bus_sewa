@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'app/feature/dashboard/presentation/views/homepage.dart';
-import 'app/feature/dashboard/presentation/blocs/flash_sales_data_cubit.dart';
+import 'app/feature/dashboard/presentation/blocs/flash_sales/flash_sales_data_cubit.dart';
 
 void main() {
   runApp(const MyApp());

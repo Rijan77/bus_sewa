@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
-import '../../../../core/utils/api_status.dart';
-import '../../data/models/flash_sales_models/flash_sales_model.dart';
+import '../../../../../core/utils/api_status.dart';
+import '../../../data/models/flash_sales_models/flash_sales_model.dart';
 
 class FlashSaleDataState extends Equatable {
   final ApiStatus status;

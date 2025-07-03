@@ -1,10 +1,10 @@
 import 'package:bus_sewa/app/core/common_widgets/text_style_widget.dart';
 import 'package:bus_sewa/app/core/utils/api_status.dart';
-import 'package:bus_sewa/app/feature/dashboard/presentation/blocs/flash_sales_data_cubit.dart';
+import 'package:bus_sewa/app/feature/dashboard/presentation/blocs/flash_sales/flash_sales_data_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../blocs/flash_sales_data_state.dart';
+import '../../../blocs/flash_sales/flash_sales_data_state.dart';
 
 class ImageInfoSection extends StatefulWidget {
   const ImageInfoSection({super.key});

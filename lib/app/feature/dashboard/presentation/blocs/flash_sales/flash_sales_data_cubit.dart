@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
-import '../../../../core/utils/api_status.dart';
-import '../../data/models/flash_sales_models/flash_sales_model.dart';
-import '../../data/repositories/mock_flash_sale_repo_implementation.dart';
+import '../../../../../core/utils/api_status.dart';
+import '../../../data/models/flash_sales_models/flash_sales_model.dart';
+import '../../../data/repositories/mock_flash_sale_repo_implementation.dart';
 import 'flash_sales_data_state.dart';
 
 class FlashSalesDataCubit extends Cubit<FlashSaleDataState> {
