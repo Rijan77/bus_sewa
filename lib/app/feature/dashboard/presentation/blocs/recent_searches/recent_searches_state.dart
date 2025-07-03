@@ -13,7 +13,7 @@ class RecentSearchesState extends Equatable { // Equatable helps to knwo when th
       this.error //null
       });
 
-  RecentSearchesState copyWith ({ //Thids copyWith function helps to create a new update state, you only change the part you want, and keep others the same
+  RecentSearchesState copyWith ({ //This copyWith function helps to create a new update state, you only change the part you want, and keep others the same
     ApiStatus? searchStatus, List<RecentSearchModel>? searchesModel, String? error
   }){
     return RecentSearchesState(
