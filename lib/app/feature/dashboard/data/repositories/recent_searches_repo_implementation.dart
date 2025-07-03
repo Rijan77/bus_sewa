@@ -4,7 +4,7 @@ import 'package:bus_sewa/app/feature/dashboard/domain/repositories/recent_search
 class RecentSearchesRepoImplementation implements RecentSearchesRepoAbstract {
   @override
   Future<List<RecentSearchModel>> getRecentSearch() async {
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 2));
 
     final recentSearchData = [
       {

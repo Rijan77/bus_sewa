@@ -14,10 +14,10 @@ class RecentSearch extends StatelessWidget {
         width: double.infinity,
         decoration: BoxDecoration(
             color: Colors.white, borderRadius: BorderRadius.circular(10)),
-        child: Column(
+        child: const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Padding(
+            Padding(
               padding: EdgeInsets.only(top: 10, left: 15),
               child: Text(
                 "Recent Searches",
@@ -27,7 +27,7 @@ class RecentSearch extends StatelessWidget {
                     color: Color(0xff4A4A4A)),
               ),
             ),
-            const SizedBox(height: 5),
+            SizedBox(height: 5),
 
             RsLocation()
 

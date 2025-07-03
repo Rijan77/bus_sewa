@@ -7,7 +7,7 @@ class RecentSearchesState extends Equatable { // Equatable helps to knwo when th
   final List<RecentSearchModel> searchesModel; // Stores the list of recent search data
   final String? error; // Stores an error message
 
-  RecentSearchesState( //This is constructor. if notings is passed, default values are used
+  const RecentSearchesState( //This is constructor. if notings is passed, default values are used
       {this.searchStatus = ApiStatus.initial, // starts with initial
       this.searchesModel = const [], //empty list
       this.error //null

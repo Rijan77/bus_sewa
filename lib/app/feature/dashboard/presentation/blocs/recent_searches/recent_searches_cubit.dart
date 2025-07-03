@@ -3,11 +3,10 @@ import 'package:bus_sewa/app/core/utils/api_status.dart';
 import 'package:bus_sewa/app/feature/dashboard/data/models/recent_searches/recent_search_model.dart';
 import 'package:bus_sewa/app/feature/dashboard/data/repositories/recent_searches_repo_implementation.dart';
 import 'package:bus_sewa/app/feature/dashboard/presentation/blocs/recent_searches/recent_searches_state.dart';
-import 'package:equatable/equatable.dart';
 
 
 class RecentSearchesCubit extends Cubit<RecentSearchesState> {
-  RecentSearchesCubit() : super(RecentSearchesState());
+  RecentSearchesCubit() : super(const RecentSearchesState());
 
   RecentSearchesRepoImplementation recentSearchesRepoImplementation =  RecentSearchesRepoImplementation();
 
