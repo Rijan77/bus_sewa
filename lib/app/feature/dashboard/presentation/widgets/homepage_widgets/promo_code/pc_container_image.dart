@@ -5,8 +5,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class PcContainerImage extends StatelessWidget {
   const PcContainerImage({super.key});
 
+
   @override
   Widget build(BuildContext context) {
+
+
     return FutureBuilder(
         future: MockPromoCodes.fetchPromoCodes(),
         builder: (context, snapshot) {
@@ -18,7 +21,15 @@ class PcContainerImage extends StatelessWidget {
               ),
             );
           } else if (snapshot.hasError) {
-            return const Text("Error Loading PromoCode");
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 120),
+              child: Column(
+                children: [
+                  Icon(Icons.error, size: 50,),
+                  Text("Error to fetch data")
+                ],
+              ),
+            );
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
             return const Text("No PromoCodes Avilable");
           }
@@ -36,7 +47,8 @@ class PcContainerImage extends StatelessWidget {
                     child: _buildItem(
                         imageUrl: promoCode.imageUrl,
                         title: promoCode.title,
-                        subTitle: promoCode.subTitle,
+                        subTitle: promoCode.validDate,
+                        promoType: promoCode.promoType,
                         buttonText: "Collect"),
                   );
                 }).toList(),
@@ -50,6 +62,7 @@ class PcContainerImage extends StatelessWidget {
       {required String imageUrl,
       required String title,
       required String subTitle,
+        required String promoType,
       required String buttonText}) {
     return Container(
       height: 200.w,
@@ -76,9 +89,14 @@ class PcContainerImage extends StatelessWidget {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
               ),
-              child: Image.network(
-                imageUrl,
-                fit: BoxFit.cover,
+              child: Stack(
+                children: [
+                  Image.network(
+                    imageUrl,
+                    fit: BoxFit.cover,
+                  ),
+                  Text(promoType, style: TextStyle(color: Colors.white),)
+                ],
               ),
             ),
           ),
