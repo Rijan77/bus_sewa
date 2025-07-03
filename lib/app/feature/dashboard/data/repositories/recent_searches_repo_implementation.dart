@@ -15,12 +15,26 @@ class RecentSearchesRepoImplementation implements RecentSearchesRepoAbstract {
         "passangerNumber": 4
       },
       {
-        "transportType": "Jeep",
+        "transportType": "Flight",
         "departurePlace": "Kathmandu",
         "arrivalPlace": "Biratnagar",
         "date": "5 Dec",
         "passangerNumber": 2
-      }
+      },
+       {
+        "transportType": "Bus",
+        "departurePlace": "Bardiya",
+        "arrivalPlace": "Janakpur",
+        "date": "5 Dec",
+        "passangerNumber": 1
+      },
+      {
+        "transportType": "Flight",
+        "departurePlace": "Kathmandu",
+        "arrivalPlace": "Biratnagar",
+        "date": "5 Dec",
+        "passangerNumber": 2
+      },
     ];
 
     return recentSearchData
