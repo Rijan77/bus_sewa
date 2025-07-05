@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:bus_sewa/app/core/utils/api_status.dart';
 import 'package:bus_sewa/app/feature/dashboard/data/repositories/promocodes_implementation.dart';
 import 'package:bus_sewa/app/feature/dashboard/presentation/blocs/promo_codes/promo_codes_cubit.dart';
@@ -20,14 +22,16 @@ class _PcContainerImageState extends State<PcContainerImage> {
     context.read<PromoCodesCubit>().fetchPromoCode();
   }
 
-  bool _isClicked  = false;
+  final Map<int, ValueNotifier<bool>> isClickedMap = {};
 
-  void _handleTap(){
-    setState(() {
-      _isClicked = !_isClicked;
-    });
-
-  }
+  // bool _isClicked  = false;
+  //
+  // void _handleTap(){
+  //   setState(() {
+  //     _isClicked = !_isClicked;
+  //   });
+  //
+  // }
 
 
 
@@ -83,15 +87,21 @@ class _PcContainerImageState extends State<PcContainerImage> {
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
-                children: promoCodeItems.map((promoItems) {
+                children: promoCodeItems.asMap().entries.map((entry) {
+                  final index = entry.key;
+                  final promoItem = entry.value;
+
+                  isClickedMap.putIfAbsent(index, ()=> ValueNotifier(false));
+
               return Padding(
                 padding: const EdgeInsets.all(10),
                 child: _buildPromoItem(
-                    imageUrl: promoItems.imageUrl,
-                    title: promoItems.title,
-                    validDate: promoItems.validDate,
-                    promoType: promoItems.promoType,
-                    buttonText: _isClicked? "Collected": "Collect"),
+                    imageUrl: promoItem.imageUrl,
+                    title: promoItem.title,
+                    validDate: promoItem.validDate,
+                    promoType: promoItem.promoType,
+                    isClicked: isClickedMap[index]!,
+                ),
               );
             }).toList()),
           ),
@@ -154,7 +164,7 @@ class _PcContainerImageState extends State<PcContainerImage> {
       required String title,
       required String validDate,
       required String promoType,
-      required String buttonText}) {
+      required ValueNotifier<bool> isClicked}) {
     return Container(
       height: 165.sp,
       width: 168.sp,
@@ -174,6 +184,18 @@ class _PcContainerImageState extends State<PcContainerImage> {
                   fit: BoxFit.cover,
                   height: 87.sp,
                   width: double.infinity,
+                  errorBuilder: (context, error, stackTrace){
+                    return Container(
+                      color: Colors.grey.shade200, // Optional background color
+                      height: 87.sp,
+                      width: double.infinity,
+                      child: const Icon(
+                        Icons.image_not_supported,
+                        color: Colors.grey,
+                        size: 40,
+                      ),
+                    );
+                  },
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 8),
@@ -218,28 +240,37 @@ class _PcContainerImageState extends State<PcContainerImage> {
                 ),
               ),
 
-              Padding(
-                padding: const EdgeInsets.only(left: 7.88, right: 7.88, bottom: 4, top: 4),
-                child: InkWell(
-                  onTap: _handleTap,
-                  child: Container(
-                    height: 28.sp,
-                    width: 142.sp,
-                    decoration: BoxDecoration(
-                      color: _isClicked?Colors.transparent:Color(0xff198B85),
-                      border: Border.all(width: 1, color: Color(0xff198B85)),
-                      borderRadius: BorderRadius.circular(4),
+              ValueListenableBuilder(
+                valueListenable: isClicked,
+                builder: (context, value, child){
+                  return Padding(
+                    padding: const EdgeInsets.only(left: 7.88, right: 7.88, bottom: 4, top: 4),
+                    child: InkWell(
+                      onTap: (){
+                        isClicked.value = !isClicked.value;
+                      },
+                      child: Container(
+                        height: 28.sp,
+                        width: 142.sp,
+                        decoration: BoxDecoration(
+                          color: value?Colors.transparent:Color(0xff198B85),
+                          border: Border.all(width: 1, color: Color(0xff198B85)),
+                          borderRadius: BorderRadius.circular(4),
 
+                        ),
+                        child: Center(
+                          child: Text(value? "Collected": "Collect", style: TextStyle(
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w500,
+                              color: value? Color(0xff198B85) :Colors.white
+                          ),),
+                        ),
+                      ),
                     ),
-                    child: Center(
-                      child: Text(buttonText, style: TextStyle(
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w500,
-                        color: _isClicked? Color(0xff198B85) :Colors.white
-                      ),),
-                    ),
-                  ),
-                ),
+                  );
+
+    }
+
               )
             ],
           )
