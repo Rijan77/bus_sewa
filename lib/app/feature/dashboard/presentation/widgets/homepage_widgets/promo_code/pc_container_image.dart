@@ -20,6 +20,8 @@ class _PcContainerImageState extends State<PcContainerImage> {
     context.read<PromoCodesCubit>().fetchPromoCode();
   }
 
+
+
   PromocodesImplementation promocodesImplementation =
       PromocodesImplementation();
 
@@ -80,7 +82,7 @@ class _PcContainerImageState extends State<PcContainerImage> {
                     title: promoItems.title,
                     validDate: promoItems.validDate,
                     promoType: promoItems.promoType,
-                    buttonText: "Collected"),
+                    buttonText: "Collect"),
               );
             }).toList()),
           ),
@@ -145,8 +147,8 @@ class _PcContainerImageState extends State<PcContainerImage> {
       required String promoType,
       required String buttonText}) {
     return Container(
-      height: 160.sp,
-      width: 163.sp,
+      height: 165.sp,
+      width: 168.sp,
       decoration: BoxDecoration(
           color: const Color(0xffF9F9FF),
           // color: Colors.green,
@@ -156,11 +158,38 @@ class _PcContainerImageState extends State<PcContainerImage> {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(9),
-            child: Image.network(
-              imageUrl,
-              fit: BoxFit.cover,
-              height: 87.sp,
-              width: double.infinity,
+            child: Stack(
+              children: [
+                Image.network(
+                  imageUrl,
+                  fit: BoxFit.cover,
+                  height: 87.sp,
+                  width: double.infinity,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 8),
+                  child: InkWell(
+                    onTap: (){
+
+                    },
+                    child: Container(
+                      height: 20.h,
+                      width: 60.w,
+                      decoration: BoxDecoration(
+                        color: Colors.orange.shade100,
+                        borderRadius: BorderRadius.only(topRight: Radius.circular(10), bottomRight: Radius.circular(10))
+                      ),
+                      child: Center(
+                        child: Text(promoType, style: TextStyle(
+                          color: Colors.orange,
+                          fontSize: 12
+                        ),),
+                      ),
+
+                    ),
+                  ),
+                )
+              ],
             ),
           ),
           Column(
@@ -186,13 +215,20 @@ class _PcContainerImageState extends State<PcContainerImage> {
               ),
 
               Padding(
-                padding: const EdgeInsets.only(left: 7.88, right: 7.88, bottom: 4),
+                padding: const EdgeInsets.only(left: 7.88, right: 7.88, bottom: 4, top: 4),
                 child: Container(
                   height: 28.sp,
                   width: 142.sp,
                   decoration: BoxDecoration(
                     color: const Color(0xff198B85),
                     borderRadius: BorderRadius.circular(4)
+                  ),
+                  child: Center(
+                    child: Text(buttonText, style: TextStyle(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white
+                    ),),
                   ),
                 ),
               )
