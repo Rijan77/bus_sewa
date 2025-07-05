@@ -1,4 +1,3 @@
-import 'package:bus_sewa/app/core/common_widgets/text_style_widget.dart';
 import 'package:bus_sewa/app/core/utils/api_status.dart';
 import 'package:bus_sewa/app/feature/dashboard/data/repositories/promocodes_implementation.dart';
 import 'package:bus_sewa/app/feature/dashboard/presentation/blocs/promo_codes/promo_codes_cubit.dart';
@@ -7,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PcContainerImage extends StatefulWidget {
-  PcContainerImage({super.key});
+  const PcContainerImage({super.key});
 
   @override
   State<PcContainerImage> createState() => _PcContainerImageState();
@@ -30,8 +29,8 @@ class _PcContainerImageState extends State<PcContainerImage> {
         builder: (context, state) {
       if (state.promoCodeStatus == ApiStatus.initial ||
           state.promoCodeStatus == ApiStatus.loading) {
-        return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 170, vertical: 40),
+        return const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 170, vertical: 40),
           child: Center(
             child: CircularProgressIndicator(
               color: Colors.blue,
@@ -39,8 +38,8 @@ class _PcContainerImageState extends State<PcContainerImage> {
           ),
         );
       } else if (state.promoCodeStatus == ApiStatus.failure) {
-        return Padding(
-          padding: const EdgeInsets.symmetric(
+        return const Padding(
+          padding: EdgeInsets.symmetric(
             horizontal: 170,
             vertical: 40,
           ),
@@ -55,8 +54,8 @@ class _PcContainerImageState extends State<PcContainerImage> {
         final promoCodeItems = state.promoModel;
 
         if (promoCodeItems.isEmpty) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(
+          return const Padding(
+            padding: EdgeInsets.symmetric(
               horizontal: 170,
               vertical: 40,
             ),
@@ -69,13 +68,13 @@ class _PcContainerImageState extends State<PcContainerImage> {
           );
         }
         return Padding(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
                 children: promoCodeItems.map((promoItems) {
               return Padding(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 child: _buildPromoItem(
                     imageUrl: promoItems.imageUrl,
                     title: promoItems.title,
@@ -88,7 +87,7 @@ class _PcContainerImageState extends State<PcContainerImage> {
         );
       }
 
-      return SizedBox.shrink();
+      return const SizedBox.shrink();
     });
 
     // return FutureBuilder(
@@ -149,7 +148,7 @@ class _PcContainerImageState extends State<PcContainerImage> {
       height: 160.sp,
       width: 163.sp,
       decoration: BoxDecoration(
-          color: Color(0xffF9F9FF),
+          color: const Color(0xffF9F9FF),
           // color: Colors.green,
           borderRadius: BorderRadius.circular(9)),
       child: Column(
@@ -173,7 +172,7 @@ class _PcContainerImageState extends State<PcContainerImage> {
                   title,
                   style: TextStyle(
                       fontSize: 14.sp,
-                      color: Color(0xff333333),
+                      color: const Color(0xff333333),
                       fontWeight: FontWeight.w400),
                 ),
               ),
@@ -181,7 +180,7 @@ class _PcContainerImageState extends State<PcContainerImage> {
                 padding: const EdgeInsets.only(left: 8, right: 8, top: 2),
                 child: Text(validDate, style: TextStyle(
                     fontSize: 10.sp,
-                    color: Color(0xff7D7E83),
+                    color: const Color(0xff7D7E83),
                     fontWeight: FontWeight.w400),
                 ),
               ),
@@ -192,7 +191,7 @@ class _PcContainerImageState extends State<PcContainerImage> {
                   height: 28.sp,
                   width: 142.sp,
                   decoration: BoxDecoration(
-                    color: Color(0xff198B85),
+                    color: const Color(0xff198B85),
                     borderRadius: BorderRadius.circular(4)
                   ),
                 ),

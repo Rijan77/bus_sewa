@@ -7,7 +7,7 @@ import 'package:equatable/equatable.dart';
 part 'promo_codes_state.dart';
 
 class PromoCodesCubit extends Cubit<PromoCodesState> {
-  PromoCodesCubit() : super(PromoCodesState());
+  PromoCodesCubit() : super(const PromoCodesState());
 
   PromocodesImplementation promocodesImplementation = PromocodesImplementation();
 

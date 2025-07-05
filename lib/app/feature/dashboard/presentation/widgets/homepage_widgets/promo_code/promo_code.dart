@@ -37,7 +37,7 @@ class _PromoCodeState extends State<PromoCode> {
         children: [
           const PcHeaderSection(),
           PcButton(),
-          PcContainerImage()
+          const PcContainerImage()
         ],
       ),
     );
