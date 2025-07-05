@@ -20,6 +20,15 @@ class _PcContainerImageState extends State<PcContainerImage> {
     context.read<PromoCodesCubit>().fetchPromoCode();
   }
 
+  bool _isClicked  = false;
+
+  void _handleTap(){
+    setState(() {
+      _isClicked = !_isClicked;
+    });
+
+  }
+
 
 
   PromocodesImplementation promocodesImplementation =
@@ -82,7 +91,7 @@ class _PcContainerImageState extends State<PcContainerImage> {
                     title: promoItems.title,
                     validDate: promoItems.validDate,
                     promoType: promoItems.promoType,
-                    buttonText: "Collect"),
+                    buttonText: _isClicked? "Collected": "Collect"),
               );
             }).toList()),
           ),
@@ -168,25 +177,20 @@ class _PcContainerImageState extends State<PcContainerImage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 8),
-                  child: InkWell(
-                    onTap: (){
-
-                    },
-                    child: Container(
-                      height: 20.h,
-                      width: 60.w,
-                      decoration: BoxDecoration(
-                        color: Colors.orange.shade100,
-                        borderRadius: BorderRadius.only(topRight: Radius.circular(10), bottomRight: Radius.circular(10))
-                      ),
-                      child: Center(
-                        child: Text(promoType, style: TextStyle(
-                          color: Colors.orange,
-                          fontSize: 12
-                        ),),
-                      ),
-
+                  child: Container(
+                    height: 20.h,
+                    width: 60.w,
+                    decoration: BoxDecoration(
+                      color: Colors.orange.shade100,
+                      borderRadius: BorderRadius.only(topRight: Radius.circular(10), bottomRight: Radius.circular(10))
                     ),
+                    child: Center(
+                      child: Text(promoType, style: TextStyle(
+                        color: Colors.orange,
+                        fontSize: 12
+                      ),),
+                    ),
+
                   ),
                 )
               ],
@@ -216,19 +220,24 @@ class _PcContainerImageState extends State<PcContainerImage> {
 
               Padding(
                 padding: const EdgeInsets.only(left: 7.88, right: 7.88, bottom: 4, top: 4),
-                child: Container(
-                  height: 28.sp,
-                  width: 142.sp,
-                  decoration: BoxDecoration(
-                    color: const Color(0xff198B85),
-                    borderRadius: BorderRadius.circular(4)
-                  ),
-                  child: Center(
-                    child: Text(buttonText, style: TextStyle(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white
-                    ),),
+                child: InkWell(
+                  onTap: _handleTap,
+                  child: Container(
+                    height: 28.sp,
+                    width: 142.sp,
+                    decoration: BoxDecoration(
+                      color: _isClicked?Colors.transparent:Color(0xff198B85),
+                      border: Border.all(width: 1, color: Color(0xff198B85)),
+                      borderRadius: BorderRadius.circular(4),
+
+                    ),
+                    child: Center(
+                      child: Text(buttonText, style: TextStyle(
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w500,
+                        color: _isClicked? Color(0xff198B85) :Colors.white
+                      ),),
+                    ),
                   ),
                 ),
               )
