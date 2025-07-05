@@ -1,4 +1,3 @@
-import 'dart:ffi';
 
 import 'package:bus_sewa/app/core/utils/api_status.dart';
 import 'package:bus_sewa/app/feature/dashboard/data/repositories/promocodes_implementation.dart';
@@ -205,13 +204,13 @@ class _PcContainerImageState extends State<PcContainerImage> {
                     width: 60.w,
                     decoration: BoxDecoration(
                         color: Colors.orange.shade100,
-                        borderRadius: BorderRadius.only(
+                        borderRadius: const BorderRadius.only(
                             topRight: Radius.circular(10),
                             bottomRight: Radius.circular(10))),
                     child: Center(
                       child: Text(
                         promoType,
-                        style: TextStyle(color: Colors.orange, fontSize: 12),
+                        style: const TextStyle(color: Colors.orange, fontSize: 12),
                       ),
                     ),
                   ),
@@ -257,9 +256,9 @@ class _PcContainerImageState extends State<PcContainerImage> {
                           width: 142.sp,
                           decoration: BoxDecoration(
                             color:
-                            value ? Colors.transparent : Color(0xff198B85),
+                            value ? Colors.transparent : const Color(0xff198B85),
                             border:
-                            Border.all(width: 1, color: Color(0xff198B85)),
+                            Border.all(width: 1, color: const Color(0xff198B85)),
                             borderRadius: BorderRadius.circular(4),
                           ),
                           child: Center(
@@ -269,7 +268,7 @@ class _PcContainerImageState extends State<PcContainerImage> {
                                   fontSize: 14.sp,
                                   fontWeight: FontWeight.w500,
                                   color:
-                                  value ? Color(0xff198B85) : Colors.white),
+                                  value ? const Color(0xff198B85) : Colors.white),
                             ),
                           ),
                         ),
