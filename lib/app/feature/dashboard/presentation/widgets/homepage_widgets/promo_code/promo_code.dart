@@ -37,14 +37,7 @@ class _PromoCodeState extends State<PromoCode> {
         children: [
           const PcHeaderSection(),
           PcButton(),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                PcContainerImage()
-              ],
-            ),
-          )
+          PcContainerImage()
         ],
       ),
     );

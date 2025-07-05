@@ -77,6 +77,8 @@ class TextStyleWidget{
       color: Color(0xff4A4A4A),
 
     );
+
+
   }
 
 

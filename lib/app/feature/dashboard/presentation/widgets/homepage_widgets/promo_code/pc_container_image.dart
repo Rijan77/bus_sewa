@@ -1,148 +1,294 @@
-
+import 'package:bus_sewa/app/core/common_widgets/text_style_widget.dart';
+import 'package:bus_sewa/app/core/utils/api_status.dart';
 import 'package:bus_sewa/app/feature/dashboard/data/repositories/promocodes_implementation.dart';
+import 'package:bus_sewa/app/feature/dashboard/presentation/blocs/promo_codes/promo_codes_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class PcContainerImage extends StatelessWidget {
-   PcContainerImage({super.key});
+class PcContainerImage extends StatefulWidget {
+  PcContainerImage({super.key});
 
-  PromocodesImplementation promocodesImplementation = PromocodesImplementation();
+  @override
+  State<PcContainerImage> createState() => _PcContainerImageState();
+}
 
+class _PcContainerImageState extends State<PcContainerImage> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    context.read<PromoCodesCubit>().fetchPromoCode();
+  }
+
+  PromocodesImplementation promocodesImplementation =
+      PromocodesImplementation();
 
   @override
   Widget build(BuildContext context) {
+    return BlocBuilder<PromoCodesCubit, PromoCodesState>(
+        builder: (context, state) {
+      if (state.promoCodeStatus == ApiStatus.initial ||
+          state.promoCodeStatus == ApiStatus.loading) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 170, vertical: 40),
+          child: Center(
+            child: CircularProgressIndicator(
+              color: Colors.blue,
+            ),
+          ),
+        );
+      } else if (state.promoCodeStatus == ApiStatus.failure) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 170,
+            vertical: 40,
+          ),
+          child: Column(
+            children: [
+              Icon(Icons.error_rounded),
+              Text("Failed to Fetch Promo Codes")
+            ],
+          ),
+        );
+      } else if (state.promoCodeStatus == ApiStatus.success) {
+        final promoCodeItems = state.promoModel;
 
-
-    return FutureBuilder(
-        future: promocodesImplementation.getPromoCodes(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const SizedBox(
-              height: 180,
-              child: Center(
-                child: CircularProgressIndicator(),
-              ),
-            );
-          } else if (snapshot.hasError) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 120),
-              child: Column(
-                children: [
-                  Icon(Icons.error, size: 50,),
-                  Text("Error to fetch data")
-                ],
-              ),
-            );
-          } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return const Text("No PromoCodes Avilable");
-          }
-
-          final promoCode = snapshot.data!;
-
+        if (promoCodeItems.isEmpty) {
           return Padding(
-            padding: const EdgeInsets.all(10),
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: promoCode.map((promoCode) {
-                  return Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: _buildItem(
-                        imageUrl: promoCode.imageUrl,
-                        title: promoCode.title,
-                        subTitle: promoCode.validDate,
-                        promoType: promoCode.promoType,
-                        buttonText: "Collect"),
-                  );
-                }).toList(),
-              ),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 170,
+              vertical: 40,
+            ),
+            child: Column(
+              children: [
+                Icon(Icons.error_rounded),
+                Text("No Recent PromoCodes")
+              ],
             ),
           );
-        });
+        }
+        return Padding(
+          padding: EdgeInsets.all(10),
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+                children: promoCodeItems.map((promoItems) {
+              return Padding(
+                padding: EdgeInsets.all(10),
+                child: _buildPromoItem(
+                    imageUrl: promoItems.imageUrl,
+                    title: promoItems.title,
+                    validDate: promoItems.validDate,
+                    promoType: promoItems.promoType,
+                    buttonText: "Collected"),
+              );
+            }).toList()),
+          ),
+        );
+      }
+
+      return SizedBox.shrink();
+    });
+
+    // return FutureBuilder(
+    //     future: promocodesImplementation.getPromoCodes(),
+    //     builder: (context, snapshot) {
+    //       if (snapshot.connectionState == ConnectionState.waiting) {
+    //         return const SizedBox(
+    //           height: 180,
+    //           child: Center(
+    //             child: CircularProgressIndicator(),
+    //           ),
+    //         );
+    //       } else if (snapshot.hasError) {
+    //         return Padding(
+    //           padding: const EdgeInsets.symmetric(horizontal: 120),
+    //           child: Column(
+    //             children: [
+    //               Icon(Icons.error, size: 50,),
+    //               Text("Error to fetch data")
+    //             ],
+    //           ),
+    //         );
+    //       } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+    //         return const Text("No PromoCodes Avilable");
+    //       }
+    //
+    //       final promoCode = snapshot.data!;
+    //
+    //       return Padding(
+    //         padding: const EdgeInsets.all(10),
+    //         child: SingleChildScrollView(
+    //           scrollDirection: Axis.horizontal,
+    //           child: Row(
+    //             children: promoCode.map((promoCode) {
+    //               return Padding(
+    //                 padding: const EdgeInsets.all(10),
+    //                 child: _buildItem(
+    //                     imageUrl: promoCode.imageUrl,
+    //                     title: promoCode.title,
+    //                     subTitle: promoCode.validDate,
+    //                     promoType: promoCode.promoType,
+    //                     buttonText: "Collect"),
+    //               );
+    //             }).toList(),
+    //           ),
+    //         ),
+    //       );
+    //     });
   }
 
-  Widget _buildItem(
+  Widget _buildPromoItem(
       {required String imageUrl,
       required String title,
-      required String subTitle,
-        required String promoType,
+      required String validDate,
+      required String promoType,
       required String buttonText}) {
     return Container(
-      height: 200.w,
-      width: 200.w,
+      height: 160.sp,
+      width: 163.sp,
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: const [
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 6,
-            offset: Offset(0, 3),
-          ),
-        ],
-      ),
+          color: Color(0xffF9F9FF),
+          // color: Colors.green,
+          borderRadius: BorderRadius.circular(9)),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ClipRRect(
-            borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
-            child: Container(
-              height: 100,
+            borderRadius: BorderRadius.circular(9),
+            child: Image.network(
+              imageUrl,
+              fit: BoxFit.cover,
+              height: 87.sp,
               width: double.infinity,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
+            ),
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 8, right: 8, top: 4),
+                child: Text(
+                  title,
+                  style: TextStyle(
+                      fontSize: 14.sp,
+                      color: Color(0xff333333),
+                      fontWeight: FontWeight.w400),
+                ),
               ),
-              child: Stack(
-                children: [
-                  Image.network(
-                    imageUrl,
-                    fit: BoxFit.cover,
+              Padding(
+                padding: const EdgeInsets.only(left: 8, right: 8, top: 2),
+                child: Text(validDate, style: TextStyle(
+                    fontSize: 10.sp,
+                    color: Color(0xff7D7E83),
+                    fontWeight: FontWeight.w400),
+                ),
+              ),
+
+              Padding(
+                padding: const EdgeInsets.only(left: 7.88, right: 7.88, bottom: 4),
+                child: Container(
+                  height: 28.sp,
+                  width: 142.sp,
+                  decoration: BoxDecoration(
+                    color: Color(0xff198B85),
+                    borderRadius: BorderRadius.circular(4)
                   ),
-                  Text(promoType, style: TextStyle(color: Colors.white),)
-                ],
-              ),
-            ),
-          ),
-          const SizedBox(height: 8),
-          Padding(
-            padding: const EdgeInsets.only(left: 20),
-            child: Align(
-              alignment: Alignment.bottomLeft,
-              child: Text(
-                title,
-                style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                    color: Color(0xff333333)),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20),
-            child: Align(
-              alignment: Alignment.bottomLeft,
-              child: Text(
-                subTitle,
-                style: const TextStyle(fontSize: 9, color: Colors.grey),
-              ),
-            ),
-          ),
-          const SizedBox(height: 10),
-          Container(
-            height: 35,
-            width: 170,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: const Color(0xff198B85),
-              borderRadius: BorderRadius.circular(5),
-            ),
-            child: Text(
-              buttonText,
-              style: const TextStyle(color: Colors.white, fontSize: 20),
-            ),
-          ),
+                ),
+              )
+            ],
+          )
         ],
       ),
     );
   }
+
+//
+// Widget _buildItem(
+//     {required String imageUrl,
+//     required String title,
+//     required String validDate,
+//     required String promoType,
+//     required String buttonText}) {
+//   return Container(
+//     height: 200.w,
+//     width: 200.w,
+//     decoration: BoxDecoration(
+//       color: Colors.white,
+//       borderRadius: BorderRadius.circular(12),
+//       boxShadow: const [
+//         BoxShadow(
+//           color: Colors.black12,
+//           blurRadius: 6,
+//           offset: Offset(0, 3),
+//         ),
+//       ],
+//     ),
+//     child: Column(
+//       children: [
+//         ClipRRect(
+//           borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
+//           child: Container(
+//             height: 100,
+//             width: double.infinity,
+//             decoration: BoxDecoration(
+//               color: Colors.white,
+//               borderRadius: BorderRadius.circular(20),
+//             ),
+//             child: Stack(
+//               children: [
+//                 Image.network(
+//                   imageUrl,
+//                   fit: BoxFit.cover,
+//                 ),
+//                 Text(
+//                   promoType,
+//                   style: TextStyle(color: Colors.white),
+//                 )
+//               ],
+//             ),
+//           ),
+//         ),
+//         const SizedBox(height: 8),
+//         Padding(
+//           padding: const EdgeInsets.only(left: 20),
+//           child: Align(
+//             alignment: Alignment.bottomLeft,
+//             child: Text(
+//               title,
+//               style: const TextStyle(
+//                   fontSize: 16,
+//                   fontWeight: FontWeight.w400,
+//                   color: Color(0xff333333)),
+//             ),
+//           ),
+//         ),
+//         Padding(
+//           padding: const EdgeInsets.only(left: 20),
+//           child: Align(
+//             alignment: Alignment.bottomLeft,
+//             child: Text(
+//               validDate,
+//               style: const TextStyle(fontSize: 9, color: Colors.grey),
+//             ),
+//           ),
+//         ),
+//         const SizedBox(height: 10),
+//         Container(
+//           height: 35,
+//           width: 170,
+//           alignment: Alignment.center,
+//           decoration: BoxDecoration(
+//             color: const Color(0xff198B85),
+//             borderRadius: BorderRadius.circular(5),
+//           ),
+//           child: Text(
+//             buttonText,
+//             style: const TextStyle(color: Colors.white, fontSize: 20),
+//           ),
+//         ),
+//       ],
+//     ),
+//   );
 }
