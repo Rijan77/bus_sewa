@@ -27,7 +27,11 @@ class TopHeaderWidget extends StatelessWidget {
                     const SizedBox(height: 8),
                     Text(
                       item.label,
-                      style:  TextStyle(fontSize: 12, fontWeight: item.isBold? FontWeight.bold: FontWeight.normal),
+                      style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: item.isBold
+                              ? FontWeight.bold
+                              : FontWeight.normal),
                       textAlign: TextAlign.center,
                     ),
                   ],
@@ -45,7 +49,6 @@ class HeaderItem {
   final SvgPicture image;
   final String label;
   final bool isBold;
-
 
   HeaderItem({required this.image, required this.label, this.isBold = false});
 }

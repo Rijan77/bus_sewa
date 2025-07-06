@@ -16,11 +16,11 @@ class SecondHeader extends StatelessWidget {
       return Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          SizedBox(height: 30.sp, width: 30.sp, child: item.image ),
+          SizedBox(height: 30.sp, width: 30.sp, child: item.image),
           const SizedBox(height: 10),
           Text(
             item.label,
-            style:  TextStyle(fontSize: 12.sp),
+            style: TextStyle(fontSize: 12.sp),
             textAlign: TextAlign.center,
           ),
         ],
