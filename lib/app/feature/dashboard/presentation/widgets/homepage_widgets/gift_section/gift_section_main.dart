@@ -18,12 +18,14 @@ class _GiftSectionMainState extends State<GiftSectionMain> {
           enlargeCenterPage: true,
           autoPlay: true,
           viewportFraction: 0.95,
-          height:70.sp,
+          height: 70.sp,
           enableInfiniteScroll: true,
         ),
         items: [
-          giftCard("https://i.pinimg.com/736x/d5/fe/e6/d5fee6443203ceb01a282e930699cd95.jpg"),
-          giftCard("https://i.pinimg.com/736x/44/ad/5d/44ad5da205f3ef5b737da82012119b51.jpg"),
+          giftCard(
+              "https://i.pinimg.com/736x/d5/fe/e6/d5fee6443203ceb01a282e930699cd95.jpg"),
+          giftCard(
+              "https://i.pinimg.com/736x/44/ad/5d/44ad5da205f3ef5b737da82012119b51.jpg"),
         ],
       ),
     );

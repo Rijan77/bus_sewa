@@ -28,9 +28,7 @@ class RecentSearch extends StatelessWidget {
               ),
             ),
             SizedBox(height: 5),
-
             RsLocation()
-
           ],
         ),
       ),

@@ -12,16 +12,13 @@ class PcHeaderSection extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-           Text(
-            "Promo Codes",
-            style: TextStyleWidget.titleTextStyle()
-          ),
+          Text("Promo Codes", style: TextStyleWidget.titleTextStyle()),
           //  SizedBox(
           //   width: 0.4.sw,
           // ),
           InkWell(
               onTap: () {},
-              child:  Text(
+              child: Text(
                 "View All>>",
                 style: TextStyleWidget.subTitleTextStyle(),
               ))

@@ -40,7 +40,7 @@ class _OfferMainState extends State<OfferMain> {
             ),
           ),
           PcButton(),
-           OfferImageSection(),
+          OfferImageSection(),
           const Padding(
             padding: EdgeInsets.only(bottom: 10),
           )

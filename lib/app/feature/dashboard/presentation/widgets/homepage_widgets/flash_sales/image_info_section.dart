@@ -140,7 +140,8 @@ class _ImageInfoSectionState extends State<ImageInfoSection> {
                   child: Column(
                     children: [
                       Center(
-                        child: Text(title, style: TextStyleWidget.flashSalesOffer()),
+                        child: Text(title,
+                            style: TextStyleWidget.flashSalesOffer()),
                       ),
                       Center(
                         child: Text(
@@ -152,7 +153,6 @@ class _ImageInfoSectionState extends State<ImageInfoSection> {
                   ),
                 ),
                 // const SizedBox(height: 0.003),
-
               ],
             ),
           ),

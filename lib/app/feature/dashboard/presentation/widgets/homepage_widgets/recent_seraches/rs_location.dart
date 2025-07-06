@@ -7,24 +7,26 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RsLocation extends StatefulWidget {
   const RsLocation({super.key});
+
   @override
   State<RsLocation> createState() => _RsLocationState();
 }
 
 class _RsLocationState extends State<RsLocation> {
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     context.read<RecentSearchesCubit>().fetchSearchData();
   }
- //
+
+  //
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<RecentSearchesCubit, RecentSearchesState>(
       builder: (context, state) {
-        if (state.searchStatus == ApiStatus.initial || state.searchStatus == ApiStatus.loading) {
+        if (state.searchStatus == ApiStatus.initial ||
+            state.searchStatus == ApiStatus.loading) {
           return const Center(
             child: CircularProgressIndicator(color: Colors.blue),
           );
@@ -61,24 +63,30 @@ class _RsLocationState extends State<RsLocation> {
                           children: [
                             Row(
                               children: [
-                                Text(" ${item.transportType}: ",
+                                Text(
+                                  " ${item.transportType}: ",
                                   style: TextStyle(
                                     fontSize: 14.sp,
                                     color: const Color(0xff001A42),
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                                Text("${item.departurePlace} - " , style: TextStyle(
-                                  fontSize: 14.sp,
-                                  color: const Color(0xff001A42),
-                                  fontWeight: FontWeight.bold,
-                                ),),
-                                Text(item.arrivalPlace,  style: TextStyle(
-                                  fontSize: 14.sp,
-                                  color: const Color(0xff001A42),
-                                  fontWeight: FontWeight.bold,
-                                ),),
-
+                                Text(
+                                  "${item.departurePlace} - ",
+                                  style: TextStyle(
+                                    fontSize: 14.sp,
+                                    color: const Color(0xff001A42),
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Text(
+                                  item.arrivalPlace,
+                                  style: TextStyle(
+                                    fontSize: 14.sp,
+                                    color: const Color(0xff001A42),
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
                               ],
                             ),
 
@@ -86,18 +94,20 @@ class _RsLocationState extends State<RsLocation> {
                               padding: const EdgeInsets.only(left: 4.0),
                               child: Row(
                                 children: [
-                                  Text("${item.date} | ",
+                                  Text(
+                                    "${item.date} | ",
                                     style: TextStyle(
                                       fontSize: 12.sp,
                                       color: const Color(0xff8087B0),
                                     ),
                                   ),
                                   Text(
-                                    "${ item.passangerNumber.toString()} Passengers",
+                                    "${item.passangerNumber.toString()} Passengers",
                                     style: TextStyle(
-                                    fontSize: 12.sp,
-                                    color: const Color(0xff8087B0),
-                                  ),),
+                                      fontSize: 12.sp,
+                                      color: const Color(0xff8087B0),
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),

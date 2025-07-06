@@ -1,4 +1,3 @@
-
 import 'package:bus_sewa/app/core/utils/api_status.dart';
 import 'package:bus_sewa/app/feature/dashboard/data/repositories/promocodes_implementation.dart';
 import 'package:bus_sewa/app/feature/dashboard/presentation/blocs/promo_codes/promo_codes_cubit.dart';
@@ -33,84 +32,80 @@ class _PcContainerImageState extends State<PcContainerImage> {
   // }
 
   PromocodesImplementation promocodesImplementation =
-  PromocodesImplementation();
+      PromocodesImplementation();
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<PromoCodesCubit, PromoCodesState>(
         builder: (context, state) {
-          if (state.promoCodeStatus == ApiStatus.initial ||
-              state.promoCodeStatus == ApiStatus.loading) {
-            return const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 170, vertical: 40),
-              child: Center(
-                child: CircularProgressIndicator(
-                  color: Colors.blue,
-                ),
-              ),
-            );
-          } else if (state.promoCodeStatus == ApiStatus.failure) {
-            return const Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: 170,
-                vertical: 40,
-              ),
-              child: Column(
-                children: [
-                  Icon(Icons.error_rounded),
-                  Text("Failed to Fetch Promo Codes")
-                ],
-              ),
-            );
-          } else if (state.promoCodeStatus == ApiStatus.success) {
-            final promoCodeItems = state.promoModel;
+      if (state.promoCodeStatus == ApiStatus.initial ||
+          state.promoCodeStatus == ApiStatus.loading) {
+        return const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 170, vertical: 40),
+          child: Center(
+            child: CircularProgressIndicator(
+              color: Colors.blue,
+            ),
+          ),
+        );
+      } else if (state.promoCodeStatus == ApiStatus.failure) {
+        return const Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: 170,
+            vertical: 40,
+          ),
+          child: Column(
+            children: [
+              Icon(Icons.error_rounded),
+              Text("Failed to Fetch Promo Codes")
+            ],
+          ),
+        );
+      } else if (state.promoCodeStatus == ApiStatus.success) {
+        final promoCodeItems = state.promoModel;
 
-            if (promoCodeItems.isEmpty) {
-              return const Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 170,
-                  vertical: 40,
-                ),
-                child: Column(
-                  children: [
-                    Icon(Icons.error_rounded),
-                    Text("No Recent PromoCodes")
-                  ],
+        if (promoCodeItems.isEmpty) {
+          return const Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: 170,
+              vertical: 40,
+            ),
+            child: Column(
+              children: [
+                Icon(Icons.error_rounded),
+                Text("No Recent PromoCodes")
+              ],
+            ),
+          );
+        }
+        return Padding(
+          padding: const EdgeInsets.all(10),
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+                children: promoCodeItems.asMap().entries.map((entry) {
+              final index = entry.key;
+              final promoItem = entry.value;
+
+              isClickedMap.putIfAbsent(index, () => ValueNotifier(false));
+
+              return Padding(
+                padding: const EdgeInsets.all(10),
+                child: _buildPromoItem(
+                  imageUrl: promoItem.imageUrl,
+                  title: promoItem.title,
+                  validDate: promoItem.validDate,
+                  promoType: promoItem.promoType,
+                  isClicked: isClickedMap[index]!,
                 ),
               );
-            }
-            return Padding(
-              padding: const EdgeInsets.all(10),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                    children: promoCodeItems
-                        .asMap()
-                        .entries
-                        .map((entry) {
-                      final index = entry.key;
-                      final promoItem = entry.value;
+            }).toList()),
+          ),
+        );
+      }
 
-                      isClickedMap.putIfAbsent(index, () =>
-                          ValueNotifier(false));
-
-                      return Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: _buildPromoItem(
-                          imageUrl: promoItem.imageUrl,
-                          title: promoItem.title,
-                          validDate: promoItem.validDate,
-                          promoType: promoItem.promoType,
-                          isClicked: isClickedMap[index]!,
-                        ),
-                      );
-                    }).toList()),
-              ),
-            );
-          }
-
-          return const SizedBox.shrink();
-        });
+      return const SizedBox.shrink();
+    });
 
     // return FutureBuilder(
     //     future: promocodesImplementation.getPromoCodes(),
@@ -160,11 +155,12 @@ class _PcContainerImageState extends State<PcContainerImage> {
     //     });
   }
 
-  Widget _buildPromoItem({required String imageUrl,
-    required String title,
-    required String validDate,
-    required String promoType,
-    required ValueNotifier<bool> isClicked}) {
+  Widget _buildPromoItem(
+      {required String imageUrl,
+      required String title,
+      required String validDate,
+      required String promoType,
+      required ValueNotifier<bool> isClicked}) {
     return Container(
       height: 165.sp,
       width: 168.sp,
@@ -210,7 +206,8 @@ class _PcContainerImageState extends State<PcContainerImage> {
                     child: Center(
                       child: Text(
                         promoType,
-                        style: const TextStyle(color: Colors.orange, fontSize: 12),
+                        style:
+                            const TextStyle(color: Colors.orange, fontSize: 12),
                       ),
                     ),
                   ),
@@ -255,10 +252,11 @@ class _PcContainerImageState extends State<PcContainerImage> {
                           height: 28.sp,
                           width: 142.sp,
                           decoration: BoxDecoration(
-                            color:
-                            value ? Colors.transparent : const Color(0xff198B85),
-                            border:
-                            Border.all(width: 1, color: const Color(0xff198B85)),
+                            color: value
+                                ? Colors.transparent
+                                : const Color(0xff198B85),
+                            border: Border.all(
+                                width: 1, color: const Color(0xff198B85)),
                             borderRadius: BorderRadius.circular(4),
                           ),
                           child: Center(
@@ -267,8 +265,9 @@ class _PcContainerImageState extends State<PcContainerImage> {
                               style: TextStyle(
                                   fontSize: 14.sp,
                                   fontWeight: FontWeight.w500,
-                                  color:
-                                  value ? const Color(0xff198B85) : Colors.white),
+                                  color: value
+                                      ? const Color(0xff198B85)
+                                      : Colors.white),
                             ),
                           ),
                         ),

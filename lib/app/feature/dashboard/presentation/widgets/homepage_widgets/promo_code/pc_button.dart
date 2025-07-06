@@ -23,7 +23,7 @@ class PcButton extends StatelessWidget {
           return Row(
             children: chipLabels.map((label) {
               return Padding(
-                padding: const EdgeInsets.only( left: 10),
+                padding: const EdgeInsets.only(left: 10),
                 child: ChoiceChip(
                   labelPadding: const EdgeInsets.symmetric(horizontal: 10),
                   shape: RoundedRectangleBorder(
@@ -33,7 +33,7 @@ class PcButton extends StatelessWidget {
                   backgroundColor: const Color(0xffF9F9FF),
                   label: Text(
                     label,
-                    style:  TextStyle(fontSize: 11.sp),
+                    style: TextStyle(fontSize: 11.sp),
                   ),
                   selected: currentValue == label,
                   selectedColor: Colors.blueGrey.shade100,

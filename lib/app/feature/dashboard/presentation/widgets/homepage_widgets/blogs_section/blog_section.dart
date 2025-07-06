@@ -14,13 +14,11 @@ class BlogSection extends StatefulWidget {
 }
 
 class _BlogSectionState extends State<BlogSection> {
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     context.read<BlogsCubit>().fetchBlogData();
-
   }
 
   @override
@@ -132,17 +130,17 @@ class _BlogSectionState extends State<BlogSection> {
                 flex: 2,
                 child: ClipRRect(
                     borderRadius: BorderRadius.circular(10), child: image)),
-             SizedBox(width: 10.sp),
+            SizedBox(width: 10.sp),
             Expanded(
               flex: 3,
               child: Padding(
-                padding:  EdgeInsets.only(top: 4.sp),
+                padding: EdgeInsets.only(top: 4.sp),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(heading, style: TextStyleWidget.blogHeading()),
                     Text(date, style: TextStyleWidget.blogDate()),
-                     SizedBox(
+                    SizedBox(
                       height: 5.sp,
                     ),
                     Text(description,
@@ -158,7 +156,7 @@ class _BlogSectionState extends State<BlogSection> {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Icon(viewIcon, size: 16),
-                           SizedBox(width: 4.sp),
+                          SizedBox(width: 4.sp),
                           Text('$viewCount'),
                           const SizedBox(width: 12),
                           Icon(commentIcon, size: 16),
