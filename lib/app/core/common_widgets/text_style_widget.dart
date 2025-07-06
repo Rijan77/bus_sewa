@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TextStyleWidget{
 
@@ -17,8 +18,8 @@ class TextStyleWidget{
   }
 
   static TextStyle flashSlaesTime(){
-    return const TextStyle(
-      fontSize: 16,
+    return  TextStyle(
+      fontSize: 13.sp,
       fontWeight: FontWeight.w500,
       color: Colors.white
     );
@@ -26,18 +27,18 @@ class TextStyleWidget{
   }
 
   static TextStyle flashSalesOffer(){
-    return const TextStyle(
+    return  TextStyle(
       fontWeight: FontWeight.bold,
       color: Colors.white,
-      fontSize: 16
+      fontSize: 13.sp
     );
   }
 
   static TextStyle flashSlaesHotelName(){
-    return const TextStyle(
+    return  TextStyle(
         fontWeight: FontWeight.w500,
         color: Colors.white,
-        fontSize: 12
+        fontSize: 11.sp
     );
   }
 

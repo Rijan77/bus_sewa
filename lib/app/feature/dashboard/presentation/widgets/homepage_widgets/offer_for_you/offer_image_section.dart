@@ -1,6 +1,7 @@
 import 'package:bus_sewa/app/core/common_widgets/text_style_widget.dart';
 // import 'package:bus_sewa/app/feature/dashboard/data/repositories/mock_offer_service%20.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../data/models/offers_models/offers_items.dart';
 import '../../../../data/repositories/mock_offer_implementation .dart';
@@ -123,16 +124,17 @@ class OfferImageSection extends StatelessWidget {
 
   Container _buildOfferType(String type) {
     return Container(
-      height: 20,
-      width: 70,
+      height: 16.sp,
+      width: 53.sp,
       decoration: BoxDecoration(
         color: Colors.orange.shade50, // ✅ same background color for all
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: BorderRadius.circular(16.sp),
       ),
       child: Center(
         child: Text(
           type,
-          style: const TextStyle(
+          style:  TextStyle(
+            fontSize: 10.sp,
             color: Colors.orangeAccent, // ✅ same text color for all
             fontWeight: FontWeight.w500,
           ),
@@ -149,31 +151,29 @@ class OfferImageSection extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
       child: Container(
-        height: 180,
-        width: 210,
+        height: 145.sp,
+        width: 180.sp,
         decoration: const BoxDecoration(
           color: Color(0xffF9F9FF),
         ),
         child: Column(
           children: [
-            Expanded(
-              flex: 2,
-              child: Stack(
-                children: [
-                  Image.network(
-                    imageUrl,
-                    fit: BoxFit.cover,
-                    width: double.infinity,
-                    errorBuilder: (context, error, stackTrace) {
-                      return const Center(child: Icon(Icons.broken_image));
-                    },
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 130, top: 10),
-                    child: Container(child: offerType),
-                  )
-                ],
-              ),
+            Stack(
+              children: [
+                Image.network(
+                  imageUrl,
+                  fit: BoxFit.cover,
+                  height: 87.sp,
+                  width: double.infinity,
+                  errorBuilder: (context, error, stackTrace) {
+                    return const Center(child: Icon(Icons.broken_image));
+                  },
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 130, top: 10),
+                  child: Container(child: offerType),
+                )
+              ],
             ),
             Expanded(
               flex: 1,

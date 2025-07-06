@@ -14,7 +14,7 @@ class _SocialsSharesMainState extends State<SocialsSharesMain> {
   Widget build(BuildContext context) {
     print("building 2 ");
     return Card(
-      elevation: 2,
+      // elevation: 2,
       color: Colors.white,
       child: Column(
         children: [
@@ -22,7 +22,6 @@ class _SocialsSharesMainState extends State<SocialsSharesMain> {
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             child: Row(
               children: [
-
                 Text(
                   "Socials Shares",
                   style: TextStyleWidget.titleTextStyle(),

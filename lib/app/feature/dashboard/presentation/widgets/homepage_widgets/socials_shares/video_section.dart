@@ -14,13 +14,15 @@ class _VideoSectionState extends State<VideoSection> {
       "url": "https://www.youtube.com/watch?v=RK7ZqQ4hhcs",
       "title": "Local Farming",
       "subtitle": "Grow your own food",
-      "thumbnail": "https://i.pinimg.com/736x/b2/19/3f/b2193f38e115e719958d61670312b945.jpg",
+      "thumbnail":
+          "https://i.pinimg.com/736x/b2/19/3f/b2193f38e115e719958d61670312b945.jpg",
     },
     {
       "url": "https://www.youtube.com/watch?v=hWHzwQfmEMA",
       "title": "Recycling Tips",
       "subtitle": "Reduce waste",
-      "thumbnail": "https://i.pinimg.com/736x/ab/92/f6/ab92f64329183b1fcebb352d5539ca4e.jpg",
+      "thumbnail":
+          "https://i.pinimg.com/736x/ab/92/f6/ab92f64329183b1fcebb352d5539ca4e.jpg",
     },
   ];
 
@@ -31,10 +33,10 @@ class _VideoSectionState extends State<VideoSection> {
   @override
   void initState() {
     super.initState();
-    _videoIds = videos.map((v) => YoutubePlayer.convertUrlToId(v['url']!)!).toList();
+    _videoIds =
+        videos.map((v) => YoutubePlayer.convertUrlToId(v['url']!)!).toList();
     _controllers = List.generate(videos.length, (_) => null);
     // _currentlyPlayingIndex = null;
-
   }
 
   @override
@@ -75,99 +77,105 @@ class _VideoSectionState extends State<VideoSection> {
     }
   }
 
-
   @override
   Widget build(BuildContext context) {
     print("building 1 ");
 
-    return ValueListenableBuilder(valueListenable: _currentlyPlayingIndex, builder: (context, playingIndex, _){
-      return GridView.builder(
-        padding: const EdgeInsets.all(10),
-        shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
-        itemCount: videos.length,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
-          mainAxisSpacing: 10,
-          crossAxisSpacing: 10,
-          childAspectRatio: 0.7,
-        ),
-        itemBuilder: (context, index) {
-          final video = videos[index];
-          final isPlaying = playingIndex == index;
-
-          return GestureDetector(
-            onTap: () => _toggleVideo(index),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child: Stack(
-                fit: StackFit.expand,
-                children: [
-                  // Player or Thumbnail
-                  if (isPlaying && _controllers[index] != null)
-                    YoutubePlayer(
-                      controller: _controllers[index]!,
-                      showVideoProgressIndicator: true,
-                      progressIndicatorColor: Colors.red,
-                    )
-                  else
-                    Image.network(
-                      video['thumbnail']!,
-                      fit: BoxFit.cover,
-                    ),
-
-                  // Play icon (only show when not playing)
-                  if (!isPlaying)
-                    const Center(
-                      child: Icon(
-                        Icons.play_circle_fill,
-                        size: 60,
-                        color: Colors.white,
-                      ),
-                    ),
-
-                  // Gradient overlay
-                  Container(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [Colors.black.withOpacity(0.6), Colors.transparent],
-                        begin: Alignment.bottomCenter,
-                        end: Alignment.topCenter,
-                      ),
-                    ),
-                  ),
-
-                  // Title and subtitle
-                  Positioned(
-                    bottom: 32,
-                    left: 8,
-                    right: 8,
-                    child: Text(
-                      video['title']!,
-                      style: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        shadows: [Shadow(color: Colors.black54, blurRadius: 2)],
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 12,
-                    left: 8,
-                    right: 8,
-                    child: Text(
-                      video['subtitle']!,
-                      style: const TextStyle(fontSize: 12, color: Colors.white70),
-                    ),
-                  ),
-                ],
-              ),
+    return ValueListenableBuilder(
+        valueListenable: _currentlyPlayingIndex,
+        builder: (context, playingIndex, _) {
+          return GridView.builder(
+            padding: const EdgeInsets.all(10),
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: videos.length,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3,
+              mainAxisSpacing: 10,
+              crossAxisSpacing: 10,
+              childAspectRatio: 0.7,
             ),
-          );
-        },
-      );
-    });
+            itemBuilder: (context, index) {
+              final video = videos[index];
+              final isPlaying = playingIndex == index;
 
+              return GestureDetector(
+                onTap: () => _toggleVideo(index),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: [
+                      // Player or Thumbnail
+                      if (isPlaying && _controllers[index] != null)
+                        YoutubePlayer(
+                          controller: _controllers[index]!,
+                          showVideoProgressIndicator: true,
+                          progressIndicatorColor: Colors.red,
+                        )
+                      else
+                        Image.network(
+                          video['thumbnail']!,
+                          fit: BoxFit.cover,
+                        ),
+
+                      // Play icon (only show when not playing)
+                      if (!isPlaying)
+                        const Center(
+                          child: Icon(
+                            Icons.play_circle_fill,
+                            size: 60,
+                            color: Colors.white,
+                          ),
+                        ),
+
+                      // Gradient overlay
+                      Container(
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [
+                              Colors.black.withOpacity(0.6),
+                              Colors.transparent
+                            ],
+                            begin: Alignment.bottomCenter,
+                            end: Alignment.topCenter,
+                          ),
+                        ),
+                      ),
+
+                      // Title and subtitle
+                      Positioned(
+                        bottom: 32,
+                        left: 8,
+                        right: 8,
+                        child: Text(
+                          video['title']!,
+                          style: const TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            shadows: [
+                              Shadow(color: Colors.black54, blurRadius: 2)
+                            ],
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 12,
+                        left: 8,
+                        right: 8,
+                        child: Text(
+                          video['subtitle']!,
+                          style: const TextStyle(
+                              fontSize: 12, color: Colors.white70),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            },
+          );
+        });
   }
 }

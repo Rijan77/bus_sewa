@@ -15,7 +15,7 @@ class _BlogsMainState extends State<BlogsMain> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 2,
+      // elevation: 2,
       color: Colors.white,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

@@ -21,11 +21,10 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
   final ScrollController _scrollController = ScrollController();
+
   // bool _isScrolled = false;
 
   final ValueNotifier<bool> _isScrolled = ValueNotifier(false);
-
-
 
   @override
   void initState() {
@@ -42,7 +41,6 @@ class _HomepageState extends State<Homepage> {
     }
   }
 
-
   @override
   void dispose() {
     _scrollController.dispose();
@@ -52,7 +50,8 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     print("building 3f ");
-    return ValueListenableBuilder(valueListenable: _isScrolled,
+    return ValueListenableBuilder(
+        valueListenable: _isScrolled,
         builder: (context, value, _) {
           return Scaffold(
             backgroundColor: const Color(0xffF9F9FF),
@@ -63,7 +62,7 @@ class _HomepageState extends State<Homepage> {
                   expandedHeight: 0.25.sh,
                   collapsedHeight: 0.13.sh,
                   backgroundColor:
-                  value ? const Color(0xff13366E) : const Color(0xffF9F9FF),
+                      value ? const Color(0xff13366E) : const Color(0xffF9F9FF),
                   shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.only(
                           bottomRight: Radius.circular(16),
@@ -74,13 +73,14 @@ class _HomepageState extends State<Homepage> {
                     //   StretchMode.fadeTitle,
                     // ],
                     centerTitle: true,
-                    expandedTitleScale: 1,
+                    expandedTitleScale: 1.01,
                     title: TopHeaderWidget(
                       items: [
                         HeaderItem(
                           image: SvgPicture.asset(
                               "assets/icons/BusSewa New App icons -01.svg"),
                           label: "Bus Tickets",
+                          isBold: true,
                         ),
                         HeaderItem(
                           image: SvgPicture.asset(
@@ -88,8 +88,8 @@ class _HomepageState extends State<Homepage> {
                           label: "Reserve",
                         ),
                         HeaderItem(
-                          image:
-                          SvgPicture.asset("assets/icons/Frame 1171275982.svg"),
+                          image: SvgPicture.asset(
+                              "assets/icons/Frame 1171275982.svg"),
                           label: "Flights",
                         ),
                         HeaderItem(
@@ -109,17 +109,16 @@ class _HomepageState extends State<Homepage> {
                               width: double.infinity,
                               height: 180,
                               color: const Color(0xff13366E),
-                              padding:
-                              const EdgeInsets.only(
+                              padding: const EdgeInsets.only(
                                   top: 30, left: 16, right: 16),
                               child: const Row(
-                                mainAxisAlignment: MainAxisAlignment
-                                    .spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Column(
-                                    crossAxisAlignment: CrossAxisAlignment
-                                        .start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Padding(
                                         padding: EdgeInsets.only(top: 50),
@@ -149,8 +148,8 @@ class _HomepageState extends State<Homepage> {
                                       SizedBox(width: 10),
                                       CircleAvatar(
                                         radius: 25,
-                                        backgroundImage:
-                                        AssetImage('assets/images/myphoto.jpg'),
+                                        backgroundImage: AssetImage(
+                                            'assets/images/myphoto.jpg'),
                                       ),
                                     ],
                                   ),
@@ -217,7 +216,8 @@ class _HomepageState extends State<Homepage> {
                 ),
                 const SliverToBoxAdapter(
                   child: Padding(
-                    padding: EdgeInsets.only(top: 11, bottom: 8, right: 8, left: 8),
+                    padding:
+                        EdgeInsets.only(top: 11, bottom: 8, right: 8, left: 8),
                     child: GiftSectionMain(),
                   ),
                 ),
@@ -260,11 +260,9 @@ class _HomepageState extends State<Homepage> {
                     child: BlogsMain(),
                   ),
                 )
-
               ],
             ),
           );
-        }
-    );
+        });
   }
 }

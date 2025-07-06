@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SecondHeader extends StatelessWidget {
@@ -15,11 +16,11 @@ class SecondHeader extends StatelessWidget {
       return Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          SizedBox(height: 40, width: 40, child: item.image),
+          SizedBox(height: 30.sp, width: 30.sp, child: item.image ),
           const SizedBox(height: 10),
           Text(
             item.label,
-            style: const TextStyle(fontSize: 12),
+            style:  TextStyle(fontSize: 12.sp),
             textAlign: TextAlign.center,
           ),
         ],
@@ -27,9 +28,9 @@ class SecondHeader extends StatelessWidget {
     }
 
     return Padding(
-      padding: const EdgeInsets.all(5.0),
+      padding: const EdgeInsets.all(7.0),
       child: Card(
-        elevation: 2,
+        // elevation: 1,
         color: const Color(0xffFFFFFF),
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -46,7 +47,7 @@ class SecondHeader extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: secondRowItems
                       .map((item) => Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 20),
+                            padding: const EdgeInsets.symmetric(horizontal: 15),
                             child: buildItem(item),
                           ))
                       .toList(),

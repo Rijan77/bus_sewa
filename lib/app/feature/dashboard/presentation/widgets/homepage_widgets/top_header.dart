@@ -15,7 +15,7 @@ class TopHeaderWidget extends StatelessWidget {
         children: items.map((item) {
           return Expanded(
             child: Card(
-              elevation: 2,
+              elevation: 1,
               color: Colors.white,
               child: SizedBox(
                 // width: 80.w, // or adjust fixed width to fit 4 in a row if needed
@@ -27,7 +27,7 @@ class TopHeaderWidget extends StatelessWidget {
                     const SizedBox(height: 8),
                     Text(
                       item.label,
-                      style: const TextStyle(fontSize: 12),
+                      style:  TextStyle(fontSize: 12, fontWeight: item.isBold? FontWeight.bold: FontWeight.normal),
                       textAlign: TextAlign.center,
                     ),
                   ],
@@ -44,6 +44,8 @@ class TopHeaderWidget extends StatelessWidget {
 class HeaderItem {
   final SvgPicture image;
   final String label;
+  final bool isBold;
 
-  HeaderItem({required this.image, required this.label});
+
+  HeaderItem({required this.image, required this.label, this.isBold = false});
 }

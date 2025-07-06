@@ -107,8 +107,8 @@ class _ImageInfoSectionState extends State<ImageInfoSection> {
     required String subTitle,
   }) {
     return Container(
-      height: 0.2.sh,
-      width: 0.45.sw,
+      height: 135.sp,
+      width: 140.sp,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         image: DecorationImage(
@@ -124,7 +124,7 @@ class _ImageInfoSectionState extends State<ImageInfoSection> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(12),
+            padding: const EdgeInsets.only(left: 12, right: 12, top: 8),
             child: Column(
               children: [
                 Center(
@@ -133,11 +133,11 @@ class _ImageInfoSectionState extends State<ImageInfoSection> {
                     style: TextStyleWidget.flashSlaesTime(),
                   ),
                 ),
-                SizedBox(height: 0.094.sh),
+                SizedBox(height: 0.09.sh),
                 Center(
                   child: Text(title, style: TextStyleWidget.flashSalesOffer()),
                 ),
-                const SizedBox(height: 0.003),
+                // const SizedBox(height: 0.003),
                 Center(
                   child: Text(
                     subTitle,
