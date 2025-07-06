@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class BlogImplementation implements BlogsAbstract {
   @override
   Future<List<BlogModel>> getBlogData() async {
-    await Future.delayed(Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 1));
 
     final blogData = [
       {
@@ -15,11 +15,11 @@ class BlogImplementation implements BlogsAbstract {
         'date': '2024/09/10',
         'description':
             'Nestled in stunning city of Nepal, Pokhara offers stunning views of the summer',
-        'viewIcon': Icon(
+        'viewIcon': const Icon(
           Icons.remove_red_eye_outlined,
         ),
         'viewCount': 3,
-        'commentIcon': Icon(Icons.comment),
+        'commentIcon': const Icon(Icons.comment),
         'commentCount': 10
       },
       {
@@ -29,11 +29,11 @@ class BlogImplementation implements BlogsAbstract {
         'date': '2024/09/10',
         'description':
             'Nestled in stunning city of Nepal, Pokhara offers stunning views of the summer',
-        'viewIcon': Icon(
+        'viewIcon': const Icon(
           Icons.remove_red_eye_outlined,
         ),
         'viewCount': 3,
-        'commentIcon': Icon(Icons.comment),
+        'commentIcon': const Icon(Icons.comment),
         'commentCount': 10
       },
       {
@@ -43,11 +43,11 @@ class BlogImplementation implements BlogsAbstract {
         'date': '2024/09/10',
         'description':
             'Nestled in stunning city of Nepal, Pokhara offers stunning views of the summer',
-        'viewIcon': Icon(
+        'viewIcon': const Icon(
           Icons.remove_red_eye_outlined,
         ),
         'viewCount': 3,
-        'commentIcon': Icon(Icons.comment),
+        'commentIcon': const Icon(Icons.comment),
         'commentCount': 10
       },
     ];
