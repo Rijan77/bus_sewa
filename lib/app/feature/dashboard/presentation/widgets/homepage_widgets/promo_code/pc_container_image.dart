@@ -6,7 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PcContainerImage extends StatefulWidget {
-  const PcContainerImage({super.key});
+  final String selectedType;
+  const PcContainerImage({super.key, required this.selectedType});
 
   @override
   State<PcContainerImage> createState() => _PcContainerImageState();
@@ -64,16 +65,25 @@ class _PcContainerImageState extends State<PcContainerImage> {
       } else if (state.promoCodeStatus == ApiStatus.success) {
         final promoCodeItems = state.promoModel;
 
-        if (promoCodeItems.isEmpty) {
+        final Map<String, String> typeMap = {
+          "Reservation": "Rental",
+          "Tours": "Flights",
+          "Bus": "Tickets",
+        };
+
+        final filteredItems = widget.selectedType == "All"
+            ? promoCodeItems
+            : promoCodeItems
+            .where((item) => item.promoType == typeMap[widget.selectedType])
+            .toList();
+
+        if (filteredItems.isEmpty) {
           return const Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: 170,
-              vertical: 40,
-            ),
+            padding: EdgeInsets.symmetric(horizontal: 170, vertical: 40),
             child: Column(
               children: [
                 Icon(Icons.error_rounded),
-                Text("No Recent PromoCodes")
+                Text("No PromoCodes Found"),
               ],
             ),
           );
@@ -83,7 +93,7 @@ class _PcContainerImageState extends State<PcContainerImage> {
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
-                children: promoCodeItems.asMap().entries.map((entry) {
+                children: filteredItems.asMap().entries.map((entry) {
               final index = entry.key;
               final promoItem = entry.value;
 

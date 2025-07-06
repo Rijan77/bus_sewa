@@ -15,25 +15,30 @@ class _VideoSectionState extends State<VideoSection> {
       "url": "https://www.youtube.com/watch?v=RK7ZqQ4hhcs",
       "title": "Local Farming",
       "subtitle": "Grow your own food",
-      "thumbnail": "https://i.pinimg.com/736x/b2/19/3f/b2193f38e115e719958d61670312b945.jpg",
+      "thumbnail":
+          "https://i.pinimg.com/736x/b2/19/3f/b2193f38e115e719958d61670312b945.jpg",
     },
     {
       "url": "https://www.youtube.com/watch?v=hWHzwQfmEMA",
       "title": "Recycling Tips",
       "subtitle": "Reduce waste",
-      "thumbnail": "https://i.pinimg.com/736x/ab/92/f6/ab92f64329183b1fcebb352d5539ca4e.jpg",
+      "thumbnail":
+          "https://i.pinimg.com/736x/ab/92/f6/ab92f64329183b1fcebb352d5539ca4e.jpg",
     },
     {
       "url": "https://www.youtube.com/watch?v=RK7ZqQ4hhcs",
       "title": " Renewable Practices",
       "subtitle": "Understand the basics of eco-energy and composting.",
-      "thumbnail": "https://i.pinimg.com/736x/f0/4a/af/f04aaf38f13cfe7eca4a2ddbcb2ea505.jpg",
+      "thumbnail":
+          "https://i.pinimg.com/736x/f0/4a/af/f04aaf38f13cfe7eca4a2ddbcb2ea505.jpg",
     },
     {
       "url": "https://www.youtube.com/watch?v=hWHzwQfmEMA",
       "title": "My First Flight",
-      "subtitle": "Follow a journey that blends travel with environmental awareness.",
-      "thumbnail": "https://i.pinimg.com/736x/fa/b8/4f/fab84f31b440c5cb13b41275ed246c61.jpg",
+      "subtitle":
+          "Follow a journey that blends travel with environmental awareness.",
+      "thumbnail":
+          "https://i.pinimg.com/736x/fa/b8/4f/fab84f31b440c5cb13b41275ed246c61.jpg",
     },
   ];
 
@@ -44,7 +49,8 @@ class _VideoSectionState extends State<VideoSection> {
   @override
   void initState() {
     super.initState();
-    _videoIds = videos.map((v) => YoutubePlayer.convertUrlToId(v['url']!)!).toList();
+    _videoIds =
+        videos.map((v) => YoutubePlayer.convertUrlToId(v['url']!)!).toList();
     _controllers = List.generate(videos.length, (_) => null);
   }
 
@@ -98,7 +104,7 @@ class _VideoSectionState extends State<VideoSection> {
               itemBuilder: (context, index) {
                 final video = videos[index];
                 final isPlaying = playingIndex == index;
-      
+
                 return GestureDetector(
                   onTap: () => _toggleVideo(index),
                   child: Container(
@@ -125,7 +131,7 @@ class _VideoSectionState extends State<VideoSection> {
                               video['thumbnail']!,
                               fit: BoxFit.cover,
                             ),
-      
+
                           // Play button overlay
                           if (!isPlaying)
                             const Center(
@@ -135,18 +141,21 @@ class _VideoSectionState extends State<VideoSection> {
                                 color: Colors.white,
                               ),
                             ),
-      
+
                           // Gradient overlay
                           Container(
                             decoration: BoxDecoration(
                               gradient: LinearGradient(
-                                colors: [Colors.black.withOpacity(0.6), Colors.transparent],
+                                colors: [
+                                  Colors.black.withOpacity(0.6),
+                                  Colors.transparent
+                                ],
                                 begin: Alignment.bottomCenter,
                                 end: Alignment.topCenter,
                               ),
                             ),
                           ),
-      
+
                           // Title and subtitle
                           Positioned(
                             bottom: 26,
@@ -160,7 +169,9 @@ class _VideoSectionState extends State<VideoSection> {
                                 fontSize: 12,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white,
-                                shadows: [Shadow(color: Colors.black54, blurRadius: 2)],
+                                shadows: [
+                                  Shadow(color: Colors.black54, blurRadius: 2)
+                                ],
                               ),
                             ),
                           ),

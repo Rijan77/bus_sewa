@@ -39,7 +39,7 @@ class _BlogsMainState extends State<BlogsMain> {
               ],
             ),
           ),
-          PcButton(),
+          const PcButton(selectedValue: null,),
           const BlogSection(),
           const Padding(
             padding: EdgeInsets.only(bottom: 10),

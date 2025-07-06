@@ -134,7 +134,7 @@ class _BlogSectionState extends State<BlogSection> {
             Expanded(
               flex: 3,
               child: Padding(
-                padding: EdgeInsets.only(top: 4.sp),
+                padding: EdgeInsets.only(top: 3.sp),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
