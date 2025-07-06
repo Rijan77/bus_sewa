@@ -23,14 +23,15 @@ class _OfferMainState extends State<OfferMain> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   "Offers for you",
                   style: TextStyleWidget.titleTextStyle(),
                 ),
-                const SizedBox(
-                  width: 160,
-                ),
+                //  SizedBox(
+                //   width: 0.4.sw,
+                // ),
                 Text(
                   "View All>>",
                   style: TextStyleWidget.subTitleTextStyle(),

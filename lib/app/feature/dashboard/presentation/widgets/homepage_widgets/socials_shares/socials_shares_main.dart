@@ -21,14 +21,15 @@ class _SocialsSharesMainState extends State<SocialsSharesMain> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   "Socials Shares",
                   style: TextStyleWidget.titleTextStyle(),
                 ),
-                const SizedBox(
-                  width: 160,
-                ),
+                //  SizedBox(
+                //   width: 0.4.sw,
+                // ),
                 Text(
                   "View All>>",
                   style: TextStyleWidget.subTitleTextStyle(),

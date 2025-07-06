@@ -4,16 +4,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class TextStyleWidget{
 
   static TextStyle titleTextStyle(){
-    return const TextStyle(
-      color: Color(0xff4A4A4A),
-      fontSize: 15,
+    return  TextStyle(
+      color: const Color(0xff4A4A4A),
+      fontSize: 15.sp,
       fontWeight: FontWeight.bold,
     );
   }
 
   static TextStyle subTitleTextStyle(){
-    return const TextStyle(
-        fontSize: 14, color: Color(0xff445E91)
+    return  TextStyle(
+        fontSize: 13.sp, color: const Color(0xff445E91)
     );
   }
 

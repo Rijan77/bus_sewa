@@ -23,14 +23,15 @@ class _BlogsMainState extends State<BlogsMain> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   "Blogs",
                   style: TextStyleWidget.titleTextStyle(),
                 ),
-                const SizedBox(
-                  width: 210,
-                ),
+                //  SizedBox(
+                //   width: 0.53.sw,
+                // ),
                 Text(
                   "View All >>",
                   style: TextStyleWidget.subTitleTextStyle(),

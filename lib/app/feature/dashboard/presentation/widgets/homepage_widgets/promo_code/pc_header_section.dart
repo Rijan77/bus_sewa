@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../../core/common_widgets/text_style_widget.dart';
+
 class PcHeaderSection extends StatelessWidget {
   const PcHeaderSection({super.key});
 
@@ -8,23 +10,20 @@ class PcHeaderSection extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Text(
+           Text(
             "Promo Codes",
-            style: TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.bold,
-                color: Color(0xff4A4A4A)),
+            style: TextStyleWidget.titleTextStyle()
           ),
-          const SizedBox(
-            width: 160,
-          ),
+          //  SizedBox(
+          //   width: 0.4.sw,
+          // ),
           InkWell(
               onTap: () {},
-              child: const Text(
+              child:  Text(
                 "View All>>",
-                style: TextStyle(fontSize: 14, color: Color(0xff445E91)),
+                style: TextStyleWidget.subTitleTextStyle(),
               ))
         ],
       ),

@@ -28,7 +28,7 @@ class SecondHeader extends StatelessWidget {
     }
 
     return Padding(
-      padding: const EdgeInsets.all(7.0),
+      padding: const EdgeInsets.only(bottom: 7, right: 7, left: 7),
       child: Card(
         // elevation: 1,
         color: const Color(0xffFFFFFF),

@@ -23,14 +23,15 @@ class _FlashSalesMainState extends State<FlashSalesMain> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   "Flash Sales",
                   style: TextStyleWidget.titleTextStyle(),
                 ),
-                const SizedBox(
-                  width: 180,
-                ),
+                //  SizedBox(
+                //   width: 0.4.sw,
+                // ),
                 Text(
                   "View All>>",
                   style: TextStyleWidget.subTitleTextStyle(),

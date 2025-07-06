@@ -126,6 +126,7 @@ class _ImageInfoSectionState extends State<ImageInfoSection> {
           Padding(
             padding: const EdgeInsets.only(left: 12, right: 12, top: 8),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Center(
                   child: Text(
@@ -133,17 +134,25 @@ class _ImageInfoSectionState extends State<ImageInfoSection> {
                     style: TextStyleWidget.flashSlaesTime(),
                   ),
                 ),
-                SizedBox(height: 0.09.sh),
-                Center(
-                  child: Text(title, style: TextStyleWidget.flashSalesOffer()),
-                ),
-                // const SizedBox(height: 0.003),
-                Center(
-                  child: Text(
-                    subTitle,
-                    style: TextStyleWidget.flashSlaesHotelName(),
+                // SizedBox(height: 0.08.sh),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 5),
+                  child: Column(
+                    children: [
+                      Center(
+                        child: Text(title, style: TextStyleWidget.flashSalesOffer()),
+                      ),
+                      Center(
+                        child: Text(
+                          subTitle,
+                          style: TextStyleWidget.flashSlaesHotelName(),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
+                // const SizedBox(height: 0.003),
+
               ],
             ),
           ),

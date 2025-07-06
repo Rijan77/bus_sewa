@@ -1,4 +1,5 @@
 import 'package:bus_sewa/app/core/common_widgets/text_style_widget.dart';
+
 // import 'package:bus_sewa/app/feature/dashboard/data/repositories/mock_offer_service%20.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -7,9 +8,9 @@ import '../../../../data/models/offers_models/offers_items.dart';
 import '../../../../data/repositories/mock_offer_implementation .dart';
 
 class OfferImageSection extends StatelessWidget {
-   OfferImageSection({super.key});
+  OfferImageSection({super.key});
 
-   final offerService = MockOfferService();
+  final offerService = MockOfferService();
 
   @override
   Widget build(BuildContext context) {
@@ -133,7 +134,7 @@ class OfferImageSection extends StatelessWidget {
       child: Center(
         child: Text(
           type,
-          style:  TextStyle(
+          style: TextStyle(
             fontSize: 10.sp,
             color: Colors.orangeAccent, // ✅ same text color for all
             fontWeight: FontWeight.w500,
@@ -157,6 +158,8 @@ class OfferImageSection extends StatelessWidget {
           color: Color(0xffF9F9FF),
         ),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Stack(
               children: [
@@ -175,22 +178,21 @@ class OfferImageSection extends StatelessWidget {
                 )
               ],
             ),
-            Expanded(
-              flex: 1,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: [
-                    Text(
-                      title,
-                      style: TextStyleWidget.OfferTittle(),
-                    ),
-                    Text(
-                      subTitle,
-                      style: TextStyleWidget.OffersubTittle(),
-                    )
-                  ],
-                ),
+            Padding(
+              padding: const EdgeInsets.only(left: 8),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: TextStyleWidget.OfferTittle(),
+                  ),
+                  Text(
+                    subTitle,
+                    style: TextStyleWidget.OffersubTittle(),
+                  ),
+                  8.verticalSpace
+                ],
               ),
             ),
           ],

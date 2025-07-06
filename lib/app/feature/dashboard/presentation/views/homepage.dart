@@ -49,7 +49,6 @@ class _HomepageState extends State<Homepage> {
 
   @override
   Widget build(BuildContext context) {
-    print("building 3f ");
     return ValueListenableBuilder(
         valueListenable: _isScrolled,
         builder: (context, value, _) {
@@ -123,7 +122,7 @@ class _HomepageState extends State<Homepage> {
                                       Padding(
                                         padding: EdgeInsets.only(top: 50),
                                         child: Text(
-                                          "Hello! Rijan Ji",
+                                          "Hello! Harris Ji",
                                           style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 25,
@@ -131,7 +130,6 @@ class _HomepageState extends State<Homepage> {
                                           ),
                                         ),
                                       ),
-                                      SizedBox(height: 5),
                                       Text(
                                         "What would you like to do?",
                                         style: TextStyle(
@@ -147,9 +145,9 @@ class _HomepageState extends State<Homepage> {
                                           color: Colors.white, size: 30),
                                       SizedBox(width: 10),
                                       CircleAvatar(
-                                        radius: 25,
-                                        backgroundImage: AssetImage(
-                                            'assets/images/myphoto.jpg'),
+                                        radius: 23,
+                                        backgroundImage: NetworkImage(
+                                            'https://i.pinimg.com/736x/1f/8e/0d/1f8e0d5f2a3a2a3b661c6eb2c470d0f4.jpg'),
                                       ),
                                     ],
                                   ),
