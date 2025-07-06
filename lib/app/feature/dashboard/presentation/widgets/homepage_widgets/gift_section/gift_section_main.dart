@@ -18,7 +18,7 @@ class _GiftSectionMainState extends State<GiftSectionMain> {
           enlargeCenterPage: true,
           autoPlay: true,
           viewportFraction: 0.95,
-          height:77.sp,
+          height:70.sp,
           enableInfiniteScroll: true,
         ),
         items: [

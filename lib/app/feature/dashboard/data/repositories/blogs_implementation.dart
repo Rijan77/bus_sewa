@@ -15,11 +15,7 @@ class BlogImplementation implements BlogsAbstract {
         'date': '2024/09/10',
         'description':
             'Nestled in stunning city of Nepal, Pokhara offers stunning views of the summer',
-        'viewIcon': const Icon(
-          Icons.remove_red_eye_outlined,
-        ),
         'viewCount': 3,
-        'commentIcon': const Icon(Icons.comment),
         'commentCount': 10
       },
       {
@@ -29,25 +25,17 @@ class BlogImplementation implements BlogsAbstract {
         'date': '2024/09/10',
         'description':
             'Nestled in stunning city of Nepal, Pokhara offers stunning views of the summer',
-        'viewIcon': const Icon(
-          Icons.remove_red_eye_outlined,
-        ),
         'viewCount': 3,
-        'commentIcon': const Icon(Icons.comment),
         'commentCount': 10
       },
       {
         'imageUrl':
-            "https://i.pinimg.com/736x/18/34/05/1834052ffa65b61e910a3ec445887cde.jpg",
-        'title': 'Kathmandu Tour',
+            "https://i.pinimg.com/736x/5b/cb/04/5bcb04eb9b39f95791a70d52e9696541.jpg",
+        'title': 'International Tour',
         'date': '2024/09/10',
         'description':
             'Nestled in stunning city of Nepal, Pokhara offers stunning views of the summer',
-        'viewIcon': const Icon(
-          Icons.remove_red_eye_outlined,
-        ),
         'viewCount': 3,
-        'commentIcon': const Icon(Icons.comment),
         'commentCount': 10
       },
     ];
