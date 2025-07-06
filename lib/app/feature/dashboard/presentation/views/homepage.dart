@@ -145,9 +145,9 @@ class _HomepageState extends State<Homepage> {
                                           color: Colors.white, size: 30),
                                       SizedBox(width: 10),
                                       CircleAvatar(
-                                        radius: 23,
+                                        radius: 25,
                                         backgroundImage: NetworkImage(
-                                            'https://i.pinimg.com/736x/1f/8e/0d/1f8e0d5f2a3a2a3b661c6eb2c470d0f4.jpg'),
+                                            'https://i.pinimg.com/736x/dc/fc/a2/dcfca2bb4dc9e17587718688304d9c2b.jpg'),
                                       ),
                                     ],
                                   ),
