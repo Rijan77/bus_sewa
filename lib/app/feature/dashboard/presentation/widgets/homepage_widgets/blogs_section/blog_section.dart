@@ -29,14 +29,14 @@ class _BlogSectionState extends State<BlogSection> {
     return BlocBuilder<BlogsCubit, BlogsState>(builder: (context, state) {
       if (state.blogStatus == ApiStatus.initial ||
           state.blogStatus == ApiStatus.loading) {
-        return Center(
+        return const Center(
           child: CircularProgressIndicator(),
         );
       } else if (state.blogStatus == ApiStatus.failure) {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Icon(Icons.image_not_supported),
+            const Icon(Icons.image_not_supported),
             Text(state.error ?? "Something went wrong!")
           ],
         );
@@ -107,7 +107,7 @@ class _BlogSectionState extends State<BlogSection> {
           ),
         );
       }
-      return SizedBox.shrink();
+      return const SizedBox.shrink();
     });
   }
 

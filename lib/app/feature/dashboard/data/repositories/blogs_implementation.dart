@@ -1,6 +1,5 @@
 import 'package:bus_sewa/app/feature/dashboard/data/models/blogs_models/blog_model.dart';
 import 'package:bus_sewa/app/feature/dashboard/domain/repositories/blogs_abstract.dart';
-import 'package:flutter/material.dart';
 
 class BlogImplementation implements BlogsAbstract {
   @override
