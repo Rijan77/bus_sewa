@@ -16,7 +16,7 @@ class _OfferMainState extends State<OfferMain> {
   Widget build(BuildContext context) {
     return Card(
       color: Colors.white,
-      elevation: 4,
+      elevation: 2,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

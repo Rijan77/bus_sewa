@@ -8,7 +8,7 @@ class RecentSearch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 5,
+      elevation: 2,
       child: Container(
         height: 117.sp,
         width: double.infinity,

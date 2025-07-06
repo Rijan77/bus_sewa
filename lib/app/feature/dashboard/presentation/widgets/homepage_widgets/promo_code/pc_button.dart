@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PcButton extends StatelessWidget {
   PcButton({super.key});
@@ -22,16 +23,17 @@ class PcButton extends StatelessWidget {
           return Row(
             children: chipLabels.map((label) {
               return Padding(
-                padding: const EdgeInsets.only(right: 10, left: 2),
+                padding: const EdgeInsets.only( left: 10),
                 child: ChoiceChip(
+                  labelPadding: const EdgeInsets.symmetric(horizontal: 10),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10), // Fully rounded
+                    borderRadius: BorderRadius.circular(12), // Fully rounded
                     side: const BorderSide(color: Colors.black12),
                   ),
                   backgroundColor: const Color(0xffF9F9FF),
                   label: Text(
                     label,
-                    style: const TextStyle(fontSize: 13),
+                    style:  TextStyle(fontSize: 11.sp),
                   ),
                   selected: currentValue == label,
                   selectedColor: Colors.blueGrey.shade100,

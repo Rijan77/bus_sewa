@@ -14,7 +14,7 @@ class _SocialsSharesMainState extends State<SocialsSharesMain> {
   Widget build(BuildContext context) {
     print("building 2 ");
     return Card(
-      elevation: 4,
+      elevation: 2,
       color: Colors.white,
       child: Column(
         children: [

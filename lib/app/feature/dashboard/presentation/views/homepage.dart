@@ -217,12 +217,15 @@ class _HomepageState extends State<Homepage> {
                 ),
                 const SliverToBoxAdapter(
                   child: Padding(
-                    padding: EdgeInsets.all(8.0),
+                    padding: EdgeInsets.only(top: 11, bottom: 8, right: 8, left: 8),
                     child: GiftSectionMain(),
                   ),
                 ),
                 const SliverToBoxAdapter(
-                  child: PromoCode(),
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 10, right: 10),
+                    child: PromoCode(),
+                  ),
                 ),
                 // Placeholder containers
                 const SliverToBoxAdapter(

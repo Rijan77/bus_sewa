@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class GiftSectionMain extends StatefulWidget {
   const GiftSectionMain({super.key});
@@ -11,32 +12,32 @@ class GiftSectionMain extends StatefulWidget {
 class _GiftSectionMainState extends State<GiftSectionMain> {
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      child: SizedBox(
-        height: 65, // Set this to your exact image height
-        child: CarouselSlider(
-          options: CarouselOptions(
-            enlargeCenterPage: true,
-            autoPlay: true,
-            viewportFraction: 0.95,
-            height: 50, 
-            enableInfiniteScroll: true,
-          ),
-          items: [
-            giftCard("assets/images/Frame 1171276782.png"),
-            giftCard("assets/images/Offer Card (1).png"),
-          ],
+    return SizedBox(
+      child: CarouselSlider(
+        options: CarouselOptions(
+          enlargeCenterPage: true,
+          autoPlay: true,
+          viewportFraction: 0.95,
+          height:77.sp,
+          enableInfiniteScroll: true,
         ),
+        items: [
+          giftCard("https://i.pinimg.com/736x/d5/fe/e6/d5fee6443203ceb01a282e930699cd95.jpg"),
+          giftCard("https://i.pinimg.com/736x/44/ad/5d/44ad5da205f3ef5b737da82012119b51.jpg"),
+        ],
       ),
     );
   }
 
   Widget giftCard(String imagePath) {
-    return Image.asset(
-      imagePath,
-      fit: BoxFit.cover, // Fill the space without distortion
-      height: double.infinity, // Take all available height
-      width: double.infinity, // Take all available width
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(8),
+      child: Image.network(
+        imagePath,
+        fit: BoxFit.cover, // Fill the space without distortion
+        height: double.infinity, // Take all available height
+        width: double.infinity, // Take all available width
+      ),
     );
   }
 }
