@@ -12,6 +12,7 @@ class PromoCode extends StatefulWidget {
 
 class _PromoCodeState extends State<PromoCode> {
   final ValueNotifier<String> selectedValue = ValueNotifier<String>("All");
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -37,11 +38,14 @@ class _PromoCodeState extends State<PromoCode> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const PcHeaderSection(),
-          PcButton(selectedValue: selectedValue,),
-          ValueListenableBuilder(valueListenable: selectedValue, builder: (context, value, _){
-            return  PcContainerImage(selectedType: value);
-          })
-
+          PcButton(
+            selectedValue: selectedValue,
+          ),
+          ValueListenableBuilder(
+              valueListenable: selectedValue,
+              builder: (context, value, _) {
+                return PcContainerImage(selectedType: value);
+              })
         ],
       ),
     );

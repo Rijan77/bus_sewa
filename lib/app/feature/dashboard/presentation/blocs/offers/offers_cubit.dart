@@ -11,17 +11,17 @@ class OffersCubit extends Cubit<OffersState> {
 
   MockOfferService mockOfferService = MockOfferService();
 
-  Future<void> fetchOffers() async{
+  Future<void> fetchOffers() async {
     emit(state.copyWith(offerStatus: ApiStatus.loading));
 
-    try{
+    try {
       final fetchOfferData = mockOfferService.setOffer();
 
-      emit(state.copyWith(offerStatus: ApiStatus.success, getOfferModel: await fetchOfferData));
+      emit(state.copyWith(
+          offerStatus: ApiStatus.success, getOfferModel: await fetchOfferData));
+    } catch (e) {
+      emit(state.copyWith(
+          offerStatus: ApiStatus.failure, error: "Error to Load Offers Data"));
     }
-    catch(e){
-      emit(state.copyWith(offerStatus: ApiStatus.failure, error: "Error to Load Offers Data"));
-    }
-
   }
 }

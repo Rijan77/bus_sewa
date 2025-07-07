@@ -11,6 +11,7 @@ import '../../../../data/repositories/mock_offer_implementation .dart';
 
 class OfferImageSection extends StatefulWidget {
   final selectedType;
+
   const OfferImageSection({super.key, required this.selectedType});
 
   @override
@@ -18,7 +19,6 @@ class OfferImageSection extends StatefulWidget {
 }
 
 class _OfferImageSectionState extends State<OfferImageSection> {
-
   @override
   void initState() {
     // TODO: implement initState
@@ -26,6 +26,7 @@ class _OfferImageSectionState extends State<OfferImageSection> {
 
     context.read<OffersCubit>().fetchOffers();
   }
+
   final offerService = MockOfferService();
 
   @override
@@ -36,46 +37,45 @@ class _OfferImageSectionState extends State<OfferImageSection> {
         return const Center(
           child: CircularProgressIndicator(),
         );
-      }else if(state.offerStatus == ApiStatus.failure){
+      } else if (state.offerStatus == ApiStatus.failure) {
         return const Center(
           child: Text("Error to Fetch Offers Data"),
         );
-    } else if(state.offerStatus == ApiStatus.success
-      ){
+      } else if (state.offerStatus == ApiStatus.success) {
         final wOfferData = state.getOfferModel;
 
-        final Map<String , dynamic> shortOffer = {
+        final Map<String, dynamic> shortOffer = {
           'Reservation': "Rental",
           'Tours': "Flights",
-          "Bus" : "BusSewa"
-      };
+          "Bus": "BusSewa"
+        };
 
         final filterOffer = widget.selectedType == "All"
-        ? wOfferData
-            :wOfferData.where((items)=> items.offerType == shortOffer[widget.selectedType]);
+            ? wOfferData
+            : wOfferData.where(
+                (items) => items.offerType == shortOffer[widget.selectedType]);
 
-          return Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children:filterOffer.map((offers) {
-                  return Padding(
-                    padding: const EdgeInsets.only(right: 10),
-                    child: _buildCard(
-                        imageUrl: offers.imageUrl,
-                        offerType: _buildOfferType(offers.offerType),
-                        title: offers.title,
-                        subTitle: offers.subTitle),
-                  );
-                }).toList(),
-              ),
+        return Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: filterOffer.map((offers) {
+                return Padding(
+                  padding: const EdgeInsets.only(right: 10),
+                  child: _buildCard(
+                      imageUrl: offers.imageUrl,
+                      offerType: _buildOfferType(offers.offerType),
+                      title: offers.title,
+                      subTitle: offers.subTitle),
+                );
+              }).toList(),
             ),
-          );
-
-        } return const SizedBox.shrink();
+          ),
+        );
+      }
+      return const SizedBox.shrink();
     });
-
 
     // return Padding(
     //   padding: const EdgeInsets.all(8.0),

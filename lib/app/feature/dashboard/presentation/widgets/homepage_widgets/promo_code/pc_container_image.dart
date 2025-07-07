@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PcContainerImage extends StatefulWidget {
   final String selectedType;
+
   const PcContainerImage({super.key, required this.selectedType});
 
   @override
@@ -74,8 +75,8 @@ class _PcContainerImageState extends State<PcContainerImage> {
         final filteredItems = widget.selectedType == "All"
             ? promoCodeItems
             : promoCodeItems
-            .where((item) => item.promoType == typeMap[widget.selectedType])
-            .toList();
+                .where((item) => item.promoType == typeMap[widget.selectedType])
+                .toList();
 
         if (filteredItems.isEmpty) {
           return const Padding(
