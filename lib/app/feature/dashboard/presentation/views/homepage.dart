@@ -60,7 +60,7 @@ class _HomepageState extends State<Homepage> {
           return Scaffold(
             backgroundColor: const Color(0xffF9F9FF),
             body: RefreshIndicator(
-              onRefresh: () async{
+              onRefresh: () async {
                 try {
                   await context.read<PromoCodesCubit>().fetchPromoCode();
                   await context.read<RecentSearchesCubit>().fetchSearchData();
@@ -82,7 +82,7 @@ class _HomepageState extends State<Homepage> {
                     expandedHeight: 0.25.sh,
                     collapsedHeight: 0.13.sh,
                     backgroundColor:
-                        value ? const Color(0xff13366E) : const Color(0xffF9F9FF),
+                    value ? const Color(0xff13366E) : const Color(0xffF9F9FF),
                     shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.only(
                             bottomRight: Radius.circular(16),
@@ -133,12 +133,12 @@ class _HomepageState extends State<Homepage> {
                                     top: 30, left: 16, right: 16),
                                 child: const Row(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                  MainAxisAlignment.spaceBetween,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Column(
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      CrossAxisAlignment.start,
                                       children: [
                                         Padding(
                                           padding: EdgeInsets.only(top: 50),
@@ -236,7 +236,7 @@ class _HomepageState extends State<Homepage> {
                   const SliverToBoxAdapter(
                     child: Padding(
                       padding:
-                          EdgeInsets.only(top: 11, bottom: 8, right: 8, left: 8),
+                      EdgeInsets.only(top: 11, bottom: 8, right: 8, left: 8),
                       child: GiftSectionMain(),
                     ),
                   ),

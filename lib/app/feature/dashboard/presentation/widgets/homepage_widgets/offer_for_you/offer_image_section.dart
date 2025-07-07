@@ -123,20 +123,52 @@ class OfferImageSection extends StatelessWidget {
     // );
   }
 
-  Container _buildOfferType(String type) {
+  Container _buildOfferType(String offerType) {
+    Color backgroundColor;
+    Color textColor;
+    //
+    // if (offerType == 'Rental') {
+    //   backgroundColor = Colors.orange.shade50;
+    //   textColor = Colors.orangeAccent;
+    // } else if (offerType == 'Flights') {
+    //   backgroundColor = Colors.blue.shade50;
+    //   textColor = Colors.blue;
+    // } else {
+    //   backgroundColor = Colors.grey.shade200;
+    //   textColor = Colors.black54;
+    // }
+
+    switch (offerType) {
+      case "Rental":
+        backgroundColor = Colors.orange.shade50;
+        textColor = Colors.orangeAccent;
+        break;
+
+      case "Flights":
+        backgroundColor = Colors.blue.shade50;
+        textColor = Colors.blue;
+        break;
+
+      default:
+        backgroundColor = Colors.red.shade100;
+        textColor = Colors.white;
+    }
+
     return Container(
       height: 16.sp,
       width: 53.sp,
       decoration: BoxDecoration(
-        color: Colors.orange.shade50, // ✅ same background color for all
+        // color: offerType == "Rental"? Colors.orange.shade50: Colors.blue.shade50,
+        color: backgroundColor,
         borderRadius: BorderRadius.circular(16.sp),
       ),
       child: Center(
         child: Text(
-          type,
+          offerType,
           style: TextStyle(
             fontSize: 10.sp,
-            color: Colors.orangeAccent, // ✅ same text color for all
+            // color: offerType == "Rental"? Colors.orangeAccent: Colors.blue,
+            color: textColor,
             fontWeight: FontWeight.w500,
           ),
         ),
