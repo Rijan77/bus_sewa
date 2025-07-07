@@ -171,7 +171,8 @@ class _PcContainerImageState extends State<PcContainerImage> {
       required String title,
       required String validDate,
       required String promoType,
-      required ValueNotifier<bool> isClicked}) {
+      required ValueNotifier<bool> isClicked
+      }) {
     return Container(
       height: 165.sp,
       width: 168.sp,
@@ -209,8 +210,15 @@ class _PcContainerImageState extends State<PcContainerImage> {
                   child: Container(
                     height: 20.h,
                     width: 60.w,
+
+
+
+
                     decoration: BoxDecoration(
-                        color: Colors.orange.shade100,
+                        // color: Colors.orange.shade100,
+
+                      color: promoType =="Rental"? Colors.orange.shade50: promoType =="Flights"? Colors.blue.shade50: Colors.green.shade50,
+
                         borderRadius: const BorderRadius.only(
                             topRight: Radius.circular(10),
                             bottomRight: Radius.circular(10))),
@@ -218,7 +226,9 @@ class _PcContainerImageState extends State<PcContainerImage> {
                       child: Text(
                         promoType,
                         style:
-                            const TextStyle(color: Colors.orange, fontSize: 12),
+                             TextStyle(
+                                color: promoType == "Rental"? Colors.orange: promoType == "Flights"? Colors.blue: Colors.blueGrey,
+                                fontSize: 12),
                       ),
                     ),
                   ),
