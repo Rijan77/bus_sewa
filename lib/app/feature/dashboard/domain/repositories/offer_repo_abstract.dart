@@ -3,6 +3,6 @@ import 'package:bus_sewa/app/feature/dashboard/data/models/offers_models/offers_
 
 abstract class OfferRepoAbstract{
 
-  Future<List<OfferModel>> fetchOffers();
+  Future<List<OfferModel>> setOffer();
 
 }

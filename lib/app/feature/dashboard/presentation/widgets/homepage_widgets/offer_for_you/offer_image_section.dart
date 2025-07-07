@@ -1,43 +1,66 @@
 import 'package:bus_sewa/app/core/common_widgets/text_style_widget.dart';
+import 'package:bus_sewa/app/core/utils/api_status.dart';
+import 'package:bus_sewa/app/feature/dashboard/presentation/blocs/offers/offers_cubit.dart';
 
 // import 'package:bus_sewa/app/feature/dashboard/data/repositories/mock_offer_service%20.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../data/models/offers_models/offers_items.dart';
 import '../../../../data/repositories/mock_offer_implementation .dart';
 
-class OfferImageSection extends StatelessWidget {
-  OfferImageSection({super.key});
+class OfferImageSection extends StatefulWidget {
+  final selectedType;
+  OfferImageSection({super.key, required this.selectedType});
 
+  @override
+  State<OfferImageSection> createState() => _OfferImageSectionState();
+}
+
+class _OfferImageSectionState extends State<OfferImageSection> {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    context.read<OffersCubit>().fetchOffers();
+  }
   final offerService = MockOfferService();
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List<OfferModel>>(
-        future: offerService.fetchOffers(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const SizedBox(
-              height: 180,
-              child: Center(
-                child: CircularProgressIndicator(),
-              ),
-            );
-          } else if (snapshot.hasError) {
-            return const Text("Error loading offers");
-          } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return const Text("No offers available");
-          }
-          final offers = snapshot.data!;
-          final limitedData = offers.take(5).toList();
+    return BlocBuilder<OffersCubit, OffersState>(builder: (context, state) {
+      if (state.offerStatus == ApiStatus.initial ||
+          state.offerStatus == ApiStatus.loading) {
+        return Center(
+          child: CircularProgressIndicator(),
+        );
+      }else if(state.offerStatus == ApiStatus.failure){
+        return Center(
+          child: Text("Error to Fetch Offers Data"),
+        );
+    } else if(state.offerStatus == ApiStatus.success
+      ){
+        final wOfferData = state.getOfferModel;
+
+        final Map<String , dynamic> shortOffer = {
+          'Reservation': "Rental",
+          'Tours': "Flights",
+          "Bus" : "BusSewa"
+      };
+
+        final filterOffer = widget.selectedType == "All"
+        ? wOfferData
+            :wOfferData.where((items)=> items.offerType == shortOffer[widget.selectedType]);
 
           return Padding(
             padding: const EdgeInsets.all(8.0),
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                children: limitedData.map((offers) {
+                children:filterOffer.map((offers) {
                   return Padding(
                     padding: const EdgeInsets.only(right: 10),
                     child: _buildCard(
@@ -50,7 +73,10 @@ class OfferImageSection extends StatelessWidget {
               ),
             ),
           );
-        });
+
+        } return SizedBox.shrink();
+    });
+
 
     // return Padding(
     //   padding: const EdgeInsets.all(8.0),

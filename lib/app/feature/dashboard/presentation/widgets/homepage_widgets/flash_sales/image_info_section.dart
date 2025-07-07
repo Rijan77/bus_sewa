@@ -7,7 +7,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../blocs/flash_sales/flash_sales_data_state.dart';
 
 class ImageInfoSection extends StatefulWidget {
-  const ImageInfoSection({super.key});
+  final String selectedType;
+  const ImageInfoSection({super.key, required this.selectedType});
 
   @override
   State<ImageInfoSection> createState() => _ImageInfoSectionState();
@@ -35,6 +36,20 @@ class _ImageInfoSectionState extends State<ImageInfoSection> {
       } else if (state.status == ApiStatus.failure) {
         return Center(child: Text(state.error ?? "Something went wrong"));
       } else if (state.status == ApiStatus.success) {
+        final flashSaleItem = state.flashSales;
+
+        final Map<String, String> salesTypeMap = {
+          "Bus": "bus",
+          "Tours": "tours",
+          "Reservation": "reservation",
+        };
+
+        final filteredList = widget.selectedType == "All"
+            ? flashSaleItem
+            : flashSaleItem
+            .where((item) => item.flashSellType == salesTypeMap[widget.selectedType])
+            .toList();
+
         return Padding(
           padding: const EdgeInsets.all(10.0),
           child: ClipRRect(
@@ -42,7 +57,7 @@ class _ImageInfoSectionState extends State<ImageInfoSection> {
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                children: state.flashSales.map((sale) {
+                children: filteredList.map((sale) {
                   return Padding(
                     padding: const EdgeInsets.only(right: 10),
                     child: Row(
@@ -50,6 +65,7 @@ class _ImageInfoSectionState extends State<ImageInfoSection> {
                         _buildRoundedBox(
                             imagePath: sale.imageUrl,
                             timeText: sale.time,
+                            flashSellType: sale.flashSellType,
                             title: sale.discount,
                             subTitle: sale.hotelName)
                       ],
@@ -104,6 +120,7 @@ class _ImageInfoSectionState extends State<ImageInfoSection> {
     required String imagePath,
     required String timeText,
     required String title,
+    required String flashSellType,
     required String subTitle,
   }) {
     return Container(

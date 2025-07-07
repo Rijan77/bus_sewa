@@ -5,7 +5,7 @@ import 'dart:async';
 class MockOfferService implements OfferRepoAbstract {
 
   @override
-  Future<List<OfferModel>> fetchOffers() async{
+  Future<List<OfferModel>> setOffer() async{
     await Future.delayed(const Duration(seconds: 1));
 
     final data = [

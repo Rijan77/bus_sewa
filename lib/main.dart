@@ -1,4 +1,5 @@
 import 'package:bus_sewa/app/feature/dashboard/presentation/blocs/blogs/blogs_cubit.dart';
+import 'package:bus_sewa/app/feature/dashboard/presentation/blocs/offers/offers_cubit.dart';
 import 'package:bus_sewa/app/feature/dashboard/presentation/blocs/promo_codes/promo_codes_cubit.dart';
 import 'package:bus_sewa/app/feature/dashboard/presentation/blocs/recent_searches/recent_searches_cubit.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +28,8 @@ class MyApp extends StatelessWidget {
             BlocProvider(create: (_) => FlashSalesDataCubit()),
             BlocProvider(create: (_)=> RecentSearchesCubit()),
             BlocProvider(create: (_)=> PromoCodesCubit()),
-            BlocProvider(create: (_)=> BlogsCubit())
+            BlocProvider(create: (_)=> BlogsCubit()),
+            BlocProvider(create: (_)=> OffersCubit())
           ],
           child: MaterialApp(
             debugShowCheckedModeBanner: false,

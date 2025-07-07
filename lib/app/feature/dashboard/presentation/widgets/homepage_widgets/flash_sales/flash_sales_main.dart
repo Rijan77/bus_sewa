@@ -12,6 +12,7 @@ class FlashSalesMain extends StatefulWidget {
 }
 
 class _FlashSalesMainState extends State<FlashSalesMain> {
+  final ValueNotifier<String> selectedValue = ValueNotifier<String>("All");
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -39,8 +40,11 @@ class _FlashSalesMainState extends State<FlashSalesMain> {
               ],
             ),
           ),
-          const PcButton(selectedValue: null,),
-          const ImageInfoSection()
+          PcButton(selectedValue: selectedValue,),
+          ValueListenableBuilder(valueListenable: selectedValue, builder: (context, value, _){
+            return  ImageInfoSection(selectedType: value);
+          })
+
         ],
       ),
     );

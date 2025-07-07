@@ -12,6 +12,8 @@ class OfferMain extends StatefulWidget {
 }
 
 class _OfferMainState extends State<OfferMain> {
+  final ValueNotifier<String> selectedOffer = ValueNotifier("All");
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -39,9 +41,15 @@ class _OfferMainState extends State<OfferMain> {
               ],
             ),
           ),
-          const PcButton(selectedValue: null),
-          OfferImageSection(),
-          const Padding(
+          PcButton(selectedValue: selectedOffer),
+          ValueListenableBuilder(
+              valueListenable: selectedOffer,
+              builder: (context, value, _) {
+                return OfferImageSection(
+                  selectedType: value,
+                );
+              }),
+          Padding(
             padding: EdgeInsets.only(bottom: 10),
           )
         ],
