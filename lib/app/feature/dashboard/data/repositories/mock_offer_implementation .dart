@@ -25,8 +25,8 @@ class MockOfferService implements OfferRepoAbstract {
       },
       {
         "imageUrl":
-        "https://i.pinimg.com/736x/35/4a/aa/354aaa6985aa4fdc198dc30145e6023a.jpg",
-        "offerType": "Rental",
+        "https://i.pinimg.com/736x/74/b7/f0/74b7f0dcd1976d5ec35c7a25b41d1b4a.jpg",
+        "offerType": "BusSewa",
         "title": "Black Friday Deals!",
         "subTitle": "Valid Till: 5 Dec 2024",
       },

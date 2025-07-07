@@ -175,8 +175,8 @@ class _OfferImageSectionState extends State<OfferImageSection> {
         break;
 
       default:
-        backgroundColor = Colors.red.shade100;
-        textColor = Colors.white;
+        backgroundColor = Colors.green.shade100;
+        textColor = Colors.blueGrey;
     }
 
     return Container(
