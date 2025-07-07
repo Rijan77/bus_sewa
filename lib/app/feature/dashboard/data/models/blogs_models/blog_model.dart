@@ -1,4 +1,3 @@
-
 class BlogModel {
   final String imageUrl;
   final String title;
@@ -14,7 +13,7 @@ class BlogModel {
       required this.date,
       required this.description,
       required this.viewCount,
-        required this.type,
+      required this.type,
       required this.commentCount});
 
   factory BlogModel.fromJson(Map<String, dynamic> json) {

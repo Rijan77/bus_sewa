@@ -8,6 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BlogSection extends StatefulWidget {
   final selectedType;
+
   const BlogSection({super.key, this.selectedType});
 
   @override
@@ -43,14 +44,15 @@ class _BlogSectionState extends State<BlogSection> {
         final blogs = state.blogModel;
 
         final Map<String, dynamic> blogMap = {
-          "Bus" : "bus",
+          "Bus": "bus",
           "Tours": "tours",
           "Reservation": "reservation"
         };
 
-        final filerBlog = widget.selectedType=="All"
-        ?blogs
-            :blogs.where((items)=>items.type==blogMap[widget.selectedType]);
+        final filerBlog = widget.selectedType == "All"
+            ? blogs
+            : blogs
+                .where((items) => items.type == blogMap[widget.selectedType]);
 
         if (blogs.isEmpty) {
           return const Padding(
