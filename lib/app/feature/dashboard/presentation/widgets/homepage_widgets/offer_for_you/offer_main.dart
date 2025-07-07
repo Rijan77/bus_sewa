@@ -49,7 +49,7 @@ class _OfferMainState extends State<OfferMain> {
                   selectedType: value,
                 );
               }),
-          Padding(
+          const Padding(
             padding: EdgeInsets.only(bottom: 10),
           )
         ],

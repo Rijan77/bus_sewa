@@ -7,12 +7,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../data/models/offers_models/offers_items.dart';
 import '../../../../data/repositories/mock_offer_implementation .dart';
 
 class OfferImageSection extends StatefulWidget {
   final selectedType;
-  OfferImageSection({super.key, required this.selectedType});
+  const OfferImageSection({super.key, required this.selectedType});
 
   @override
   State<OfferImageSection> createState() => _OfferImageSectionState();
@@ -34,11 +33,11 @@ class _OfferImageSectionState extends State<OfferImageSection> {
     return BlocBuilder<OffersCubit, OffersState>(builder: (context, state) {
       if (state.offerStatus == ApiStatus.initial ||
           state.offerStatus == ApiStatus.loading) {
-        return Center(
+        return const Center(
           child: CircularProgressIndicator(),
         );
       }else if(state.offerStatus == ApiStatus.failure){
-        return Center(
+        return const Center(
           child: Text("Error to Fetch Offers Data"),
         );
     } else if(state.offerStatus == ApiStatus.success
@@ -74,7 +73,7 @@ class _OfferImageSectionState extends State<OfferImageSection> {
             ),
           );
 
-        } return SizedBox.shrink();
+        } return const SizedBox.shrink();
     });
 
 

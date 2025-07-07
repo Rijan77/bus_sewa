@@ -36,7 +36,7 @@ class _PromoCodeState extends State<PromoCode> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          PcHeaderSection(),
+          const PcHeaderSection(),
           PcButton(selectedValue: selectedValue,),
           ValueListenableBuilder(valueListenable: selectedValue, builder: (context, value, _){
             return  PcContainerImage(selectedType: value);

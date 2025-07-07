@@ -12,7 +12,7 @@ class _ClipButtonState extends State<ClipButton> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Learn Choice Clip",)),
+      appBar: AppBar(title: const Text("Learn Choice Clip",)),
     );
   }
 }
