@@ -90,7 +90,7 @@ class _PcContainerImageState extends State<PcContainerImage> {
           );
         }
         return Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.only(top: 10, bottom: 5, right: 5),
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
