@@ -12,7 +12,7 @@ class PromoCodesCubit extends Cubit<PromoCodesState> {
   PromocodesImplementation promocodesImplementation = PromocodesImplementation();
 
 
-  Future<void> fetchPromoCode() async{
+   Future<void> fetchPromoCode() async{
 
     emit(state.copyWith(promoCodeStatus: ApiStatus.loading));
 
