@@ -7,7 +7,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BlogSection extends StatefulWidget {
-  const BlogSection({super.key});
+  final selectedType;
+  const BlogSection({super.key, this.selectedType});
 
   @override
   State<BlogSection> createState() => _BlogSectionState();
@@ -41,6 +42,16 @@ class _BlogSectionState extends State<BlogSection> {
       } else if (state.blogStatus == ApiStatus.success) {
         final blogs = state.blogModel;
 
+        final Map<String, dynamic> blogMap = {
+          "Bus" : "bus",
+          "Tours": "tours",
+          "Reservation": "reservation"
+        };
+
+        final filerBlog = widget.selectedType=="All"
+        ?blogs
+            :blogs.where((items)=>items.type==blogMap[widget.selectedType]);
+
         if (blogs.isEmpty) {
           return const Padding(
             padding: EdgeInsets.symmetric(
@@ -56,7 +67,7 @@ class _BlogSectionState extends State<BlogSection> {
           );
         }
         return CarouselSlider(
-          items: blogs.map((blog) {
+          items: filerBlog.map((blog) {
             return buildCarouselContainer(
                 image: Image.network(
                   blog.imageUrl,

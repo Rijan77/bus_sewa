@@ -6,6 +6,7 @@ class BlogModel {
   final String description;
   final int viewCount;
   final int commentCount;
+  final String type;
 
   BlogModel(
       {required this.imageUrl,
@@ -13,6 +14,7 @@ class BlogModel {
       required this.date,
       required this.description,
       required this.viewCount,
+        required this.type,
       required this.commentCount});
 
   factory BlogModel.fromJson(Map<String, dynamic> json) {
@@ -22,6 +24,7 @@ class BlogModel {
         date: json['date'],
         description: json['description'],
         viewCount: json['viewCount'],
+        type: json["type"],
         commentCount: json['commentCount']);
   }
 }

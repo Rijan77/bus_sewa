@@ -16,7 +16,7 @@ class BlogImplementation implements BlogsAbstract {
             'Nestled in stunning city of Nepal, Pokhara offers stunning views of the summer',
         'viewCount': 3,
         'commentCount': 10,
-        'type': 'Bus'
+        'type': 'bus'
       },
       {
         'imageUrl':
@@ -27,7 +27,7 @@ class BlogImplementation implements BlogsAbstract {
             'Nestled in stunning city of Nepal, Pokhara offers stunning views of the summer',
         'viewCount': 3,
         'commentCount': 10,
-        'type': 'Tours'
+        'type': 'tours'
       },
       {
         'imageUrl':
@@ -38,7 +38,7 @@ class BlogImplementation implements BlogsAbstract {
             'Nestled in stunning city of Nepal, Pokhara offers stunning views of the summer',
         'viewCount': 3,
         'commentCount': 10,
-        'type': 'Reservation'
+        'type': 'reservation'
       },
     ];
     return blogData.map((json) => BlogModel.fromJson(json)).toList();

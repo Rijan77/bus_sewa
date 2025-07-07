@@ -12,6 +12,7 @@ class BlogsMain extends StatefulWidget {
 }
 
 class _BlogsMainState extends State<BlogsMain> {
+  final ValueNotifier<String> selectedBlogs = ValueNotifier("All");
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -39,8 +40,13 @@ class _BlogsMainState extends State<BlogsMain> {
               ],
             ),
           ),
-          const PcButton(selectedValue: null,),
-          const BlogSection(),
+           PcButton(selectedValue: selectedBlogs),
+          ValueListenableBuilder(
+            valueListenable: selectedBlogs,
+              builder: (context, value, _){
+              return BlogSection(selectedType: value,);
+    }
+    ),
           const Padding(
             padding: EdgeInsets.only(bottom: 10),
           )
