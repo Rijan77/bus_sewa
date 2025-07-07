@@ -13,25 +13,29 @@ class FlashSaleRepoImple implements FlashRepoAbstract {
         "time": "1H 40M left",
         "discount": "Get 20% OFF",
         "hotelName": "Meghauli Hotel",
-        "imageUrl": "assets/images/Frame 1171275916 (1).png"
+        "imageUrl": "assets/images/Frame 1171275916 (1).png",
+        'flashSellType': "Bus"
       },
       {
         "time": "9H 40M left",
         "discount": "Get 10% OFF",
         "hotelName": "Diyalo Hotel",
-        "imageUrl": "assets/images/Frame 1171275917.png"
+        "imageUrl": "assets/images/Frame 1171275917.png",
+        'flashSellType': "Tours"
       },
       {
         "time": "3H 40M left",
         "discount": "Get 60% OFF",
         "hotelName": "Rijan Hotel",
-        "imageUrl": "assets/images/Frame 1171275918.png"
+        "imageUrl": "assets/images/Frame 1171275918.png",
+        'flashSellType': "Reservation"
       },
       {
         "time": "1H 40M left",
         "discount": "Get 40% OFF",
         "hotelName": "Meghauli Hotel",
-        "imageUrl": "assets/images/Frame 1171275917.png"
+        "imageUrl": "assets/images/Frame 1171275917.png",
+        'flashSellType': "Bus"
       },
     ];
 
