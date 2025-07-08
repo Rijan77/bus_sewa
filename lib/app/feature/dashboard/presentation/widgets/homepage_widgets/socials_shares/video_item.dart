@@ -4,14 +4,12 @@ import 'package:video_player/video_player.dart';
 class VideoItem extends StatefulWidget {
   final String videoUrl;
   final String userName;
-  final String image;
   final bool isActive;
 
   const VideoItem({
     super.key,
     required this.videoUrl,
     required this.userName,
-    required this.image,
     required this.isActive,
   });
 

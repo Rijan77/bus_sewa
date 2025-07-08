@@ -12,6 +12,7 @@ class VideoPlayer extends StatefulWidget {
 }
 
 class _VideoPlayerState extends State<VideoPlayer> {
+
   @override
   void initState() {
     // TODO: implement initState
@@ -26,28 +27,27 @@ class _VideoPlayerState extends State<VideoPlayer> {
   Widget build(BuildContext context) {
     return BlocBuilder<SocialSharesCubit, SocialSharesState>(
         builder: (context, state) {
-      if (state.socialStatus == ApiStatus.loading) {
-        return const Center(child: CircularProgressIndicator());
-      } else if (state.socialStatus == ApiStatus.failure) {
-        return const Center(child: Text("Error to Load Social Shares"));
-      } else if (state.socialStatus == ApiStatus.success) {
-        return PageView.builder(
-          scrollDirection: Axis.vertical,
-          itemCount: state.getVideo.length,
-          controller: controller,
-          onPageChanged: (index) => setState(() => currentPage = index),
-          itemBuilder: (context, index) {
-            final item = state.getVideo[index];
-            return VideoItem(
-              videoUrl: item.videoUrl,
-              userName: item.userName,
-              image: item.image,
-              isActive: index == currentPage,
+          if (state.socialStatus == ApiStatus.loading) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (state.socialStatus == ApiStatus.failure) {
+            return const Center(child: Text("Error to Load Social Shares"));
+          } else if (state.socialStatus == ApiStatus.success) {
+            return PageView.builder(
+              scrollDirection: Axis.vertical,
+              itemCount: state.getVideo.length,
+              controller: controller,
+              onPageChanged: (index) => setState(() => currentPage = index),
+              itemBuilder: (context, index) {
+                final item = state.getVideo[index];
+                return VideoItem(
+                  videoUrl: item.videoUrl,
+                  userName: item.userName,
+                  isActive: index == currentPage,
+                );
+              },
             );
-          },
-        );
-      }
-      return const SizedBox.shrink();
-    });
+          }
+          return const SizedBox.shrink();
+        });
   }
 }
