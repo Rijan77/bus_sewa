@@ -6,7 +6,7 @@ class SocialShareModel {
   SocialShareModel({
     required this.videoUrl,
     required this.title,
-    required this.subTitle,
+    required this.subTitle,a
   });
 
   factory SocialShareModel.fromJson(Map<String, dynamic> json) {
