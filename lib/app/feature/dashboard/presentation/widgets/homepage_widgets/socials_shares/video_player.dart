@@ -1,35 +1,54 @@
+import 'package:bus_sewa/app/core/utils/api_status.dart';
+import 'package:bus_sewa/app/feature/dashboard/presentation/blocs/socials_shares/social_shares_cubit.dart';
+import 'package:bus_sewa/app/feature/dashboard/presentation/widgets/homepage_widgets/socials_shares/video_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class VideoPlayer extends StatefulWidget {
-
   const VideoPlayer({super.key});
 
   @override
   State<VideoPlayer> createState() => _VideoPlayerState();
-
 }
 
 class _VideoPlayerState extends State<VideoPlayer> {
-  PageController controller=PageController();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    context.read<SocialSharesCubit>().fetchSocialShare();
+  }
+
+  PageController controller = PageController();
+  int currentPage = 0;
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: PageView(
-        scrollDirection: Axis.vertical,
-        controller: controller,
-        children: [
-          Container(
-            color: Colors.blueGrey,
-          ),
-          Container(
-            color: Colors.greenAccent,
-          ),
-
-          Container(
-            color: Colors.red,
-          )
-        ],
-      ),
-    );
+    return BlocBuilder<SocialSharesCubit, SocialSharesState>(
+        builder: (context, state) {
+          if (state.socialStatus == ApiStatus.loading) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (state.socialStatus == ApiStatus.failure) {
+            return const Center(child: Text("Error to Load Social Shares"));
+          } else if (state.socialStatus == ApiStatus.success) {
+            return PageView.builder(
+              scrollDirection: Axis.vertical,
+              itemCount: state.getVideo.length,
+              controller: controller,
+              onPageChanged: (index) => setState(() => currentPage = index),
+              itemBuilder: (context, index) {
+                final item = state.getVideo[index];
+                return VideoItem(
+                  videoUrl: item.videoUrl,
+                  userName: item.userName,
+                  image: item.image,
+                  isActive: index == currentPage,
+                );
+              },
+            );
+          }
+          return const SizedBox.shrink();
+        });
   }
 }
