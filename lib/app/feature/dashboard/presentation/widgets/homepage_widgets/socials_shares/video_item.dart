@@ -159,7 +159,8 @@ class _VideoItemState extends State<VideoItem> {
                       ],
                     ),
                     const SizedBox(height: 10),
-                    Flexible(
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15),
                       child: Text(
                         "When you're watching a video, tap the bookmark icon (usually located on the right side).",
                         style:
