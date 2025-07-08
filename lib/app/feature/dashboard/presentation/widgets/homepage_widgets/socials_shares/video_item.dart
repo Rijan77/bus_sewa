@@ -55,25 +55,24 @@ class _VideoItemState extends State<VideoItem> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black26,
-      body:  Stack(
+      body: Stack(
         fit: StackFit.expand,
         children: [
           _controller.value.isInitialized
               ? FittedBox(
-            fit: BoxFit.cover,
-            child: SizedBox(
-              width: _controller.value.size.width,
-              height: _controller.value.size.height,
-              child: VideoPlayer(_controller),
-            ),
-          )
-              :  Center(child: CircularProgressIndicator()),
+                  fit: BoxFit.cover,
+                  child: SizedBox(
+                    width: _controller.value.size.width,
+                    height: _controller.value.size.height,
+                    child: VideoPlayer(_controller),
+                  ),
+                )
+              : Center(child: CircularProgressIndicator()),
 
           /// Right-side vertical buttons
           Padding(
             padding: const EdgeInsets.only(top: 480),
             child: Column(
-
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 IconButton(
@@ -101,10 +100,9 @@ class _VideoItemState extends State<VideoItem> {
                     setState(() {
                       isBookmarked = !isBookmarked;
                     });
-
                   },
-                  icon:  Icon(
-                    isBookmarked? Icons.bookmark: Icons.bookmark_border,
+                  icon: Icon(
+                    isBookmarked ? Icons.bookmark : Icons.bookmark_border,
                     color: Colors.white,
                     size: 40,
                   ),
@@ -166,7 +164,8 @@ class _VideoItemState extends State<VideoItem> {
                     Flexible(
                       child: Text(
                         "When you're watching a video, tap the bookmark icon (usually located on the right side).",
-                        style: const TextStyle(fontSize: 12, color: Colors.white),
+                        style:
+                            const TextStyle(fontSize: 12, color: Colors.white),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),
