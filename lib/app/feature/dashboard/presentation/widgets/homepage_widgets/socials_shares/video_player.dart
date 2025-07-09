@@ -12,7 +12,6 @@ class VideoPlayer extends StatefulWidget {
 }
 
 class _VideoPlayerState extends State<VideoPlayer> {
-
   @override
   void initState() {
     // TODO: implement initState
@@ -24,41 +23,39 @@ class _VideoPlayerState extends State<VideoPlayer> {
   Widget build(BuildContext context) {
     return BlocBuilder<SocialSharesCubit, SocialSharesState>(
         builder: (context, state) {
-          if (state.socialStatus == ApiStatus.loading) {
-            return const Center(child: CircularProgressIndicator());
-          } else if (state.socialStatus == ApiStatus.failure) {
-            return const Center(child: Text("Error to Load Social Shares"));
-          } else if (state.socialStatus == ApiStatus.success) {
+      if (state.socialStatus == ApiStatus.loading) {
+        return const Center(child: CircularProgressIndicator());
+      } else if (state.socialStatus == ApiStatus.failure) {
+        return const Center(child: Text("Error to Load Social Shares"));
+      } else if (state.socialStatus == ApiStatus.success) {
+        return Padding(
+          padding: const EdgeInsets.all(10),
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: state.getVideo.map((items) {
+                return VideoItem(
+                  video: items,
+                );
+              }).toList(), // ✅ convert Iterable to List
+            ),
+          ),
+        );
 
-            return Padding(
-              padding: const EdgeInsets.all(10),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: state.getVideo.map((items) {
-                    return VideoItem(video: items,);
-                  }).toList(), // ✅ convert Iterable to List
-                ),
-              ),
-            );
-
-
-            // return PageView.builder(
-            //   scrollDirection: Axis.vertical,
-            //   itemCount: state.getVideo.length,
-            //   controller: controller,
-            //   onPageChanged: (index) => setState(() => currentPage = index),
-            //   itemBuilder: (context, index) {
-            //     final item = state.getVideo[index];
-            //     return VideoItem(
-            //       image: item.image,
-            //     );
-            //   },
-            // );
-          }
-          return const SizedBox.shrink();
-        });
+        // return PageView.builder(
+        //   scrollDirection: Axis.vertical,
+        //   itemCount: state.getVideo.length,
+        //   controller: controller,
+        //   onPageChanged: (index) => setState(() => currentPage = index),
+        //   itemBuilder: (context, index) {
+        //     final item = state.getVideo[index];
+        //     return VideoItem(
+        //       image: item.image,
+        //     );
+        //   },
+        // );
+      }
+      return const SizedBox.shrink();
+    });
   }
 }
-
-

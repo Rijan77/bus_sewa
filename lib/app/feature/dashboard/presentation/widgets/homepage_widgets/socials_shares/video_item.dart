@@ -14,7 +14,6 @@ class VideoItem extends StatefulWidget {
 class _VideoItemState extends State<VideoItem> {
   @override
   Widget build(BuildContext context) {
-
     return Padding(
       padding: const EdgeInsets.only(right: 10),
       child: Stack(
@@ -40,20 +39,30 @@ class _VideoItemState extends State<VideoItem> {
               size: 100.sp, // Use .sp for responsive sizing
             ),
           ),
-          Positioned( left: 8.sp, bottom: 17.sp, right: 40.sp,  child:  Text(widget.video.userName, style: TextStyle(
-              overflow: TextOverflow.ellipsis,
-              color: Colors.white,
-              fontSize: 14.sp,
-              fontWeight: FontWeight.w600
-          ),)),
-
-          Positioned( left: 8.sp, bottom: 2.sp, right: 40
-              .sp,  child:  Text("My first astetic video", style: TextStyle(
-              overflow: TextOverflow.ellipsis,
-              color: Colors.white,
-              fontSize: 10.sp,
-              fontWeight: FontWeight.w400
-          ),))
+          Positioned(
+              left: 8.sp,
+              bottom: 17.sp,
+              right: 40.sp,
+              child: Text(
+                widget.video.userName,
+                style: TextStyle(
+                    overflow: TextOverflow.ellipsis,
+                    color: Colors.white,
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w600),
+              )),
+          Positioned(
+              left: 8.sp,
+              bottom: 2.sp,
+              right: 40.sp,
+              child: Text(
+                "My first astetic video",
+                style: TextStyle(
+                    overflow: TextOverflow.ellipsis,
+                    color: Colors.white,
+                    fontSize: 10.sp,
+                    fontWeight: FontWeight.w400),
+              ))
         ],
       ),
     );
