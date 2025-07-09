@@ -103,10 +103,11 @@ class _VideoItemState extends State<FullScreenVideoPlayer> {
                   ? Icon(Icons.play_arrow, color: Colors.white, size: 70)
                   : SizedBox.shrink(),
 
-              // child: _controller.value.isPlaying
+                // child: _controller.value.isPlaying
               //     ? SizedBox.shrink()
               //     : Icon(Icons.play_arrow, color: Colors.white, size: 70),
             ),
+
 
             /// Right-side vertical buttons
             Padding(
