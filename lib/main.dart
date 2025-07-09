@@ -4,7 +4,6 @@ import 'package:bus_sewa/app/feature/dashboard/presentation/blocs/promo_codes/pr
 import 'package:bus_sewa/app/feature/dashboard/presentation/blocs/recent_searches/recent_searches_cubit.dart';
 import 'package:bus_sewa/app/feature/dashboard/presentation/blocs/socials_shares/social_shares_cubit.dart';
 import 'package:bus_sewa/app/feature/dashboard/presentation/views/homepage.dart';
-import 'package:bus_sewa/app/feature/dashboard/presentation/widgets/homepage_widgets/socials_shares/video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
