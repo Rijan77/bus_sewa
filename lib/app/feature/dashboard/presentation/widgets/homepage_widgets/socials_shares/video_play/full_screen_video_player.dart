@@ -54,11 +54,11 @@ class _VideoItemState extends State<FullScreenVideoPlayer> {
     return Scaffold(
       backgroundColor: Colors.black26,
       body: InkWell(
-        onTap: (){
+        onTap: () {
           setState(() {
-            if (_controller.value.isPlaying){
+            if (_controller.value.isPlaying) {
               _controller.pause();
-            } else{
+            } else {
               _controller.play();
             }
           });
@@ -75,35 +75,38 @@ class _VideoItemState extends State<FullScreenVideoPlayer> {
                       child: VideoPlayer(_controller),
                     ),
                   )
-                : Center(child: CircularProgressIndicator( color: Colors.white,)),
+                : Center(
+                    child: CircularProgressIndicator(
+                    color: Colors.white,
+                  )),
 
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
                   padding: const EdgeInsets.only(top: 25),
-                  child: IconButton(onPressed: () {Navigator.pop(context);}, icon: Icon(Icons.arrow_back, color: Colors.white,size: 40,)),
+                  child: IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: Icon(
+                        Icons.arrow_back,
+                        color: Colors.white,
+                        size: 40,
+                      )),
                 ),
-
-
-
-
               ],
             ),
             Center(
-              child: _controller.value.isInitialized && !_controller.value.isPlaying
+              child: _controller.value.isInitialized &&
+                      !_controller.value.isPlaying
                   ? Icon(Icons.play_arrow, color: Colors.white, size: 70)
                   : SizedBox.shrink(),
 
-
-
               // child: _controller.value.isPlaying
-                //     ? SizedBox.shrink()
-                //     : Icon(Icons.play_arrow, color: Colors.white, size: 70),
-              ),
-
-
-
+              //     ? SizedBox.shrink()
+              //     : Icon(Icons.play_arrow, color: Colors.white, size: 70),
+            ),
 
             /// Right-side vertical buttons
             Padding(
@@ -118,7 +121,9 @@ class _VideoItemState extends State<FullScreenVideoPlayer> {
                       });
                     },
                     icon: Icon(
-                      isPressed ? Icons.favorite : Icons.favorite_border_rounded,
+                      isPressed
+                          ? Icons.favorite
+                          : Icons.favorite_border_rounded,
                       color: isPressed ? Colors.red : Colors.white,
                       size: 40,
                     ),
@@ -201,8 +206,8 @@ class _VideoItemState extends State<FullScreenVideoPlayer> {
                         padding: const EdgeInsets.only(left: 15),
                         child: Text(
                           "When you're watching a video, tap the bookmark icon (usually located on the right side).",
-                          style:
-                              const TextStyle(fontSize: 12, color: Colors.white),
+                          style: const TextStyle(
+                              fontSize: 12, color: Colors.white),
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                         ),
