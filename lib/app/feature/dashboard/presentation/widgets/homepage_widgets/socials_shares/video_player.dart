@@ -20,9 +20,6 @@ class _VideoPlayerState extends State<VideoPlayer> {
     context.read<SocialSharesCubit>().fetchSocialShare();
   }
 
-  PageController controller = PageController();
-  int currentPage = 0;
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SocialSharesCubit, SocialSharesState>(
@@ -32,22 +29,36 @@ class _VideoPlayerState extends State<VideoPlayer> {
           } else if (state.socialStatus == ApiStatus.failure) {
             return const Center(child: Text("Error to Load Social Shares"));
           } else if (state.socialStatus == ApiStatus.success) {
-            return PageView.builder(
-              scrollDirection: Axis.vertical,
-              itemCount: state.getVideo.length,
-              controller: controller,
-              onPageChanged: (index) => setState(() => currentPage = index),
-              itemBuilder: (context, index) {
-                final item = state.getVideo[index];
-                return VideoItem(
-                  videoUrl: item.videoUrl,
-                  userName: item.userName,
-                  isActive: index == currentPage,
-                );
-              },
+
+            return Padding(
+              padding: const EdgeInsets.all(10),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: state.getVideo.map((items) {
+                    return VideoItem(video: items,);
+                  }).toList(), // ✅ convert Iterable to List
+                ),
+              ),
             );
+
+
+            // return PageView.builder(
+            //   scrollDirection: Axis.vertical,
+            //   itemCount: state.getVideo.length,
+            //   controller: controller,
+            //   onPageChanged: (index) => setState(() => currentPage = index),
+            //   itemBuilder: (context, index) {
+            //     final item = state.getVideo[index];
+            //     return VideoItem(
+            //       image: item.image,
+            //     );
+            //   },
+            // );
           }
           return const SizedBox.shrink();
         });
   }
 }
+
+

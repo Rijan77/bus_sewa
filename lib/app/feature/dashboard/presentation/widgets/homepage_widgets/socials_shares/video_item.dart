@@ -1,179 +1,59 @@
+import 'package:bus_sewa/app/feature/dashboard/data/models/video_model.dart';
 import 'package:flutter/material.dart';
-import 'package:video_player/video_player.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class VideoItem extends StatefulWidget {
-  final String videoUrl;
-  final String userName;
-  final bool isActive;
+  final VideoModel video;
 
-  const VideoItem({
-    super.key,
-    required this.videoUrl,
-    required this.userName,
-    required this.isActive,
-  });
+  const VideoItem({super.key, required this.video});
 
   @override
   State<VideoItem> createState() => _VideoItemState();
 }
 
 class _VideoItemState extends State<VideoItem> {
-  late VideoPlayerController _controller;
-  bool isPressed = false;
-  bool isBookmarked = false;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = VideoPlayerController.network(widget.videoUrl)
-      ..setVolume(1.0)
-      ..initialize().then((_) {
-        if (widget.isActive) _controller.play();
-        setState(() {});
-      });
-  }
-
-  @override
-  void didUpdateWidget(VideoItem oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (widget.isActive) {
-      _controller.play();
-    } else {
-      _controller.pause();
-    }
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black26,
-      body: Stack(
-        fit: StackFit.expand,
+
+    return Padding(
+      padding: const EdgeInsets.only(right: 10),
+      child: Stack(
+        alignment: Alignment.center,
         children: [
-          _controller.value.isInitialized
-              ? FittedBox(
-                  fit: BoxFit.cover,
-                  child: SizedBox(
-                    width: _controller.value.size.width,
-                    height: _controller.value.size.height,
-                    child: VideoPlayer(_controller),
-                  ),
-                )
-              : Center(child: CircularProgressIndicator()),
-
-          /// Right-side vertical buttons
-          Padding(
-            padding: const EdgeInsets.only(top: 480),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                IconButton(
-                  onPressed: () {
-                    setState(() {
-                      isPressed = !isPressed;
-                    });
-                  },
-                  icon: Icon(
-                    isPressed ? Icons.favorite : Icons.favorite_border_rounded,
-                    color: isPressed ? Colors.red : Colors.white,
-                    size: 40,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.comment_rounded,
-                    color: Colors.white,
-                    size: 40,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () {
-                    setState(() {
-                      isBookmarked = !isBookmarked;
-                    });
-                  },
-                  icon: Icon(
-                    isBookmarked ? Icons.bookmark : Icons.bookmark_border,
-                    color: Colors.white,
-                    size: 40,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.send_rounded,
-                    color: Colors.white,
-                    size: 40,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.more_horiz,
-                    color: Colors.white,
-                    size: 40,
-                  ),
-                ),
-              ],
-            ),
-          ),
-
-          /// Bottom-left user info + description
-          Align(
-            alignment: Alignment.bottomLeft,
-            child: Padding(
-              padding: const EdgeInsets.all(12),
-              child: SizedBox(
-                width: 280,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        const CircleAvatar(
-                          backgroundColor: Colors.white,
-                          child: Icon(
-                            Icons.person,
-                            size: 40,
-                          ),
-                        ),
-                        const SizedBox(width: 10),
-                        Text(
-                          widget.userName,
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 10),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 15),
-                      child: Text(
-                        "When you're watching a video, tap the bookmark icon (usually located on the right side).",
-                        style:
-                            const TextStyle(fontSize: 12, color: Colors.white),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                  ],
-                ),
+          Container(
+            height: 190.sp,
+            width: 150.sp,
+            decoration: BoxDecoration(),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(5.sp),
+              child: Image.network(
+                widget.video.image,
+                fit: BoxFit.cover,
               ),
             ),
-          )
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: Icon(
+              Icons.play_arrow_sharp,
+              color: Color(0xffDDDDDD).withOpacity(1),
+              size: 100.sp, // Use .sp for responsive sizing
+            ),
+          ),
+          Positioned( left: 8.sp, bottom: 17.sp, right: 40.sp,  child:  Text(widget.video.userName, style: TextStyle(
+              overflow: TextOverflow.ellipsis,
+              color: Colors.white,
+              fontSize: 14.sp,
+              fontWeight: FontWeight.w600
+          ),)),
+
+          Positioned( left: 8.sp, bottom: 2.sp, right: 40
+              .sp,  child:  Text("My first astetic video", style: TextStyle(
+              overflow: TextOverflow.ellipsis,
+              color: Colors.white,
+              fontSize: 10.sp,
+              fontWeight: FontWeight.w400
+          ),))
         ],
       ),
     );
