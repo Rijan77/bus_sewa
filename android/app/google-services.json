@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "576677661408",
+    "project_id": "bussewa-963e5",
+    "storage_bucket": "bussewa-963e5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:576677661408:android:cd0c19ef3c8367affede85",
+        "android_client_info": {
+          "package_name": "com.example.bus_sewa"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6pX8DNmplsi65acCZbxK_3YNUPNvN4u4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
