@@ -24,14 +24,7 @@ class _PcContainerImageState extends State<PcContainerImage> {
 
   final Map<int, ValueNotifier<bool>> isClickedMap = {};
 
-  // bool _isClicked  = false;
-  //
-  // void _handleTap(){
-  //   setState(() {
-  //     _isClicked = !_isClicked;
-  //   });
-  //
-  // }
+  final ValueNotifier<bool> isDisable = ValueNotifier(false);
 
   PromocodesImplementation promocodesImplementation =
       PromocodesImplementation();
@@ -261,41 +254,47 @@ class _PcContainerImageState extends State<PcContainerImage> {
                 ),
               ),
               ValueListenableBuilder(
-                  valueListenable: isClicked,
-                  builder: (context, value, child) {
-                    return Padding(
-                      padding: const EdgeInsets.only(
-                          left: 7.88, right: 7.88, bottom: 4, top: 4),
-                      child: InkWell(
-                        onTap: () {
-                          isClicked.value = !isClicked.value;
-                        },
-                        child: Container(
-                          height: 28.sp,
-                          width: 142.sp,
-                          decoration: BoxDecoration(
-                            color: value
-                                ? Colors.transparent
-                                : const Color(0xff198B85),
-                            border: Border.all(
-                                width: 1, color: const Color(0xff198B85)),
-                            borderRadius: BorderRadius.circular(4),
-                          ),
-                          child: Center(
-                            child: Text(
-                              value ? "Collected" : "Collect",
-                              style: TextStyle(
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.w500,
-                                  color: value
-                                      ? const Color(0xff198B85)
-                                      : Colors.white),
+                valueListenable: isDisable,
+                builder: (context, isDisable, _) {
+                  return ValueListenableBuilder(
+                      valueListenable: isClicked,
+                      builder: (context, value, child) {
+                        return Padding(
+                          padding: const EdgeInsets.only(
+                              left: 7.88, right: 7.88, bottom: 4, top: 4),
+                          child: InkWell(
+                            onTap: () {
+                              isClicked.value = !isClicked.value;
+                              isClicked.value = isDisable ? false : true;
+                            },
+                            child: Container(
+                              height: 28.sp,
+                              width: 142.sp,
+                              decoration: BoxDecoration(
+                                color: value
+                                    ? Colors.transparent
+                                    : const Color(0xff198B85),
+                                border: Border.all(
+                                    width: 1, color: const Color(0xff198B85)),
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  value ? "Collected" : "Collect",
+                                  style: TextStyle(
+                                      fontSize: 14.sp,
+                                      fontWeight: FontWeight.w500,
+                                      color: value
+                                          ? const Color(0xff198B85)
+                                          : Colors.white),
+                                ),
+                              ),
                             ),
                           ),
-                        ),
-                      ),
-                    );
-                  })
+                        );
+                      });
+                },
+              )
             ],
           )
         ],
