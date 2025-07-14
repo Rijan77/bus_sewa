@@ -6,7 +6,6 @@ import 'package:bus_sewa/app/feature/dashboard/presentation/widgets/homepage_wid
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import '../widgets/homepage_widgets/blogs_section/blogs_main.dart';
 import '../widgets/homepage_widgets/gift_section/gift_section_main.dart';
 import '../widgets/homepage_widgets/offer_for_you/offer_main.dart';
@@ -81,8 +80,9 @@ class _HomepageState extends State<Homepage> {
                   SliverAppBar(
                     expandedHeight: 0.25.sh,
                     collapsedHeight: 0.13.sh,
-                    backgroundColor:
-                    value ? const Color(0xff13366E) : const Color(0xffF9F9FF),
+                    backgroundColor: value
+                        ? const Color(0xff13366E)
+                        : const Color(0xffF9F9FF),
                     shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.only(
                             bottomRight: Radius.circular(16),
@@ -133,12 +133,12 @@ class _HomepageState extends State<Homepage> {
                                     top: 30, left: 16, right: 16),
                                 child: const Row(
                                   mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceBetween,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Column(
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Padding(
                                           padding: EdgeInsets.only(top: 50),
@@ -235,8 +235,8 @@ class _HomepageState extends State<Homepage> {
                   ),
                   const SliverToBoxAdapter(
                     child: Padding(
-                      padding:
-                      EdgeInsets.only(top: 11, bottom: 8, right: 8, left: 8),
+                      padding: EdgeInsets.only(
+                          top: 11, bottom: 8, right: 8, left: 8),
                       child: GiftSectionMain(),
                     ),
                   ),

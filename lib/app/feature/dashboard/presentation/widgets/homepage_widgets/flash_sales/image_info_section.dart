@@ -8,6 +8,7 @@ import '../../../blocs/flash_sales/flash_sales_data_state.dart';
 
 class ImageInfoSection extends StatefulWidget {
   final String selectedType;
+
   const ImageInfoSection({super.key, required this.selectedType});
 
   @override
@@ -47,8 +48,9 @@ class _ImageInfoSectionState extends State<ImageInfoSection> {
         final filteredList = widget.selectedType == "All"
             ? flashSaleItem
             : flashSaleItem
-            .where((item) => item.flashSellType == salesTypeMap[widget.selectedType])
-            .toList();
+                .where((item) =>
+                    item.flashSellType == salesTypeMap[widget.selectedType])
+                .toList();
 
         return Padding(
           padding: const EdgeInsets.all(10.0),

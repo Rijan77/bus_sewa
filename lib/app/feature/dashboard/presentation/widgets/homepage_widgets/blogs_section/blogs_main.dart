@@ -1,7 +1,7 @@
 import 'package:bus_sewa/app/core/common_widgets/text_style_widget.dart';
-import 'package:bus_sewa/app/feature/dashboard/presentation/widgets/homepage_widgets/promo_code/pc_button.dart';
 import 'package:flutter/material.dart';
 
+import '../clip_button/clip_button.dart';
 import 'blog_section.dart';
 
 class BlogsMain extends StatefulWidget {
@@ -41,7 +41,7 @@ class _BlogsMainState extends State<BlogsMain> {
               ],
             ),
           ),
-          PcButton(selectedValue: selectedBlogs),
+          ClipButton(selectedValue: selectedBlogs),
           ValueListenableBuilder(
               valueListenable: selectedBlogs,
               builder: (context, value, _) {

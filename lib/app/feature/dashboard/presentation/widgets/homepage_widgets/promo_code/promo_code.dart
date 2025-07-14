@@ -1,7 +1,7 @@
-import 'package:bus_sewa/app/feature/dashboard/presentation/widgets/homepage_widgets/promo_code/pc_button.dart';
 import 'package:bus_sewa/app/feature/dashboard/presentation/widgets/homepage_widgets/promo_code/pc_container_image.dart';
 import 'package:bus_sewa/app/feature/dashboard/presentation/widgets/homepage_widgets/promo_code/pc_header_section.dart';
 import 'package:flutter/material.dart';
+import '../clip_button/clip_button.dart';
 
 class PromoCode extends StatefulWidget {
   const PromoCode({super.key});
@@ -38,7 +38,7 @@ class _PromoCodeState extends State<PromoCode> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const PcHeaderSection(),
-          PcButton(
+          ClipButton(
             selectedValue: selectedValue,
           ),
           ValueListenableBuilder(

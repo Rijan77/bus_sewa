@@ -1,7 +1,6 @@
 import 'package:bus_sewa/app/core/common_widgets/text_style_widget.dart';
-import 'package:bus_sewa/app/feature/dashboard/presentation/widgets/homepage_widgets/promo_code/pc_button.dart';
 import 'package:flutter/material.dart';
-
+import '../clip_button/clip_button.dart';
 import 'image_info_section.dart';
 
 class FlashSalesMain extends StatefulWidget {
@@ -13,6 +12,7 @@ class FlashSalesMain extends StatefulWidget {
 
 class _FlashSalesMainState extends State<FlashSalesMain> {
   final ValueNotifier<String> selectedValue = ValueNotifier<String>("All");
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -40,11 +40,14 @@ class _FlashSalesMainState extends State<FlashSalesMain> {
               ],
             ),
           ),
-          PcButton(selectedValue: selectedValue,),
-          ValueListenableBuilder(valueListenable: selectedValue, builder: (context, value, _){
-            return  ImageInfoSection(selectedType: value);
-          })
-
+          ClipButton(
+            selectedValue: selectedValue,
+          ),
+          ValueListenableBuilder(
+              valueListenable: selectedValue,
+              builder: (context, value, _) {
+                return ImageInfoSection(selectedType: value);
+              })
         ],
       ),
     );

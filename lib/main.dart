@@ -27,11 +27,11 @@ class MyApp extends StatelessWidget {
         return MultiBlocProvider(
           providers: [
             BlocProvider(create: (_) => FlashSalesDataCubit()),
-            BlocProvider(create: (_)=> RecentSearchesCubit()),
-            BlocProvider(create: (_)=> PromoCodesCubit()),
-            BlocProvider(create: (_)=> BlogsCubit()),
-            BlocProvider(create: (_)=> SocialSharesCubit()),
-            BlocProvider(create: (_)=> OffersCubit())
+            BlocProvider(create: (_) => RecentSearchesCubit()),
+            BlocProvider(create: (_) => PromoCodesCubit()),
+            BlocProvider(create: (_) => BlogsCubit()),
+            BlocProvider(create: (_) => SocialSharesCubit()),
+            BlocProvider(create: (_) => OffersCubit())
           ],
           child: MaterialApp(
             debugShowCheckedModeBanner: false,

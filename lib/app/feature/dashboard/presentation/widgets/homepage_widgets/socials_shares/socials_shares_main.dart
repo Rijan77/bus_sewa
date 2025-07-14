@@ -37,7 +37,7 @@ class _SocialsSharesMainState extends State<SocialsSharesMain> {
               ],
             ),
           ),
-           VideoPlayer()
+          VideoPlayer()
         ],
       ),
     );
