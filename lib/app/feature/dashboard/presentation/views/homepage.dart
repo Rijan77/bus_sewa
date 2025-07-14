@@ -325,7 +325,6 @@ class _HomepageState extends State<Homepage> {
                               name: "home_section_view",
                               parameters: {'section': 'blogs'});
                         }
-
                       },
                       child: Padding(
                         padding: EdgeInsets.all(8.0),
