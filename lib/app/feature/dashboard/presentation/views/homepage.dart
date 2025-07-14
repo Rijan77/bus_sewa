@@ -3,9 +3,11 @@ import 'package:bus_sewa/app/feature/dashboard/presentation/blocs/flash_sales/fl
 import 'package:bus_sewa/app/feature/dashboard/presentation/blocs/promo_codes/promo_codes_cubit.dart';
 import 'package:bus_sewa/app/feature/dashboard/presentation/blocs/recent_searches/recent_searches_cubit.dart';
 import 'package:bus_sewa/app/feature/dashboard/presentation/widgets/homepage_widgets/flash_sales/flash_sales_main.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 import '../widgets/homepage_widgets/blogs_section/blogs_main.dart';
 import '../widgets/homepage_widgets/gift_section/gift_section_main.dart';
 import '../widgets/homepage_widgets/offer_for_you/offer_main.dart';
@@ -240,10 +242,21 @@ class _HomepageState extends State<Homepage> {
                       child: GiftSectionMain(),
                     ),
                   ),
-                  const SliverToBoxAdapter(
-                    child: Padding(
-                      padding: EdgeInsets.only(left: 10, right: 10),
-                      child: PromoCode(),
+                  SliverToBoxAdapter(
+                    child: VisibilityDetector(
+                      key: Key('promo_code_section'),
+                      onVisibilityChanged: (VisibilityInfo info) {
+                        if (info.visibleFraction > 0.5) {
+                          FirebaseAnalytics.instance.logEvent(
+                            name: 'home_section_view',
+                            parameters: {'section': 'promo_code'},
+                          );
+                        }
+                      },
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 10, right: 10),
+                        child: PromoCode(),
+                      ),
                     ),
                   ),
                   // Placeholder containers
@@ -253,30 +266,70 @@ class _HomepageState extends State<Homepage> {
                       child: RecentSearch(),
                     ),
                   ),
-                  const SliverToBoxAdapter(
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: FlashSalesMain(),
+                  SliverToBoxAdapter(
+                    child: VisibilityDetector(
+                      key: Key("flsh_sales_section"),
+                      onVisibilityChanged: (VisibilityInfo info) {
+                        if (info.visibleFraction > 0.5) {
+                          FirebaseAnalytics.instance.logEvent(
+                              name: 'home_section_view',
+                              parameters: {'section': 'flash_sales'});
+                        }
+                      },
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: FlashSalesMain(),
+                      ),
                     ),
                   ),
 
-                  const SliverToBoxAdapter(
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: OfferMain(),
+                  SliverToBoxAdapter(
+                    child: VisibilityDetector(
+                      key: Key("offer_section"),
+                      onVisibilityChanged: (info) {
+                        if (info.visibleFraction > 0.5) {
+                          FirebaseAnalytics.instance.logEvent(
+                              name: 'home_section_view',
+                              parameters: {'section': 'offers'});
+                        }
+                      },
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: OfferMain(),
+                      ),
                     ),
                   ),
-                  const SliverToBoxAdapter(
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: SocialsSharesMain(),
+                  SliverToBoxAdapter(
+                    child: VisibilityDetector(
+                      key: Key("social_shares_section"),
+                      onVisibilityChanged: (info) {
+                        if (info.visibleFraction > 0.5) {
+                          FirebaseAnalytics.instance.logEvent(
+                              name: 'home_section_view',
+                              parameters: {'section': 'socials_shares'});
+                        }
+                      },
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: SocialsSharesMain(),
+                      ),
                     ),
                   ),
 
-                  const SliverToBoxAdapter(
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: BlogsMain(),
+                  SliverToBoxAdapter(
+                    child: VisibilityDetector(
+                      key: Key("blogs_section"),
+                      onVisibilityChanged: (info) {
+                        if (info.visibleFraction > 0.5) {
+                          FirebaseAnalytics.instance.logEvent(
+                              name: "home_section_view",
+                              parameters: {'section': 'blogs'});
+                        }
+                      },
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: BlogsMain(),
+                      ),
                     ),
                   )
                 ],
