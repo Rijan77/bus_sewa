@@ -17,6 +17,7 @@ import '../widgets/homepage_widgets/socials_shares/socials_shares_main.dart';
 import '../widgets/homepage_widgets/top_header.dart'; // Your data class
 import '../widgets/homepage_widgets/second_header.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -133,7 +134,7 @@ class _HomepageState extends State<Homepage> {
                                 color: const Color(0xff13366E),
                                 padding: const EdgeInsets.only(
                                     top: 30, left: 16, right: 16),
-                                child: const Row(
+                                child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -143,23 +144,34 @@ class _HomepageState extends State<Homepage> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Padding(
-                                          padding: EdgeInsets.only(top: 50),
-                                          child: Text(
-                                            "Hello! Harris Ji",
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 25,
-                                              fontWeight: FontWeight.bold,
+                                            padding: EdgeInsets.only(top: 50),
+                                            child: Text(
+                                              "Hello! Harris Ji",
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 25,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            )
+                                                .animate()
+                                                .fadeIn() // uses `Animate.defaultDuration`
+                                                .scale() // inherits duration from fadeIn
+                                                .move(
+                                                    delay: 300.ms,
+                                                    duration: 500
+                                                        .ms) // runs after the above w/new duration
+
                                             ),
-                                          ),
-                                        ),
                                         Text(
                                           "What would you like to do?",
                                           style: TextStyle(
                                             color: Colors.white70,
                                             fontSize: 14,
                                           ),
-                                        ),
+                                        )
+                                            .animate()
+                                            .fade(duration: 400.ms)
+                                            .scale(delay: 500.ms),
                                       ],
                                     ),
                                     Row(
